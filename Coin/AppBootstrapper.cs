@@ -1,4 +1,5 @@
 using System.Linq;
+using Coin.Data;
 using Coin.Infrastructure;
 using Coin.Shell;
 using Inforigami.Regalo.Core;
@@ -26,8 +27,14 @@ namespace Coin
             _container.Singleton<IEventAggregator, EventAggregator>();
             _container.Singleton<IViewModelFactory, ViewModelFactory>();
 
+            RegisterDatabase();
             RegisterCommandHandlers();
             RegisterViewModels();
+        }
+
+        private void RegisterDatabase()
+        {
+            _container.PerRequest<IDatabase, Database>();
         }
 
         private void RegisterViewModels()
