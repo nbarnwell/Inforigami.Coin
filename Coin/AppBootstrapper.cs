@@ -85,7 +85,6 @@ namespace Coin
 
         protected override void BuildUp(object instance)
         {
-            _container.BuildUp(instance);
         }
 
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
