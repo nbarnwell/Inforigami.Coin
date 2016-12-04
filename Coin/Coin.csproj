@@ -80,6 +80,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Infrastructure\IViewModelFactory.cs" />
+    <Compile Include="Infrastructure\ViewModelFactory.cs" />
     <Compile Include="Shell\HeaderView.xaml.cs">
       <DependentUpon>HeaderView.xaml</DependentUpon>
     </Compile>

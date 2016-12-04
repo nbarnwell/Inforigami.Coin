@@ -1,4 +1,5 @@
 using Caliburn.Micro;
+using Coin.Infrastructure;
 
 namespace Coin.Shell
 {
@@ -7,10 +8,10 @@ namespace Coin.Shell
         public HeaderViewModel Header { get; private set; }
         public ToolbarViewModel Toolbar { get; private set; }
 
-        public ShellViewModel()
+        public ShellViewModel(IViewModelFactory viewModelFactory)
         {
-            Header = IoC.Get<HeaderViewModel>();
-            Toolbar = IoC.Get<ToolbarViewModel>();
+            Header = viewModelFactory.Create<HeaderViewModel>();
+            Toolbar = viewModelFactory.Create<ToolbarViewModel>();
         }
     }
 }
