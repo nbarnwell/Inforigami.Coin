@@ -1,3 +1,5 @@
+using Caliburn.Micro;
+
 namespace Coin
 {
     public class ShellViewModel : Caliburn.Micro.PropertyChangedBase, IShell
@@ -7,8 +9,8 @@ namespace Coin
 
         public ShellViewModel()
         {
-            Header = new HeaderViewModel();
-            Toolbar = new ToolbarViewModel();
+            Header = IoC.Get<HeaderViewModel>();
+            Toolbar = IoC.Get<ToolbarViewModel>();
         }
     }
 }

@@ -1,3 +1,6 @@
+using System.Linq;
+using Inforigami.Regalo.Core;
+
 namespace Coin
 {
     using System;
@@ -6,7 +9,7 @@ namespace Coin
 
     public class AppBootstrapper : BootstrapperBase
     {
-        SimpleContainer container;
+        SimpleContainer _container;
 
         public AppBootstrapper()
         {
@@ -15,16 +18,47 @@ namespace Coin
 
         protected override void Configure()
         {
-            container = new SimpleContainer();
+            _container = new SimpleContainer();
 
-            container.Singleton<IWindowManager, WindowManager>();
-            container.Singleton<IEventAggregator, EventAggregator>();
-            container.PerRequest<IShell, ShellViewModel>();
+            _container.Singleton<IWindowManager, WindowManager>();
+            _container.Singleton<IEventAggregator, EventAggregator>();
+
+            RegisterCommandHandlers();
+            RegisterViewModels();
+        }
+
+        private void RegisterViewModels()
+        {
+            _container.PerRequest<IShell, ShellViewModel>();
+
+            var viewModelTypes =
+                GetType().Assembly
+                         .GetTypes()
+                         .Where(x => x.Name.EndsWith("ViewModel"))
+                         .Where(x => x != typeof(ShellViewModel));
+            foreach (var viewModelType in viewModelTypes)
+            {
+                _container.RegisterPerRequest(viewModelType, viewModelType.FullName, viewModelType);
+            }
+        }
+
+        private void RegisterCommandHandlers()
+        {
+            _container.Singleton<ICommandProcessor, CommandProcessor>();
+
+            var commandHandlerTypes =
+                GetType().Assembly
+                         .GetTypes()
+                         .Where(x => typeof(ICommandHandler<>).IsAssignableFrom(x));
+            foreach (var handlerType in commandHandlerTypes)
+            {
+                _container.RegisterPerRequest(handlerType.GetInterfaces()[0], handlerType.FullName, handlerType);
+            }
         }
 
         protected override object GetInstance(Type service, string key)
         {
-            var instance = container.GetInstance(service, key);
+            var instance = _container.GetInstance(service, key);
             if (instance != null)
                 return instance;
 
@@ -33,12 +67,12 @@ namespace Coin
 
         protected override IEnumerable<object> GetAllInstances(Type service)
         {
-            return container.GetAllInstances(service);
+            return _container.GetAllInstances(service);
         }
 
         protected override void BuildUp(object instance)
         {
-            container.BuildUp(instance);
+            _container.BuildUp(instance);
         }
 
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
