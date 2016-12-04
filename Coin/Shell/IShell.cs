@@ -1,3 +1,3 @@
-namespace Coin {
+namespace Coin.Shell {
     public interface IShell {}
 }

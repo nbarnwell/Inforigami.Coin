@@ -1,6 +1,6 @@
 using Caliburn.Micro;
 
-namespace Coin
+namespace Coin.Shell
 {
     public class ShellViewModel : Caliburn.Micro.PropertyChangedBase, IShell
     {

@@ -1,4 +1,5 @@
 using System.Linq;
+using Coin.Shell;
 using Inforigami.Regalo.Core;
 
 namespace Coin
