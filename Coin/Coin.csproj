@@ -80,6 +80,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Banking\BankListView.xaml.cs">
+      <DependentUpon>BankListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Banking\BankListViewModel.cs" />
     <Compile Include="Infrastructure\IViewModelFactory.cs" />
     <Compile Include="Infrastructure\ViewModelFactory.cs" />
     <Compile Include="Shell\HeaderView.xaml.cs">
@@ -87,6 +91,7 @@
     </Compile>
     <Compile Include="Shell\HeaderViewModel.cs" />
     <Compile Include="Shell\IShell.cs" />
+    <Compile Include="Shell\IWorkspaceHost.cs" />
     <Compile Include="Shell\ShellViewModel.cs" />
     <Compile Include="Shell\ToolbarView.xaml.cs">
       <DependentUpon>ToolbarView.xaml</DependentUpon>
@@ -96,6 +101,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Shell\WorkspaceHostView.xaml.cs">
+      <DependentUpon>WorkspaceHostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\WorkspaceHostViewModel.cs" />
+    <Page Include="Banking\BankListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shell\HeaderView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,6 +120,10 @@
     <Page Include="Shell\ToolbarView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell\WorkspaceHostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ namespace Coin
 
     public class AppBootstrapper : BootstrapperBase
     {
-        SimpleContainer _container;
+        private SimpleContainer _container;
 
         public AppBootstrapper()
         {
@@ -32,16 +32,19 @@ namespace Coin
 
         private void RegisterViewModels()
         {
-            _container.PerRequest<IShell, ShellViewModel>();
+            _container.Singleton<IShell, ShellViewModel>();
+            _container.Singleton<WorkspaceHostViewModel>();
 
             var viewModelTypes =
                 GetType().Assembly
                          .GetTypes()
-                         .Where(x => x.Name.EndsWith("ViewModel"))
-                         .Where(x => x != typeof(ShellViewModel));
+                         .Where(x => x.Name.EndsWith("ViewModel"));
             foreach (var viewModelType in viewModelTypes)
             {
-                _container.RegisterPerRequest(viewModelType, viewModelType.FullName, viewModelType);
+                if (!_container.HasHandler(viewModelType, null))
+                {
+                    _container.RegisterPerRequest(viewModelType, null, viewModelType);
+                }
             }
         }
 
