@@ -101,6 +101,10 @@
     </Compile>
     <Compile Include="Infrastructure\IViewModelFactory.cs" />
     <Compile Include="Infrastructure\ViewModelFactory.cs" />
+    <Compile Include="Shared\ScreenHeaderView.xaml.cs">
+      <DependentUpon>ScreenHeaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\ScreenHeaderViewModel.cs" />
     <Compile Include="Shell\HeaderView.xaml.cs">
       <DependentUpon>HeaderView.xaml</DependentUpon>
     </Compile>
@@ -121,6 +125,10 @@
     </Compile>
     <Compile Include="Shell\WorkspaceHostViewModel.cs" />
     <Page Include="Banking\BankListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shared\ScreenHeaderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

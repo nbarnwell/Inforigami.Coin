@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Coin"
              mc:Ignorable="d" 
              d:DesignHeight="32" d:DesignWidth="300"
-             Background="{StaticResource BrandingMainBackground}">
+             Background="{StaticResource BrandingMain}">
     <WrapPanel FlowDirection="LeftToRight">
         <Button Style="{StaticResource Flat}" Content="{StaticResource HomeIcon}"/>
     </WrapPanel>

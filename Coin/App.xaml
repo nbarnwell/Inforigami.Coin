@@ -11,26 +11,32 @@
                 <ResourceDictionary>
                     
                     <!-- Branding -->
-                    <SolidColorBrush x:Key="BrandingMainBackground" Color="#032B6B"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingMain" Color="#032B6B"></SolidColorBrush>
                     <SolidColorBrush x:Key="BrandingMainForeground" Color="White"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingDarkBackground" Color="#012050"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingDark" Color="#012050"></SolidColorBrush>
                     <SolidColorBrush x:Key="BrandingDarkForeground" Color="White"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingLightBackground" Color="#053683"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingLight" Color="#053683"></SolidColorBrush>
                     <SolidColorBrush x:Key="BrandingLightForeground" Color="White"></SolidColorBrush>
                     
                     <!-- Controls -->
                     <Style x:Key="Flat">
-                        <Setter Property="Control.Background" Value="{StaticResource BrandingMainBackground}" />
+                        <Setter Property="Control.Background" Value="{StaticResource BrandingMain}" />
                         <Setter Property="Control.BorderBrush" Value="{x:Null}" />
                         <Setter Property="Control.Foreground" Value="{StaticResource BrandingMainForeground}" />
                         <Style.Triggers>
                             <Trigger Property="Control.IsMouseOver" Value="True">
-                                <Setter Property="Control.Background" Value="{StaticResource BrandingDarkBackground}" />
+                                <Setter Property="Control.Background" Value="{StaticResource BrandingDark}" />
                                 <Setter Property="Control.BorderBrush" Value="{x:Null}" />
                             </Trigger>
                             <Trigger Property="Control.IsFocused" Value="True">
                             </Trigger>
                         </Style.Triggers>
+                    </Style>
+
+                    <Style x:Key="ScreenHeaderText" TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="32"></Setter>
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                        <Setter Property="Foreground" Value="{StaticResource BrandingMain}"></Setter>
                     </Style>
                     
                     <!-- Icons -->
