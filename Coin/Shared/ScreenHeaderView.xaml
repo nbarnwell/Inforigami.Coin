@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
-        <TextBlock Name="HeaderText" Style="{StaticResource ScreenHeaderText}"></TextBlock>
+        <TextBlock Name="HeaderText" Style="{StaticResource H1}"></TextBlock>
         <Separator />
     </StackPanel>
 </UserControl>

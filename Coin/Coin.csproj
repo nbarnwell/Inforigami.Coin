@@ -94,6 +94,7 @@
       <DependentUpon>BankListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Banking\BankListViewModel.cs" />
+    <Compile Include="Banking\BankViewModel.cs" />
     <Compile Include="Data\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,6 +128,10 @@
     <Page Include="Banking\BankListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Banking\Bank\ListItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Shared\ScreenHeaderView.xaml">
       <SubType>Designer</SubType>

@@ -7,7 +7,7 @@ using Caliburn.Micro;
 
 namespace Coin.Shell
 {
-    public class WorkspaceHostViewModel : Conductor<Screen>.Collection.OneActive, IWorkspaceHost
+    public class WorkspaceHostViewModel : Conductor<Screen>, IWorkspaceHost
     {
     }
 }

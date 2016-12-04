@@ -21,7 +21,8 @@ namespace Coin.Shell
 
         public void ShowBankList()
         {
-            _workspaceHost.ActivateItem(_viewModelFactory.Create<BankListViewModel>());
+            var viewModel = _viewModelFactory.Create<BankListViewModel>();
+            _workspaceHost.ActivateItem(viewModel);
         }
     }
 }

@@ -4,7 +4,7 @@ using Coin.Infrastructure;
 
 namespace Coin.Shell
 {
-    public class ShellViewModel : Caliburn.Micro.PropertyChangedBase, IShell
+    public class ShellViewModel : Conductor<IScreen>, IShell
     {
         public HeaderViewModel        Header        { get; private set; }
         public ToolbarViewModel       Toolbar       { get; private set; }
@@ -19,6 +19,11 @@ namespace Coin.Shell
             Header = header;
             Toolbar = toolbar;
             WorkspaceHost = workspaceHost;
+        }
+
+        protected override void OnActivate()
+        {
+            ActivateItem(WorkspaceHost);
         }
     }
 }

@@ -11,12 +11,12 @@
                 <ResourceDictionary>
                     
                     <!-- Branding -->
-                    <SolidColorBrush x:Key="BrandingMain" Color="#032B6B"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingMainForeground" Color="White"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingDark" Color="#012050"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingDarkForeground" Color="White"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingLight" Color="#053683"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingLightForeground" Color="White"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingMain" Color="#FB8305"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingMainForeground" Color="#FFE3C5"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingDark" Color="#C36400"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingDarkForeground" Color="#FFE3C5"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingLight" Color="#FF9F3B"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingLightForeground" Color="#FFE3C5"></SolidColorBrush>
                     
                     <!-- Controls -->
                     <Style x:Key="Flat">
@@ -33,8 +33,25 @@
                         </Style.Triggers>
                     </Style>
 
-                    <Style x:Key="ScreenHeaderText" TargetType="TextBlock">
+                    <Style TargetType="ListBox">
+                        <Setter Property="BorderThickness" Value="0"></Setter>
+                        <Setter Property="Background" Value="Transparent"></Setter>
+                        <Setter Property="Padding" Value="0"></Setter>
+                    </Style>
+
+                    <Style x:Key="H1" TargetType="TextBlock">
                         <Setter Property="FontSize" Value="32"></Setter>
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                        <Setter Property="Foreground" Value="{StaticResource BrandingMain}"></Setter>
+                    </Style>
+                    
+                    <Style x:Key="H2" TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="24"></Setter>
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                        <Setter Property="Foreground" Value="{StaticResource BrandingMain}"></Setter>
+                    </Style>
+                    
+                    <Style x:Key="H3" TargetType="TextBlock">
                         <Setter Property="FontWeight" Value="Bold"></Setter>
                         <Setter Property="Foreground" Value="{StaticResource BrandingMain}"></Setter>
                     </Style>
