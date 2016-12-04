@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Coin
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HeaderView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HeaderView : UserControl
     {
-        public MainWindow()
+        public HeaderView()
         {
             InitializeComponent();
         }

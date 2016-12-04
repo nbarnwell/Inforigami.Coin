@@ -1,0 +1,13 @@
+<Window x:Class="Coin.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DockPanel>
+        <ContentControl x:Name="Header" DockPanel.Dock="Top" Height="32"></ContentControl>
+        <ContentControl x:Name="Toolbar" DockPanel.Dock="Left" Width="32"></ContentControl>
+        <ContentControl x:Name="NotificationBar" DockPanel.Dock="Right"></ContentControl>
+        <ContentControl x:Name="StatusBar" DockPanel.Dock="Bottom"></ContentControl>
+        <ContentControl x:Name="ActiveItem"></ContentControl>
+    </DockPanel>
+
+</Window>

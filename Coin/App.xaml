@@ -1,9 +1,47 @@
 ﻿<Application x:Class="Coin.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Coin"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:Coin">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <local:AppBootstrapper x:Key="bootstrapper" />
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    
+                    <!-- Branding -->
+                    <SolidColorBrush x:Key="BrandingMainBackground" Color="#032B6B"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingMainForeground" Color="White"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingDarkBackground" Color="#012050"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingDarkForeground" Color="White"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingLightBackground" Color="#053683"></SolidColorBrush>
+                    <SolidColorBrush x:Key="BrandingLightForeground" Color="White"></SolidColorBrush>
+                    
+                    <!-- Controls -->
+                    <Style x:Key="Flat">
+                        <Setter Property="Control.Background" Value="{StaticResource BrandingMainBackground}" />
+                        <Setter Property="Control.BorderBrush" Value="{x:Null}" />
+                        <Setter Property="Control.Foreground" Value="{StaticResource BrandingMainForeground}" />
+                        <Style.Triggers>
+                            <Trigger Property="Control.IsMouseOver" Value="True">
+                                <Setter Property="Control.Background" Value="{StaticResource BrandingDarkBackground}" />
+                                <Setter Property="Control.BorderBrush" Value="{x:Null}" />
+                            </Trigger>
+                            <Trigger Property="Control.IsFocused" Value="True">
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    
+                    <!-- Icons -->
+                    <Viewbox x:Key="HomeIcon">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" Fill="{StaticResource BrandingMainForeground}" />
+                        </Canvas>
+                    </Viewbox>
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
