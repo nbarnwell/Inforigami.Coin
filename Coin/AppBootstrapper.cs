@@ -21,6 +21,8 @@ namespace Coin
 
         protected override void Configure()
         {
+            LogManager.GetLog = type => new CaliburnLog();
+
             _container = new SimpleContainer();
 
             _container.Singleton<IWindowManager, WindowManager>();
