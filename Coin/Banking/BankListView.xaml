@@ -9,12 +9,6 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
         <ContentControl Name="Header" DockPanel.Dock="Top"></ContentControl>
-        <ListBox Name="Banks" HorizontalContentAlignment="Stretch">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem"></ContentControl>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListBox Name="Banks" HorizontalContentAlignment="Stretch"></ListBox>
     </DockPanel>
 </UserControl>
