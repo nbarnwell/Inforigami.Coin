@@ -7,17 +7,17 @@ namespace Coin.Shell
     public class ShellViewModel : Conductor<IScreen>, IShell
     {
         public HeaderViewModel        Header        { get; private set; }
-        public ToolbarViewModel       Toolbar       { get; private set; }
+        public NavbarViewModel       Navbar       { get; private set; }
         public WorkspaceHostViewModel WorkspaceHost { get; private set; }
 
-        public ShellViewModel(HeaderViewModel header, ToolbarViewModel toolbar, WorkspaceHostViewModel workspaceHost)
+        public ShellViewModel(HeaderViewModel header, NavbarViewModel navbar, WorkspaceHostViewModel workspaceHost)
         {
             if (header == null) throw new ArgumentNullException(nameof(header));
-            if (toolbar == null) throw new ArgumentNullException(nameof(toolbar));
+            if (navbar == null) throw new ArgumentNullException(nameof(navbar));
             if (workspaceHost == null) throw new ArgumentNullException(nameof(workspaceHost));
 
             Header = header;
-            Toolbar = toolbar;
+            Navbar = navbar;
             WorkspaceHost = workspaceHost;
         }
 

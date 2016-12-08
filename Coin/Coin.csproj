@@ -114,10 +114,10 @@
     <Compile Include="Shell\IShell.cs" />
     <Compile Include="Shell\IWorkspaceHost.cs" />
     <Compile Include="Shell\ShellViewModel.cs" />
-    <Compile Include="Shell\ToolbarView.xaml.cs">
-      <DependentUpon>ToolbarView.xaml</DependentUpon>
+    <Compile Include="Shell\NavbarView.xaml.cs">
+      <DependentUpon>NavbarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Shell\ToolbarViewModel.cs" />
+    <Compile Include="Shell\NavbarViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -146,7 +146,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Shell\ToolbarView.xaml">
+    <Page Include="Shell\NavbarView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

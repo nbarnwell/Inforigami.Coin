@@ -5,9 +5,9 @@ namespace Coin.Shell
     /// <summary>
     /// Interaction logic for HeaderView.xaml
     /// </summary>
-    public partial class ToolbarView : UserControl
+    public partial class NavbarView : UserControl
     {
-        public ToolbarView()
+        public NavbarView()
         {
             InitializeComponent();
         }
