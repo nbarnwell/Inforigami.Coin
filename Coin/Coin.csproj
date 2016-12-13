@@ -95,6 +95,13 @@
     </Compile>
     <Compile Include="Banking\BankListViewModel.cs" />
     <Compile Include="Banking\BankViewModel.cs" />
+    <Compile Include="Banking\BankWorkspaceView.xaml.cs">
+      <DependentUpon>BankWorkspaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Banking\BankWorkspaceViewModel.cs" />
+    <Compile Include="Banking\Bank\Create.xaml.cs">
+      <DependentUpon>Create.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,6 +134,14 @@
     </Compile>
     <Compile Include="Shell\WorkspaceHostViewModel.cs" />
     <Page Include="Banking\BankListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Banking\BankWorkspaceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Banking\Bank\Create.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

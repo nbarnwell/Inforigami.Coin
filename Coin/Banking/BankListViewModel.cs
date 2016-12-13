@@ -5,7 +5,7 @@ using Coin.Shared;
 
 namespace Coin.Banking
 {
-    public class BankListViewModel : Screen
+    public class BankListViewModel : Conductor<PropertyChangedBase>
     {
         public ScreenHeaderViewModel Header { get; set; }
         public BindableCollection<BankViewModel> Banks { get; set; }
@@ -29,6 +29,11 @@ namespace Coin.Banking
                           BankName = x.Name
                       }));
             }
+        }
+
+        public void Add()
+        {
+            ActivateItem(new BankViewModel());
         }
     }
 }
