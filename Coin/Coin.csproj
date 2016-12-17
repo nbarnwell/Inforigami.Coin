@@ -99,8 +99,8 @@
       <DependentUpon>BankWorkspaceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Banking\BankWorkspaceViewModel.cs" />
-    <Compile Include="Banking\Bank\Create.xaml.cs">
-      <DependentUpon>Create.xaml</DependentUpon>
+    <Compile Include="Banking\Bank\Edit.xaml.cs">
+      <DependentUpon>Edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Database.cs">
       <AutoGen>True</AutoGen>
@@ -141,7 +141,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Banking\Bank\Create.xaml">
+    <Page Include="Banking\Bank\Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

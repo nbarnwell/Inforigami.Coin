@@ -38,6 +38,7 @@
                         <Setter Property="BorderThickness" Value="0"></Setter>
                         <Setter Property="Background" Value="Transparent"></Setter>
                         <Setter Property="Padding" Value="0"></Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                         <Setter Property="ItemTemplate">
                             <Setter.Value>
                                 <DataTemplate>

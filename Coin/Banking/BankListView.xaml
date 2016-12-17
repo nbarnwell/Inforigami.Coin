@@ -14,9 +14,9 @@
                 <Button Name="Add">Add Bank...</Button>
             </WrapPanel>
         </StackPanel>
-        <Grid>
-            <ListBox Name="Banks" HorizontalContentAlignment="Stretch"></ListBox>
-            <ContentControl Name="ActiveItem" cal:View.Context="Create"></ContentControl>
-        </Grid>
+        <DockPanel>
+            <ListBox Name="Banks" DockPanel.Dock="Left"></ListBox>
+            <ContentControl Name="SelectedBank" cal:View.Context="Edit"></ContentControl>
+        </DockPanel>
     </DockPanel>
 </UserControl>

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Coin.Banking.Bank
 {
     /// <summary>
-    /// Interaction logic for Create.xaml
+    /// Interaction logic for Edit.xaml
     /// </summary>
-    public partial class Create : UserControl
+    public partial class Edit : UserControl
     {
-        public Create()
+        public Edit()
         {
             InitializeComponent();
         }

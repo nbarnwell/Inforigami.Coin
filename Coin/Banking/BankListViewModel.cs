@@ -10,6 +10,18 @@ namespace Coin.Banking
         public ScreenHeaderViewModel Header { get; set; }
         public BindableCollection<BankViewModel> Banks { get; set; }
 
+        private BankViewModel _selectedBank;
+        public BankViewModel SelectedBank
+        {
+            get { return _selectedBank; }
+            set
+            {
+                if (Equals(value, _selectedBank)) return;
+                _selectedBank = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
         public BankListViewModel()
         {
             Header = new ScreenHeaderViewModel {HeaderText = "Banks"};
