@@ -5,9 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Coin"
              mc:Ignorable="d" 
-             d:DesignHeight="300" 
-             Background="{StaticResource BrandingMain}">
-    <WrapPanel FlowDirection="LeftToRight">
-        <Button x:Name="ShowBankList" Style="{StaticResource Flat}" Content="Banks"/>
-    </WrapPanel>
+             d:DesignHeight="300">
+    <ListBox x:Name="Workspaces" HorizontalContentAlignment="Stretch">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
 </UserControl>

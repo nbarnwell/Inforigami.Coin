@@ -6,34 +6,16 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
-                    <local:AppBootstrapper x:Key="bootstrapper" />
-                </ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Indigo.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Blue.xaml" />
+
                 <ResourceDictionary>
 
-                    <!-- Branding -->
-                    <SolidColorBrush x:Key="BrandingMain" Color="#FB8305"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingMainForeground" Color="#FFE3C5"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingDark" Color="#C36400"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingDarkForeground" Color="#FFE3C5"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingLight" Color="#FF9F3B"></SolidColorBrush>
-                    <SolidColorBrush x:Key="BrandingLightForeground" Color="#FFE3C5"></SolidColorBrush>
+                    <local:AppBootstrapper x:Key="bootstrapper" />
 
                     <!-- Controls -->
-                    <Style x:Key="Flat">
-                        <Setter Property="Control.Background" Value="{StaticResource BrandingMain}" />
-                        <Setter Property="Control.BorderBrush" Value="{x:Null}" />
-                        <Setter Property="Control.Foreground" Value="{StaticResource BrandingMainForeground}" />
-                        <Style.Triggers>
-                            <Trigger Property="Control.IsMouseOver" Value="True">
-                                <Setter Property="Control.Background" Value="{StaticResource BrandingDark}" />
-                                <Setter Property="Control.BorderBrush" Value="{x:Null}" />
-                            </Trigger>
-                            <Trigger Property="Control.IsFocused" Value="True">
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-
                     <Style TargetType="ListBox">
                         <Setter Property="BorderThickness" Value="0"></Setter>
                         <Setter Property="Background" Value="Transparent"></Setter>
@@ -51,24 +33,21 @@
                     <Style x:Key="H1" TargetType="TextBlock">
                         <Setter Property="FontSize" Value="32"></Setter>
                         <Setter Property="FontWeight" Value="Bold"></Setter>
-                        <Setter Property="Foreground" Value="{StaticResource BrandingMain}"></Setter>
                     </Style>
 
                     <Style x:Key="H2" TargetType="TextBlock">
                         <Setter Property="FontSize" Value="24"></Setter>
                         <Setter Property="FontWeight" Value="Bold"></Setter>
-                        <Setter Property="Foreground" Value="{StaticResource BrandingMain}"></Setter>
                     </Style>
 
                     <Style x:Key="H3" TargetType="TextBlock">
                         <Setter Property="FontWeight" Value="Bold"></Setter>
-                        <Setter Property="Foreground" Value="{StaticResource BrandingMain}"></Setter>
                     </Style>
 
                     <!-- Icons -->
                     <Viewbox x:Key="HomeIcon">
                         <Canvas Width="24" Height="24">
-                            <Path Data="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" Fill="{StaticResource BrandingMainForeground}" />
+                            <Path Data="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"  Fill="Black"/>
                         </Canvas>
                     </Viewbox>
 

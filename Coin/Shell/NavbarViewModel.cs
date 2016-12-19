@@ -10,6 +10,22 @@ namespace Coin.Shell
         private readonly WorkspaceHostViewModel _workspaceHost;
         private readonly IViewModelFactory _viewModelFactory;
 
+        private IScreen _selectedWorkspace;
+
+        public IScreen SelectedWorkspace
+        {
+            get { return _selectedWorkspace; }
+            set
+            {
+                if (Equals(value, _selectedWorkspace)) return;
+                _selectedWorkspace = value;
+                _workspaceHost.ActivateItem(value);
+                NotifyOfPropertyChange(() => SelectedWorkspace);
+            }
+        }
+
+        public BindableCollection<IScreen> Workspaces { get; }
+
         public NavbarViewModel(WorkspaceHostViewModel workspaceHost, IViewModelFactory viewModelFactory)
         {
             if (workspaceHost == null) throw new ArgumentNullException(nameof(workspaceHost));
@@ -17,12 +33,10 @@ namespace Coin.Shell
 
             _workspaceHost = workspaceHost;
             _viewModelFactory = viewModelFactory;
-        }
 
-        public void ShowBankList()
-        {
-            var viewModel = _viewModelFactory.Create<BankWorkspaceViewModel>();
-            _workspaceHost.ActivateItem(viewModel);
+            Workspaces = new BindableCollection<IScreen>();
+
+            Workspaces.Add(_viewModelFactory.Create<BankWorkspaceViewModel>());
         }
     }
 }

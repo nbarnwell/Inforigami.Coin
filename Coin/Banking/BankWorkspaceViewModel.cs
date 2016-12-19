@@ -18,6 +18,12 @@ namespace Coin.Banking
             _viewModelFactory = viewModelFactory;
         }
 
+        public override string DisplayName
+        {
+            get { return "Banks"; }
+            set { throw new NotImplementedException(); }
+        }
+
         protected override void OnActivate()
         {
             ActivateItem(_viewModelFactory.Create<BankListViewModel>());

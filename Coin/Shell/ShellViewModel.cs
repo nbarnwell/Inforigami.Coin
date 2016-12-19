@@ -6,9 +6,42 @@ namespace Coin.Shell
 {
     public class ShellViewModel : Conductor<IScreen>, IShell
     {
-        public HeaderViewModel        Header        { get; private set; }
-        public NavbarViewModel       Navbar       { get; private set; }
-        public WorkspaceHostViewModel WorkspaceHost { get; private set; }
+        private HeaderViewModel _header;
+        private NavbarViewModel _navbar;
+        private WorkspaceHostViewModel _workspaceHost;
+
+        public HeaderViewModel Header
+        {
+            get { return _header; }
+            private set
+            {
+                if (Equals(value, _header)) return;
+                _header = value;
+                NotifyOfPropertyChange(() => Header);
+            }
+        }
+
+        public NavbarViewModel Navbar
+        {
+            get { return _navbar; }
+            private set
+            {
+                if (Equals(value, _navbar)) return;
+                _navbar = value;
+                NotifyOfPropertyChange(() => Navbar);
+            }
+        }
+
+        public WorkspaceHostViewModel WorkspaceHost
+        {
+            get { return _workspaceHost; }
+            private set
+            {
+                if (Equals(value, _workspaceHost)) return;
+                _workspaceHost = value;
+                NotifyOfPropertyChange(() => WorkspaceHost);
+            }
+        }
 
         public ShellViewModel(HeaderViewModel header, NavbarViewModel navbar, WorkspaceHostViewModel workspaceHost)
         {
@@ -23,6 +56,7 @@ namespace Coin.Shell
 
         protected override void OnActivate()
         {
+            
             ActivateItem(WorkspaceHost);
         }
     }

@@ -5,9 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Coin"
              mc:Ignorable="d" 
-             d:DesignHeight="32" d:DesignWidth="300"
-             Background="{StaticResource BrandingMain}">
+             d:DesignHeight="32" d:DesignWidth="300">
     <WrapPanel FlowDirection="LeftToRight">
-        <Button Style="{StaticResource Flat}" Content="{StaticResource HomeIcon}"/>
+        <Button Content="{StaticResource HomeIcon}"/>
     </WrapPanel>
 </UserControl>
