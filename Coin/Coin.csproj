@@ -118,6 +118,7 @@
     <Compile Include="Infrastructure\CaliburnLog.cs" />
     <Compile Include="Infrastructure\IViewModelFactory.cs" />
     <Compile Include="Infrastructure\ViewModelFactory.cs" />
+    <Compile Include="Shared\MaterialGrid.cs" />
     <Compile Include="Shared\ScreenHeaderView.xaml.cs">
       <DependentUpon>ScreenHeaderView.xaml</DependentUpon>
     </Compile>
@@ -128,6 +129,9 @@
     <Compile Include="Shell\HeaderViewModel.cs" />
     <Compile Include="Shell\IShell.cs" />
     <Compile Include="Shell\IWorkspaceHost.cs" />
+    <Compile Include="Shell\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shell\ShellViewModel.cs" />
     <Compile Include="Shell\NavbarView.xaml.cs">
       <DependentUpon>NavbarView.xaml</DependentUpon>

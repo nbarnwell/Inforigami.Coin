@@ -7,7 +7,6 @@ namespace Coin.Banking
 {
     public class BankListViewModel : Conductor<PropertyChangedBase>
     {
-        public ScreenHeaderViewModel Header { get; set; }
         public BindableCollection<BankViewModel> Banks { get; set; }
 
         private BankViewModel _selectedBank;
@@ -24,7 +23,6 @@ namespace Coin.Banking
 
         public BankListViewModel()
         {
-            Header = new ScreenHeaderViewModel {HeaderText = "Banks"};
             Banks = new BindableCollection<BankViewModel>();
         }
 
@@ -43,7 +41,7 @@ namespace Coin.Banking
             }
         }
 
-        public void Add()
+        public void AddBank()
         {
             ActivateItem(new BankViewModel());
         }

@@ -43,6 +43,8 @@ namespace Coin.Shell
             }
         }
 
+        public override string DisplayName => "Coin";
+
         public ShellViewModel(HeaderViewModel header, NavbarViewModel navbar, WorkspaceHostViewModel workspaceHost)
         {
             if (header == null) throw new ArgumentNullException(nameof(header));

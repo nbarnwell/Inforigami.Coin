@@ -2,21 +2,37 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Coin.Banking"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:cal="http://www.caliburnproject.org"
+             xmlns:shared="clr-namespace:Coin.Shared"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Top">
-            <ContentControl Name="Header" ></ContentControl>
-            <WrapPanel>
-                <Button Name="Add">Add Bank...</Button>
-            </WrapPanel>
-        </StackPanel>
-        <DockPanel>
-            <ListBox Name="Banks" DockPanel.Dock="Left"></ListBox>
-            <ContentControl Name="SelectedBank" cal:View.Context="Edit"></ContentControl>
-        </DockPanel>
-    </DockPanel>
+
+    <Grid>
+
+        <ScrollViewer>
+            <shared:MaterialGrid>
+                <ItemsControl x:Name="Banks" Grid.Column="3" Grid.ColumnSpan="6">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16"></ContentControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </shared:MaterialGrid>
+        </ScrollViewer>
+
+        <Button x:Name="AddBank"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Margin="0 0 32 16">
+            <md:PackIcon Kind="Plus" />
+        </Button>
+
+    </Grid>
+
 </UserControl>
+
+
+

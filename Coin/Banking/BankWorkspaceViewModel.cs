@@ -12,16 +12,12 @@ namespace Coin.Banking
     {
         private readonly IViewModelFactory _viewModelFactory;
 
+        public override string DisplayName => "Banks";
+
         public BankWorkspaceViewModel(IViewModelFactory viewModelFactory)
         {
             if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
             _viewModelFactory = viewModelFactory;
-        }
-
-        public override string DisplayName
-        {
-            get { return "Banks"; }
-            set { throw new NotImplementedException(); }
         }
 
         protected override void OnActivate()

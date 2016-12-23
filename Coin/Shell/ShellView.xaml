@@ -9,16 +9,12 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
 
-    <Window.Resources>
-        <ResourceDictionary>
-
-            <Style x:Key="NavbarColorZone" TargetType="md:ColorZone">
-                <Setter Property="Padding" Value="16"></Setter>
-                <Setter Property="Mode" Value="PrimaryMid"></Setter>
-            </Style>
-
-        </ResourceDictionary>
-    </Window.Resources>
+    <Window.Title>
+        <PriorityBinding>
+            <Binding Path="ActiveItem.ActiveItem.DisplayName"></Binding>
+            <Binding Path="DisplayName"></Binding>
+        </PriorityBinding>
+    </Window.Title>
 
     <md:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
         <md:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
@@ -28,7 +24,7 @@
                                     DockPanel.Dock="Top"
                                     HorizontalAlignment="Right" Margin="16"
                                     IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                    <ContentControl cal:View.Model="{Binding Navbar}" />
+                    <ContentControl cal:View.Model="{Binding Navbar}" PreviewMouseLeftButtonUp="Navbar_PreviewMouseLeftButtonUp" />
                 </DockPanel>
             </md:DrawerHost.LeftDrawerContent>
             <DockPanel>
@@ -46,11 +42,18 @@
                                 <Button Content="Goodbye" />
                             </StackPanel>
                         </md:PopupBox>
-                        <TextBlock Margin="16,0,0,0" VerticalAlignment="Center" FontSize="22">Coin</TextBlock>
+                        <TextBlock Margin="16,0,0,0" VerticalAlignment="Center" FontSize="22">
+                            <TextBlock.Text>
+                                <PriorityBinding>
+                                    <Binding Path="ActiveItem.ActiveItem.DisplayName"></Binding>
+                                    <Binding Path="DisplayName"></Binding>
+                                </PriorityBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
                     </DockPanel>
                 </md:ColorZone>
-                <Grid>
-                    <ContentControl Margin="16" cal:View.Model="{Binding WorkspaceHost}" />
+                <Grid ZIndex="-99">
+                    <ContentControl cal:View.Model="{Binding WorkspaceHost}" />
                     <md:Snackbar MessageQueue="{md:MessageQueue}" x:Name="MainSnackbar" />
                 </Grid>
             </DockPanel>
