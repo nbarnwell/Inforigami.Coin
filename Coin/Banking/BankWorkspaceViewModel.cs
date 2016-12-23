@@ -1,28 +1,15 @@
-﻿using System;
-using System.ComponentModel;
-using System.Linq;
-using Caliburn.Micro;
-using Coin.Data;
-using Coin.Infrastructure;
+﻿using Coin.Infrastructure;
 using Coin.Shared;
 
 namespace Coin.Banking
 {
-    public class BankWorkspaceViewModel : Conductor<IScreen>
+    public class BankWorkspaceViewModel : WorkspaceViewModelBase<BankListViewModel>
     {
-        private readonly IViewModelFactory _viewModelFactory;
-
         public override string DisplayName => "Banks";
 
-        public BankWorkspaceViewModel(IViewModelFactory viewModelFactory)
+        public BankWorkspaceViewModel(IViewModelFactory viewModelFactory) 
+            : base(viewModelFactory)
         {
-            if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
-            _viewModelFactory = viewModelFactory;
-        }
-
-        protected override void OnActivate()
-        {
-            ActivateItem(_viewModelFactory.Create<BankListViewModel>());
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Coin.Banking
 
         public void AddBank()
         {
-            ActivateItem(new BankViewModel());
+            (Parent as BankWorkspaceViewModel).DialogConductor.ActivateItem(new BankViewModel());
         }
     }
 }

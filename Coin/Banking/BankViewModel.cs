@@ -7,7 +7,7 @@ using Caliburn.Micro;
 
 namespace Coin.Banking
 {
-    public class BankViewModel : PropertyChangedBase
+    public class BankViewModel : Screen
     {
         private string _bankName;
         private int _bankId;

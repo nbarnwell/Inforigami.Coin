@@ -16,7 +16,11 @@
         </PriorityBinding>
     </Window.Title>
 
-    <md:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+    <md:DialogHost 
+        Identifier="RootDialog" 
+        SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}"
+        DialogContent="{Binding Dialog.Activeitem}"
+        IsOpen="{Binding Dialog.ActiveItem, Converter={StaticResource NullToVisibilityConverter}}">
         <md:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
             <md:DrawerHost.LeftDrawerContent>
                 <DockPanel MinWidth="212">

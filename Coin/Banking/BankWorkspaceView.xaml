@@ -4,7 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Coin.Banking"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <ContentControl Name="ActiveItem"></ContentControl>
+
+    <md:DialogHost
+        IsOpen="{Binding DialogConductor.ActiveItem, Converter={StaticResource NullToVisibilityConverter}}"
+        DialogContent="{Binding DialogConductor.ActiveItem}">
+        <md:DialogHost.DialogContentTemplate>
+            <DataTemplate>
+                <ContentControl cal:View.Model="{Binding}"></ContentControl>
+            </DataTemplate>
+        </md:DialogHost.DialogContentTemplate>
+        <ContentControl Name="ActiveItem"></ContentControl>
+    </md:DialogHost>
+
 </UserControl>
