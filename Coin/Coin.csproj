@@ -102,14 +102,14 @@
       <DependentUpon>BankListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Banking\BankListViewModel.cs" />
+    <Compile Include="Banking\BankView.xaml.cs">
+      <DependentUpon>BankView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Banking\BankViewModel.cs" />
     <Compile Include="Banking\BankWorkspaceView.xaml.cs">
       <DependentUpon>BankWorkspaceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Banking\BankWorkspaceViewModel.cs" />
-    <Compile Include="Banking\Bank\Edit.xaml.cs">
-      <DependentUpon>Edit.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Data\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,6 +124,7 @@
       <DependentUpon>ScreenHeaderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shared\ScreenHeaderViewModel.cs" />
+    <Compile Include="Shared\ShowDialog.cs" />
     <Compile Include="Shared\WorkspaceViewModelBase.cs" />
     <Compile Include="Shell\HeaderView.xaml.cs">
       <DependentUpon>HeaderView.xaml</DependentUpon>
@@ -151,11 +152,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Banking\BankWorkspaceView.xaml">
+    <Page Include="Banking\BankView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Banking\Bank\Edit.xaml">
+    <Page Include="Banking\BankWorkspaceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

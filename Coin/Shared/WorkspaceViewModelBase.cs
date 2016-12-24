@@ -1,29 +1,23 @@
-﻿using System;
-using Caliburn.Micro;
-using Coin.Infrastructure;
+﻿using Caliburn.Micro;
 
 namespace Coin.Shared
 {
-    public abstract class WorkspaceViewModelBase<TDefaultViewModel> : Conductor<IScreen>
-        where TDefaultViewModel : IScreen
+    public abstract class WorkspaceViewModelBase : Conductor<IScreen>
     {
-        private readonly IViewModelFactory _viewModelFactory;
-
         public Conductor<IScreen> DialogConductor { get; private set; }
 
-        public WorkspaceViewModelBase(IViewModelFactory viewModelFactory)
+        public WorkspaceViewModelBase()
         {
-            if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
-            _viewModelFactory = viewModelFactory;
-
             DialogConductor = new Conductor<IScreen>();
         }
 
         protected override void OnActivate()
         {
-            ActivateItem(_viewModelFactory.Create<TDefaultViewModel>());
+            ActivateItem(GetDefaultViewModel());
 
             base.OnActivate();
         }
+
+        protected abstract IScreen GetDefaultViewModel();
     }
 }

@@ -14,7 +14,7 @@
         DialogContent="{Binding DialogConductor.ActiveItem}">
         <md:DialogHost.DialogContentTemplate>
             <DataTemplate>
-                <ContentControl cal:View.Model="{Binding}"></ContentControl>
+                <ContentControl cal:View.Model="{Binding}" Margin="16"></ContentControl>
             </DataTemplate>
         </md:DialogHost.DialogContentTemplate>
         <ContentControl Name="ActiveItem"></ContentControl>

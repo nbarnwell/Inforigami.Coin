@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Coin.Banking.Bank
+namespace Coin.Banking
 {
     /// <summary>
-    /// Interaction logic for Edit.xaml
+    /// Interaction logic for BankView.xaml
     /// </summary>
-    public partial class Edit : UserControl
+    public partial class BankView : UserControl
     {
-        public Edit()
+        public BankView()
         {
             InitializeComponent();
         }
