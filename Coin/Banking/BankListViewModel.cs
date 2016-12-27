@@ -13,19 +13,9 @@ namespace Coin.Banking
         private readonly IViewModelFactory _viewModelFactory;
         private readonly IEventAggregator _events;
 
-        public BindableCollection<BankViewModel> Banks { get; set; }
+        public BindableCollection<BankViewModel> Banks { get; }
 
-        private BankViewModel _selectedBank;
-        public BankViewModel SelectedBank
-        {
-            get { return _selectedBank; }
-            set
-            {
-                if (Equals(value, _selectedBank)) return;
-                _selectedBank = value;
-                NotifyOfPropertyChange();
-            }
-        }
+        public override string DisplayName => "Banks";
 
         public BankListViewModel(IViewModelFactory viewModelFactory, IEventAggregator events)
         {

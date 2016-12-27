@@ -2,6 +2,7 @@
 using Caliburn.Micro;
 using Coin.Banking;
 using Coin.Infrastructure;
+using Coin.Shared;
 
 namespace Coin.Shell
 {
@@ -34,9 +35,13 @@ namespace Coin.Shell
             _workspaceHost = workspaceHost;
             _viewModelFactory = viewModelFactory;
 
-            Workspaces = new BindableCollection<IScreen>();
+            Workspaces = new BindableCollection<IScreen>
+            {
+                _viewModelFactory.Create<WorkspaceViewModel>()
+                                 .WithViewModel(
+                                     _viewModelFactory.Create<BankListViewModel>())
+            };
 
-            Workspaces.Add(_viewModelFactory.Create<BankWorkspaceViewModel>());
         }
     }
 }

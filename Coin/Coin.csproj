@@ -106,10 +106,6 @@
       <DependentUpon>BankView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Banking\BankViewModel.cs" />
-    <Compile Include="Banking\BankWorkspaceView.xaml.cs">
-      <DependentUpon>BankWorkspaceView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Banking\BankWorkspaceViewModel.cs" />
     <Compile Include="Data\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,7 +126,10 @@
     </Compile>
     <Compile Include="Shared\ScreenHeaderViewModel.cs" />
     <Compile Include="Shared\ShowDialog.cs" />
-    <Compile Include="Shared\WorkspaceViewModelBase.cs" />
+    <Compile Include="Shared\WorkspaceView.xaml.cs">
+      <DependentUpon>WorkspaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\WorkspaceViewModel.cs" />
     <Compile Include="Shell\HeaderView.xaml.cs">
       <DependentUpon>HeaderView.xaml</DependentUpon>
     </Compile>
@@ -161,10 +160,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Banking\BankWorkspaceView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Banking\Bank\ListItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -176,6 +171,10 @@
     <Page Include="Shared\ScreenHeaderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shared\WorkspaceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Shell\HeaderView.xaml">
       <Generator>MSBuild:Compile</Generator>

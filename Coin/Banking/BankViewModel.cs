@@ -33,10 +33,5 @@ namespace Coin.Banking
                 NotifyOfPropertyChange(() => BankName);
             }
         }
-
-        public void Cancel()
-        {
-            TryClose(null);
-        }
     }
 }

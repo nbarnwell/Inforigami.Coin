@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Coin.Banking.BankWorkspaceView"
+﻿<UserControl x:Class="Coin.Shared.WorkspaceView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,7 +14,7 @@
         DialogContent="{Binding DialogConductor.ActiveItem}">
         <md:DialogHost.DialogContentTemplate>
             <DataTemplate>
-                <ContentControl cal:View.Model="{Binding}" Margin="16"></ContentControl>
+                <ContentControl cal:View.Model="{Binding}"></ContentControl>
             </DataTemplate>
         </md:DialogHost.DialogContentTemplate>
         <ContentControl Name="ActiveItem"></ContentControl>

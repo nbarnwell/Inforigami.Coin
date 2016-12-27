@@ -50,7 +50,7 @@ namespace Coin.Shared
             {
                 var child = (IChild)current;
                 var parent = child.Parent;
-                var workspace = parent as WorkspaceViewModelBase;
+                var workspace = parent as WorkspaceViewModel;
 
                 if (workspace != null)
                 {
