@@ -31,7 +31,7 @@ namespace Coin.Banking
 
         protected override void OnActivate()
         {
-            Refresh();
+            RefreshData();
         }
 
         protected override void OnDeactivate(bool close)
@@ -65,10 +65,10 @@ namespace Coin.Banking
 
         public void Handle(RefreshRequested message)
         {
-            Refresh();
+            RefreshData();
         }
 
-        private void Refresh()
+        public void RefreshData()
         {
             Banks.Clear();
 

@@ -130,10 +130,6 @@
       <DependentUpon>WorkspaceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shared\WorkspaceViewModel.cs" />
-    <Compile Include="Shell\HeaderView.xaml.cs">
-      <DependentUpon>HeaderView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Shell\HeaderViewModel.cs" />
     <Compile Include="Shell\IShell.cs" />
     <Compile Include="Shell\IWorkspaceHost.cs" />
     <Compile Include="Shell\ShellView.xaml.cs">
@@ -173,10 +169,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Shared\WorkspaceView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Shell\HeaderView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
