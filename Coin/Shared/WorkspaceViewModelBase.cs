@@ -9,6 +9,7 @@ namespace Coin.Shared
         public WorkspaceViewModelBase()
         {
             DialogConductor = new Conductor<IScreen>();
+            DialogConductor.ConductWith(this);
         }
 
         protected override void OnActivate()

@@ -3,31 +3,43 @@ using Caliburn.Micro;
 
 namespace Coin.Shared
 {
-    public class ShowDialog : IResult
+    public class ShowDialog : IResult<bool?>
     {
-        private readonly IScreen _viewModel;
+        private readonly DialogViewModel _dialogViewModel;
+
+        public bool? Result { get; private set; }
 
         public event EventHandler<ResultCompletionEventArgs> Completed;
 
         public ShowDialog(IScreen viewModel)
         {
             if (viewModel == null) throw new ArgumentNullException(nameof(viewModel));
-            _viewModel = viewModel;
+
+            _dialogViewModel = Dialog.WithContent(viewModel);
         }
 
         public void Execute(CoroutineExecutionContext context)
         {
             var dialogConductor = GetDialogConductor(context.Target);
-            _viewModel.Deactivated += viewModelDeactivated;
-            dialogConductor.ActivateItem(_viewModel);
+            _dialogViewModel.Deactivated += DialogViewModelDeactivated;
+            dialogConductor.ActivateItem(_dialogViewModel);
         }
 
-        private void viewModelDeactivated(object sender, DeactivationEventArgs e)
+        private void DialogViewModelDeactivated(object sender, DeactivationEventArgs e)
         {
             if (e.WasClosed)
             {
+                _dialogViewModel.Deactivated -= DialogViewModelDeactivated;
                 var completed = Completed;
-                completed?.Invoke(this, new ResultCompletionEventArgs());
+                var wasCancelled = _dialogViewModel.DialogResult == null;
+                Result = !wasCancelled;
+
+                completed?.Invoke(
+                    this,
+                    new ResultCompletionEventArgs
+                    {
+                        WasCancelled = wasCancelled
+                    });
             }
         }
 

@@ -39,11 +39,7 @@
                                         x:Name="MenuToggleButton"/>
                         <md:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                             <StackPanel>
-                                <Button Content="Hello World" />
-                                <Button Content="Nice Popup" />
-                                <Button Content="Can't Touch This" IsEnabled="False" />
-                                <Separator/>
-                                <Button Content="Goodbye" />
+                                <Button x:Name="Refresh" cal:Message.Attach="Refresh">Refresh</Button>
                             </StackPanel>
                         </md:PopupBox>
                         <TextBlock Margin="16,0,0,0" VerticalAlignment="Center" FontSize="22">

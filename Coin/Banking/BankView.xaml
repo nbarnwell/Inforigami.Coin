@@ -5,11 +5,5 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d">
-    <StackPanel>
-        <TextBox x:Name="BankName" md:HintAssist.Hint="New Bank Name" Margin="0 8 0 8" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-        <WrapPanel HorizontalAlignment="Right">
-            <Button x:Name="Submit" Style="{StaticResource MaterialDesignFlatButton}">ACCEPT</Button>
-            <Button x:Name="Cancel" Style="{StaticResource MaterialDesignFlatButton}">CANCEL</Button>
-        </WrapPanel>
-    </StackPanel>
+    <TextBox x:Name="BankName" md:HintAssist.Hint="New Bank Name" Margin="0 8 0 8" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 </UserControl>

@@ -118,8 +118,13 @@
     <Compile Include="Infrastructure\CaliburnLog.cs" />
     <Compile Include="Infrastructure\IViewModelFactory.cs" />
     <Compile Include="Infrastructure\ViewModelFactory.cs" />
+    <Compile Include="Shared\DialogView.xaml.cs">
+      <DependentUpon>DialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\DialogViewModel.cs" />
     <Compile Include="Shared\MaterialGrid.cs" />
     <Compile Include="Shared\NullToVisibilityConverter.cs" />
+    <Compile Include="Shared\RefreshRequested.cs" />
     <Compile Include="Shared\ScreenHeaderView.xaml.cs">
       <DependentUpon>ScreenHeaderView.xaml</DependentUpon>
     </Compile>
@@ -163,6 +168,10 @@
     <Page Include="Banking\Bank\ListItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shared\DialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Shared\ScreenHeaderView.xaml">
       <SubType>Designer</SubType>
