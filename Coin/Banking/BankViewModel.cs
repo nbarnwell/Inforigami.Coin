@@ -28,5 +28,16 @@ namespace Coin.Banking
                 NotifyOfPropertyChange(() => BankName);
             }
         }
+
+        public void UpdateFrom(Data.Bank bank)
+        {
+            BankId = bank.Id;
+            BankName = bank.Name;
+        }
+
+        public static BankViewModel CreateFrom(Data.Bank bank)
+        {
+            return new BankViewModel {BankId = bank.Id, BankName = bank.Name};
+        }
     }
 }

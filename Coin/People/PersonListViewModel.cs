@@ -8,7 +8,7 @@ using Coin.Shared;
 
 namespace Coin.People
 {
-    public class PersonListViewModel : Screen, IHandle<EntityCreated<Data.Person>>
+    public class PersonListViewModel : Screen, IHandle<RefreshRequested>, IHandle<EntityCreated<Data.Person>>
     {
         private readonly IViewModelFactory _viewModelFactory;
         private readonly IEventAggregator _events;

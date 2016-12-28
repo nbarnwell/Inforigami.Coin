@@ -8,7 +8,7 @@ using Coin.Shared;
 
 namespace Coin.Banking
 {
-    public class BankListViewModel : Screen, IHandle<RefreshRequested>
+    public class BankListViewModel : Screen, IHandle<RefreshRequested>, IHandle<EntityCreated<Data.Bank>>
     {
         private readonly IViewModelFactory _viewModelFactory;
         private readonly IEventAggregator _events;
@@ -70,6 +70,19 @@ namespace Coin.Banking
         public void Handle(RefreshRequested message)
         {
             RefreshData();
+        }
+
+        public void Handle(EntityCreated<Data.Bank> message)
+        {
+            var newItem = BankViewModel.CreateFrom(message.Entity);
+
+            Banks.InsertWhere(
+                x =>
+                    string.Compare(
+                        x.BankName,
+                        newItem.BankName,
+                        StringComparison.InvariantCultureIgnoreCase) > 0,
+                newItem);
         }
 
         public void RefreshData()
