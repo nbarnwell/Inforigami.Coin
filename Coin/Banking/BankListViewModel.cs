@@ -52,13 +52,17 @@ namespace Coin.Banking
             {
                 using (var db = new Database())
                 {
-                    db.Banks.Add(
+                    var entity =
                         new Data.Bank
                         {
                             Name = bankViewModel.BankName
-                        });
+                        };
+
+                    db.Banks.Add(entity);
 
                     db.SaveChanges();
+
+                    _events.PublishOnUIThread(new EntityCreated<Data.Bank>(entity));
                 }
             }
         }

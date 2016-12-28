@@ -28,5 +28,16 @@ namespace Coin.People
                 NotifyOfPropertyChange(() => PersonName);
             }
         }
+
+        public void UpdateFrom(Data.Person person)
+        {
+            PersonId = person.Id;
+            PersonName = person.Name;
+        }
+
+        public static PersonViewModel CreateFrom(Data.Person person)
+        {
+            return new PersonViewModel {PersonName = person.Name, PersonId = person.Id};
+        }
     }
 }

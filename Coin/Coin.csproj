@@ -112,6 +112,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\CaliburnLog.cs" />
+    <Compile Include="Infrastructure\ListExtensions.cs" />
     <Compile Include="Infrastructure\IViewModelFactory.cs" />
     <Compile Include="Infrastructure\ViewModelFactory.cs" />
     <Compile Include="People\PersonListView.xaml.cs">
@@ -129,6 +130,8 @@
       <DependentUpon>DialogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shared\DialogViewModel.cs" />
+    <Compile Include="Shared\EntityCreated.cs" />
+    <Compile Include="Shared\EntityUpdated.cs" />
     <Compile Include="Shared\MaterialGrid.cs" />
     <Compile Include="Shared\NullToVisibilityConverter.cs" />
     <Compile Include="Shared\RefreshRequested.cs" />

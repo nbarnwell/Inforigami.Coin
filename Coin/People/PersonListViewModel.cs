@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Caliburn.Micro;
-using Coin.Banking;
 using Coin.Data;
 using Coin.Infrastructure;
 using Coin.Shared;
 
 namespace Coin.People
 {
-    public class PersonListViewModel : Screen
+    public class PersonListViewModel : Screen, IHandle<EntityCreated<Data.Person>>
     {
         private readonly IViewModelFactory _viewModelFactory;
         private readonly IEventAggregator _events;
@@ -53,13 +52,17 @@ namespace Coin.People
             {
                 using (var db = new Database())
                 {
-                    db.People.Add(
+                    var entity =
                         new Data.Person
                         {
                             Name = personViewModel.PersonName
-                        });
+                        };
+
+                    db.People.Add(entity);
 
                     db.SaveChanges();
+
+                    _events.PublishOnUIThread(new EntityCreated<Data.Person>(entity));
                 }
             }
         }
@@ -67,6 +70,19 @@ namespace Coin.People
         public void Handle(RefreshRequested message)
         {
             RefreshData();
+        }
+
+        public void Handle(EntityCreated<Data.Person> message)
+        {
+            var newItem = PersonViewModel.CreateFrom(message.Entity);
+
+            People.InsertWhere(
+                x =>
+                    string.Compare(
+                        x.PersonName,
+                        newItem.PersonName,
+                        StringComparison.InvariantCultureIgnoreCase) > 0,
+                newItem);
         }
 
         public void RefreshData()
@@ -78,11 +94,7 @@ namespace Coin.People
                 People.AddRange(
                     db.People
                       .OrderBy(x => x.Name)
-                      .Select(x => new PersonViewModel
-                      {
-                          PersonId = x.Id,
-                          PersonName = x.Name
-                      }));
+                      .Select(PersonViewModel.CreateFrom));
             }
         }
     }
