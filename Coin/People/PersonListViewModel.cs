@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using Caliburn.Micro;
+using Coin.Banking;
 using Coin.Data;
 using Coin.Infrastructure;
 using Coin.Shared;
 
-namespace Coin.Banking
+namespace Coin.People
 {
-    public class BankListViewModel : Screen, IHandle<RefreshRequested>
+    public class PersonListViewModel : Screen
     {
         private readonly IViewModelFactory _viewModelFactory;
         private readonly IEventAggregator _events;
 
-        public BindableCollection<BankViewModel> Banks { get; }
+        public BindableCollection<PersonViewModel> People { get; }
 
-        public override string DisplayName => "Banks";
+        public override string DisplayName => "People";
 
-        public BankListViewModel(IViewModelFactory viewModelFactory, IEventAggregator events)
+        public PersonListViewModel(IViewModelFactory viewModelFactory, IEventAggregator events)
         {
             if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
             if (events == null) throw new ArgumentNullException(nameof(events));
@@ -25,7 +26,7 @@ namespace Coin.Banking
             _viewModelFactory = viewModelFactory;
             _events = events;
 
-            Banks = new BindableCollection<BankViewModel>();
+            People = new BindableCollection<PersonViewModel>();
             _events.Subscribe(this);
         }
 
@@ -42,20 +43,20 @@ namespace Coin.Banking
             }
         }
 
-        public IEnumerable<IResult> AddBank()
+        public IEnumerable<IResult> AddPerson()
         {
-            var bankViewModel = _viewModelFactory.Create<BankViewModel>();
-            var showDialog = new ShowDialog(bankViewModel);
+            var personViewModel = _viewModelFactory.Create<PersonViewModel>();
+            var showDialog = new ShowDialog(personViewModel);
             yield return showDialog;
 
             if (showDialog.Result == true)
             {
                 using (var db = new Database())
                 {
-                    db.Banks.Add(
-                        new Data.Bank
+                    db.People.Add(
+                        new Data.Person
                         {
-                            Name = bankViewModel.BankName
+                            Name = personViewModel.PersonName
                         });
 
                     db.SaveChanges();
@@ -70,17 +71,17 @@ namespace Coin.Banking
 
         public void RefreshData()
         {
-            Banks.Clear();
+            People.Clear();
 
             using (var db = new Database())
             {
-                Banks.AddRange(
-                    db.Banks
+                People.AddRange(
+                    db.People
                       .OrderBy(x => x.Name)
-                      .Select(x => new BankViewModel
+                      .Select(x => new PersonViewModel
                       {
-                          BankId = x.Id,
-                          BankName = x.Name
+                          PersonId = x.Id,
+                          PersonName = x.Name
                       }));
             }
         }

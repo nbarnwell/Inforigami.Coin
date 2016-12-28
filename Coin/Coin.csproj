@@ -114,6 +114,17 @@
     <Compile Include="Infrastructure\CaliburnLog.cs" />
     <Compile Include="Infrastructure\IViewModelFactory.cs" />
     <Compile Include="Infrastructure\ViewModelFactory.cs" />
+    <Compile Include="People\PersonListView.xaml.cs">
+      <DependentUpon>PersonListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="People\PersonListViewModel.cs" />
+    <Compile Include="People\PersonView.xaml.cs">
+      <DependentUpon>PersonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="People\PersonViewModel.cs" />
+    <Compile Include="People\Person\ListItem.xaml.cs">
+      <DependentUpon>ListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shared\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
     </Compile>
@@ -159,6 +170,18 @@
     <Page Include="Banking\Bank\ListItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="People\PersonListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="People\PersonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="People\Person\ListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Shared\DialogView.xaml">
       <SubType>Designer</SubType>
