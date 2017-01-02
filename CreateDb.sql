@@ -65,6 +65,7 @@ create table Account (
 	Id int not null identity(1,1),
 	Name nvarchar(256) not null,
 	PersonId int not null,
+	CurrencyCode nvarchar(64) not null,
 	constraint PK_Account primary key (Id),
 	constraint FK_Account__Person foreign key (PersonId) references Person (Id)
 );
@@ -75,8 +76,7 @@ create table BankAccount (
 	BankId int not null,
 	AccountId int not null,
 	CreditLimit money not null,
-	BankName nvarchar(256) not null,
-	AccountNumber nvarchar(50) not null,
+    AccountNumber nvarchar(50) not null,
 	SortCode nvarchar(50) not null,
 	constraint PK_BankAccount primary key (Id),
 	constraint FK_BankAccount__Account foreign key (AccountId) references Account (Id),

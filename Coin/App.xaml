@@ -47,6 +47,7 @@
 
                     <!-- Converters -->
 
+                    <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"></BooleanToVisibilityConverter>
                     <shared:NullToVisibilityConverter x:Key="NullToVisibilityConverter"></shared:NullToVisibilityConverter>
 
                     <!-- Icons -->

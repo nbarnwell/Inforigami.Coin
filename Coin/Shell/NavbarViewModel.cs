@@ -1,5 +1,6 @@
 ﻿using System;
 using Caliburn.Micro;
+using Coin.Accounts;
 using Coin.Banking;
 using Coin.Infrastructure;
 using Coin.People;
@@ -38,6 +39,9 @@ namespace Coin.Shell
 
             Workspaces = new BindableCollection<IScreen>
             {
+                _viewModelFactory.Create<WorkspaceViewModel>()
+                                 .WithViewModel(
+                                     _viewModelFactory.Create<AccountListViewModel>()),
                 _viewModelFactory.Create<WorkspaceViewModel>()
                                  .WithViewModel(
                                      _viewModelFactory.Create<BankListViewModel>()),

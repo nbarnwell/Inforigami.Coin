@@ -97,6 +97,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Accounts\AccountListView.xaml.cs">
+      <DependentUpon>AccountListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\AccountListViewModel.cs" />
+    <Compile Include="Accounts\AccountNumber.cs" />
+    <Compile Include="Accounts\AccountNumberView.xaml.cs">
+      <DependentUpon>AccountNumberView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\AccountNumberViewModel.cs" />
+    <Compile Include="Accounts\AccountView.xaml.cs">
+      <DependentUpon>AccountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\AccountViewModel.cs" />
+    <Compile Include="Accounts\Account\ListItem.xaml.cs">
+      <DependentUpon>ListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\BankAccountView.xaml.cs">
+      <DependentUpon>BankAccountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\BankAccountViewModel.cs" />
+    <Compile Include="Accounts\SortCode.cs" />
+    <Compile Include="Accounts\SortCodeView.xaml.cs">
+      <DependentUpon>SortCodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\SortCodeViewModel.cs" />
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Banking\BankListView.xaml.cs">
       <DependentUpon>BankListView.xaml</DependentUpon>
@@ -126,6 +151,7 @@
     <Compile Include="People\Person\ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Shared\Currency.cs" />
     <Compile Include="Shared\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
     </Compile>
@@ -162,6 +188,30 @@
       <DependentUpon>WorkspaceHostView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell\WorkspaceHostViewModel.cs" />
+    <Page Include="Accounts\AccountListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Accounts\AccountNumberView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Accounts\AccountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Accounts\Account\ListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Accounts\BankAccountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Accounts\SortCodeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Banking\BankListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

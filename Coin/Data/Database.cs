@@ -530,6 +530,7 @@ namespace Coin.Data
         public int Id { get; set; } // Id (Primary key)
         public string Name { get; set; } // Name (length: 256)
         public int PersonId { get; set; } // PersonId
+        public string CurrencyCode { get; set; } // CurrencyCode (length: 64)
 
         // Reverse navigation
         public virtual System.Collections.Generic.ICollection<AccountStatement> AccountStatements { get; set; } // AccountStatement.FK_AccountStatement__Account
@@ -719,7 +720,6 @@ namespace Coin.Data
         public int BankId { get; set; } // BankId
         public int AccountId { get; set; } // AccountId
         public decimal CreditLimit { get; set; } // CreditLimit
-        public string BankName { get; set; } // BankName (length: 256)
         public string AccountNumber { get; set; } // AccountNumber (length: 50)
         public string SortCode { get; set; } // SortCode (length: 50)
 
@@ -792,6 +792,7 @@ namespace Coin.Data
             Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
             Property(x => x.PersonId).HasColumnName(@"PersonId").HasColumnType("int").IsRequired();
+            Property(x => x.CurrencyCode).HasColumnName(@"CurrencyCode").HasColumnType("nvarchar").IsRequired().HasMaxLength(64);
 
             // Foreign keys
             HasRequired(a => a.Person).WithMany(b => b.Accounts).HasForeignKey(c => c.PersonId).WillCascadeOnDelete(false); // FK_Account__Person
@@ -1017,7 +1018,6 @@ namespace Coin.Data
             Property(x => x.BankId).HasColumnName(@"BankId").HasColumnType("int").IsRequired();
             Property(x => x.AccountId).HasColumnName(@"AccountId").HasColumnType("int").IsRequired();
             Property(x => x.CreditLimit).HasColumnName(@"CreditLimit").HasColumnType("money").IsRequired().HasPrecision(19,4);
-            Property(x => x.BankName).HasColumnName(@"BankName").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
             Property(x => x.AccountNumber).HasColumnName(@"AccountNumber").HasColumnType("nvarchar").IsRequired().HasMaxLength(50);
             Property(x => x.SortCode).HasColumnName(@"SortCode").HasColumnType("nvarchar").IsRequired().HasMaxLength(50);
 

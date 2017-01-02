@@ -63,6 +63,7 @@ namespace Coin.Shared
             if (content == null) throw new ArgumentNullException(nameof(content));
 
             Content = content;
+            Content.ConductWith(this);
             return this;
         }
 
