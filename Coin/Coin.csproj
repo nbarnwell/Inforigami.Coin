@@ -110,6 +110,9 @@
       <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Accounts\AccountViewModel.cs" />
+    <Compile Include="Accounts\Account\Detail.xaml.cs">
+      <DependentUpon>Detail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Accounts\Account\ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,7 @@
     <Compile Include="People\Person\ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Shared\CompositionInspector.cs" />
     <Compile Include="Shared\Currency.cs" />
     <Compile Include="Shared\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
@@ -166,6 +170,7 @@
     </Compile>
     <Compile Include="Shared\ScreenHeaderViewModel.cs" />
     <Compile Include="Shared\ShowDialog.cs" />
+    <Compile Include="Shared\ShowViewModel.cs" />
     <Compile Include="Shared\WorkspaceView.xaml.cs">
       <DependentUpon>WorkspaceView.xaml</DependentUpon>
     </Compile>
@@ -188,6 +193,29 @@
       <DependentUpon>WorkspaceHostView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell\WorkspaceHostViewModel.cs" />
+    <Compile Include="Transactions\AccountListView.xaml.cs">
+      <DependentUpon>AccountListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\AccountListViewModel.cs" />
+    <Compile Include="Transactions\AccountStatementViewModel.cs" />
+    <Compile Include="Transactions\AccountStatementWithTransactionsView.xaml.cs">
+      <DependentUpon>AccountStatementWithTransactionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\AccountStatementWithTransactionsViewModel.cs" />
+    <Compile Include="Transactions\AccountStatement\Detail.xaml.cs">
+      <DependentUpon>Detail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\AccountStatement\ListItem.xaml.cs">
+      <DependentUpon>ListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\AccountTransactionView.xaml.cs">
+      <DependentUpon>AccountTransactionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\AccountTransactionViewModel.cs" />
+    <Compile Include="Transactions\AccountStatementListView.xaml.cs">
+      <DependentUpon>AccountStatementListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\AccountStatementListViewModel.cs" />
     <Page Include="Accounts\AccountListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -199,6 +227,10 @@
     <Page Include="Accounts\AccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Accounts\Account\Detail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Accounts\Account\ListItem.xaml">
       <SubType>Designer</SubType>
@@ -257,6 +289,30 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Shell\WorkspaceHostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\AccountListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\AccountStatementWithTransactionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\AccountStatement\Detail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\AccountStatement\ListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\AccountTransactionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transactions\AccountStatementListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

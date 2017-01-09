@@ -47,7 +47,10 @@ namespace Coin.Shell
                                      _viewModelFactory.Create<BankListViewModel>()),
                 _viewModelFactory.Create<WorkspaceViewModel>()
                                  .WithViewModel(
-                                     _viewModelFactory.Create<PersonListViewModel>())
+                                     _viewModelFactory.Create<PersonListViewModel>()),
+                _viewModelFactory.Create<WorkspaceViewModel>()
+                                 .WithViewModel(
+                                     _viewModelFactory.Create<Transactions.AccountListViewModel>())
             };
 
         }

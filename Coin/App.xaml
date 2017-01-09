@@ -1,9 +1,10 @@
-﻿<Application x:Class="Coin.App"
+﻿<Application
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Coin"
              xmlns:cal="http://www.caliburnproject.org"
-             xmlns:shared="clr-namespace:Coin.Shared">
+             xmlns:shared="clr-namespace:Coin.Shared" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf" x:Class="Coin.App"
+             >
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -17,38 +18,80 @@
                     <local:AppBootstrapper x:Key="bootstrapper" />
 
                     <!-- Controls -->
-                    <Style TargetType="ListBox">
-                        <Setter Property="BorderThickness" Value="0"></Setter>
-                        <Setter Property="Background" Value="Transparent"></Setter>
-                        <Setter Property="Padding" Value="0"></Setter>
+                    <Style TargetType="{x:Type ListBox}">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Padding" Value="0"/>
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                         <Setter Property="ItemTemplate">
                             <Setter.Value>
                                 <DataTemplate>
-                                    <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem"></ContentControl>
+                                    <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem"/>
                                 </DataTemplate>
                             </Setter.Value>
                         </Setter>
                     </Style>
 
-                    <Style x:Key="H1" TargetType="TextBlock">
-                        <Setter Property="FontSize" Value="32"></Setter>
-                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                    <Style x:Key="H1" TargetType="{x:Type TextBlock}">
+                        <Setter Property="FontSize" Value="32"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
                     </Style>
 
-                    <Style x:Key="H2" TargetType="TextBlock">
-                        <Setter Property="FontSize" Value="24"></Setter>
-                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                    <Style x:Key="H2" TargetType="{x:Type TextBlock}">
+                        <Setter Property="FontSize" Value="24"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
                     </Style>
 
-                    <Style x:Key="H3" TargetType="TextBlock">
-                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                    <Style x:Key="H3" TargetType="{x:Type TextBlock}">
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+
+                    <Style x:Key="FlatButton" TargetType="{x:Type Button}">
+                        <Setter Property="FocusVisualStyle">
+                            <Setter.Value>
+                                <Style>
+                                    <Setter Property="Control.Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="materialDesign:RippleAssist.Feedback" Value="White"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="FontWeight" Value="Medium"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="16,4"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <materialDesign:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Focusable="False" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                        </Trigger>
+                                        <Trigger Property="IsKeyboardFocused" Value="True">
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Opacity" Value="0.23"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
                     </Style>
 
                     <!-- Converters -->
 
-                    <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"></BooleanToVisibilityConverter>
-                    <shared:NullToVisibilityConverter x:Key="NullToVisibilityConverter"></shared:NullToVisibilityConverter>
+                    <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+                    <shared:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
 
                     <!-- Icons -->
                     <Viewbox x:Key="HomeIcon">
