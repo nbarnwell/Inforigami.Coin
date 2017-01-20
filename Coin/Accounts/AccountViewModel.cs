@@ -2,6 +2,7 @@
 using Caliburn.Micro;
 using Coin.Data;
 using Coin.People;
+using Coin.Shared;
 
 namespace Coin.Accounts
 {
@@ -12,7 +13,9 @@ namespace Coin.Accounts
         private BankAccountViewModel _bankAccountDetails;
         private bool _isBankAccount;
         private PersonViewModel _accountHolder;
-        private string _currencyCode;
+        private CurrencyViewModel _currency;
+
+        public BindableCollection<CurrencyViewModel> Currencies { get; }
 
         public int AccountId
         {
@@ -36,14 +39,14 @@ namespace Coin.Accounts
             }
         }
 
-        public string CurrencyCode
+        public CurrencyViewModel Currency
         {
-            get { return _currencyCode; }
+            get { return _currency; }
             set
             {
-                if (value == _currencyCode) return;
-                _currencyCode = value;
-                NotifyOfPropertyChange(() => CurrencyCode);
+                if (Equals(value, _currency)) return;
+                _currency = value;
+                NotifyOfPropertyChange(() => Currency);
             }
         }
 
@@ -87,6 +90,7 @@ namespace Coin.Accounts
             BankAccountDetails = new BankAccountViewModel();
             BankAccountDetails.ConductWith(this);
 
+            Currencies = new BindableCollection<CurrencyViewModel>();
             People = new BindableCollection<PersonViewModel>();
         }
 
@@ -94,10 +98,16 @@ namespace Coin.Accounts
         {
             using (var db = new Database())
             {
+                Currencies.AddRange(
+                    db.Currencies
+                      .OrderBy(x => x.Name)
+                      .Select(CurrencyViewModel.CreateFrom));
+
                 People.AddRange(
                     db.People
                     .OrderBy(x => x.Name)
                     .Select(PersonViewModel.CreateFrom));
+
             }
         }
 
@@ -105,18 +115,17 @@ namespace Coin.Accounts
         {
             return new AccountViewModel
             {
-                AccountId = basicAccountDetails.Id,
-                AccountName = basicAccountDetails.Name,
-                CurrencyCode = basicAccountDetails.CurrencyCode,
-                AccountHolder = PersonViewModel.CreateFrom(basicAccountDetails.Person),
+                AccountId          = basicAccountDetails.Id,
+                AccountName        = basicAccountDetails.Name,
+                Currency           = CurrencyViewModel.CreateFrom(basicAccountDetails.Currency),
+                AccountHolder      = PersonViewModel.CreateFrom(basicAccountDetails.Person),
                 BankAccountDetails =
                     bankAccountDetails != null
                         ? new BankAccountViewModel
                         {
-                            AccountNumber =
-                                new AccountNumberViewModel {Value = bankAccountDetails.AccountNumber},
-                            SortCode = new SortCodeViewModel {Value = bankAccountDetails.SortCode},
-                            CreditLimit = bankAccountDetails.CreditLimit
+                            AccountNumber = new AccountNumberViewModel {Value = bankAccountDetails.AccountNumber},
+                            SortCode      = new SortCodeViewModel {Value = bankAccountDetails.SortCode},
+                            CreditLimit   = bankAccountDetails.CreditLimit
                         }
                         : null
             };

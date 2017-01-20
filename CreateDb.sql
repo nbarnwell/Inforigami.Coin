@@ -46,6 +46,13 @@ GO
 -- drop table Household;
 -- drop table Bank;
 
+create table Currency (
+	Id int not null,
+	Code nvarchar(50) not null,
+	Name nvarchar(256) not null
+	constraint PK_Currency primary key (Id)
+);
+
 create table Bank (
 	Id int not null identity(1,1),
 	Name nvarchar(256) not null
@@ -65,9 +72,10 @@ create table Account (
 	Id int not null identity(1,1),
 	Name nvarchar(256) not null,
 	PersonId int not null,
-	CurrencyCode nvarchar(64) not null,
+	CurrencyId int not null,
 	constraint PK_Account primary key (Id),
-	constraint FK_Account__Person foreign key (PersonId) references Person (Id)
+	constraint FK_Account__Person foreign key (PersonId) references Person (Id),
+	constraint FK_Account__Currency foreign key (CurrencyId) references Currency (Id)
 );
 
 -- Additional details to describe a bank account
@@ -119,22 +127,6 @@ create table AccountTransactionCategory (
 	constraint PK_AccountTransactionCategory primary key (Id)
 );
 
-create table AccountTransactionCategoryMatchPatternMatchMethod (
-	Id int not null,
-	Name nvarchar(256) not null,
-	constraint PK_AccountTransactionCategoryMatchPatternMatchMethod primary key (Id)
-);
-
-create table AccountTransactionCategoryMatchPattern (
-	Id int not null,
-	AccountTransactionCategoryId int not null,
-	Pattern nvarchar(256) not null,
-	AccountTransactionCategoryMatchPatternMatchMethodId int not null,
-	constraint PK_AccountTransactionCategoryMatchPattern primary key (Id),
-	constraint FK_AccountTransactionCategoryMatchPattern__AccountTransactionCategory foreign key (AccountTransactionCategoryId) references AccountTransactionCategory (Id),
-	constraint FK_AccountTransactionCategoryMatchPattern__AccountTransactionCategoryMatchPatternMatchMethod foreign key (AccountTransactionCategoryMatchPatternMatchMethodId) references AccountTransactionCategoryMatchPatternMatchMethod (Id)
-);
-
 create table AccountTransactionType (
 	Id int not null,
 	Name nvarchar(256) not null,
@@ -179,6 +171,9 @@ create table AccountTransactionAccountTransactionCategory (
 	constraint FK_AccountTransactionAccountTransactionCategory__AccountTransaction foreign key (AccountTransactionId) references AccountTransaction (Id),
 	constraint FK_AccountTransactionAccountTransactionCategory__AccountTransactionCategory foreign key (AccountTransactionCategoryId) references AccountTransactionCategory (Id)
 );
+
+insert into Currency (Id, Code, Name) values (1, 'GBP', 'British Pound');
+insert into Currency (Id, Code, Name) values (2, 'EUR', 'Euro');
 
 declare @bankId int
 set @bankId = (select top 1 Id from Bank);
@@ -237,10 +232,6 @@ insert into AccountTransactionCategory (Name) values ('Groceries');
 insert into AccountTransactionCategory (Name) values ('Cash Withdrawal');
 insert into AccountTransactionCategory (Name) values ('Mortgage');
 insert into AccountTransactionCategory (Name) values ('Ténéré');
-
-insert into AccountTransactionCategoryMatchPatternMatchMethod values (1, 'Contains Text');
---insert into AccountTransactionCategoryMatchPatternMatchMethod values (2, 'Regular Expression');
---insert into AccountTransactionCategoryMatchPatternMatchMethod values (3, 'Levenshtein Distance');
 
 insert into AccountTransactionType (Id, Name, IsIncome) values (1, 'Debit Card', 0);
 insert into AccountTransactionType (Id, Name, IsIncome) values (2, 'Direct Debit', 1);

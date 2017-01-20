@@ -83,7 +83,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -142,6 +141,7 @@
     <Compile Include="Infrastructure\CaliburnLog.cs" />
     <Compile Include="Infrastructure\ListExtensions.cs" />
     <Compile Include="Infrastructure\IViewModelFactory.cs" />
+    <Compile Include="Infrastructure\ViewLocatorConfig.cs" />
     <Compile Include="Infrastructure\ViewModelFactory.cs" />
     <Compile Include="People\PersonListView.xaml.cs">
       <DependentUpon>PersonListView.xaml</DependentUpon>
@@ -154,8 +154,14 @@
     <Compile Include="People\Person\ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Shared\AuditingCommandHandler.cs" />
     <Compile Include="Shared\CompositionInspector.cs" />
-    <Compile Include="Shared\Currency.cs" />
+    <Compile Include="Shared\CurrencyViewModel.cs" />
+    <Compile Include="Shared\Money.cs" />
+    <Compile Include="Shared\MoneyView.xaml.cs">
+      <DependentUpon>MoneyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\MoneyViewModel.cs" />
     <Compile Include="Shared\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
     </Compile>
@@ -164,6 +170,7 @@
     <Compile Include="Shared\EntityUpdated.cs" />
     <Compile Include="Shared\MaterialGrid.cs" />
     <Compile Include="Shared\NullToVisibilityConverter.cs" />
+    <Compile Include="Shared\ProcessCommand.cs" />
     <Compile Include="Shared\RefreshRequested.cs" />
     <Compile Include="Shared\ScreenHeaderView.xaml.cs">
       <DependentUpon>ScreenHeaderView.xaml</DependentUpon>
@@ -208,14 +215,18 @@
     <Compile Include="Transactions\AccountStatement\ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountTransactionView.xaml.cs">
-      <DependentUpon>AccountTransactionView.xaml</DependentUpon>
+    <Compile Include="Transactions\AccountTransactionEditView.xaml.cs">
+      <DependentUpon>AccountTransactionEditView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountTransactionViewModel.cs" />
+    <Compile Include="Transactions\AccountTransactionStatusViewModel.cs" />
+    <Compile Include="Transactions\AccountTransactionTypeViewModel.cs" />
+    <Compile Include="Transactions\AccountTransactionEditViewModel.cs" />
     <Compile Include="Transactions\AccountStatementListView.xaml.cs">
       <DependentUpon>AccountStatementListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transactions\AccountStatementListViewModel.cs" />
+    <Compile Include="Transactions\RecordTransaction.cs" />
+    <Compile Include="Transactions\RecordTransactionHandler.cs" />
     <Page Include="Accounts\AccountListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -272,6 +283,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Shared\MoneyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shared\ScreenHeaderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -308,11 +323,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountTransactionView.xaml">
+    <Page Include="Transactions\AccountStatementListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountStatementListView.xaml">
+    <Page Include="Transactions\AccountTransactionEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

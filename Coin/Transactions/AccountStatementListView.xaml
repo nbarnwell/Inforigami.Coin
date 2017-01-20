@@ -5,17 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Coin.Transactions"
              xmlns:cal="http://www.caliburnproject.org"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel>
-        <ContentControl x:Name="AccountDetails" DockPanel.Dock="Top" cal:View.Context="Detail"></ContentControl>
-        <ItemsControl x:Name="Statements">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Style="{StaticResource FlatButton}" cal:Message.Attach="ShowStatement($dataContext)" cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16">
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </DockPanel>
+    <Grid>
+        <DockPanel>
+            <ContentControl x:Name="AccountDetails" DockPanel.Dock="Top" cal:View.Context="Detail"></ContentControl>
+            <ItemsControl x:Name="Statements">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Style="{StaticResource FlatButton}" cal:Message.Attach="ShowStatement($dataContext)" cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16">
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </DockPanel>
+        <Button x:Name="Add"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Margin="0 0 32 16">
+            <md:PackIcon Kind="Plus" />
+        </Button>
+    </Grid>
 </UserControl>

@@ -73,12 +73,14 @@
     //      3. Change the line below to: Inflector.PluralizationService = new SpanishPluralizationService();
     Inflector.PluralizationService = new EnglishPluralizationService();
     // If pluralisation does not do the right thing, override it here by adding in a custom entry.
-    //Inflector.PluralizationService = new EnglishPluralizationService(new[]
-    //{
-    //    // Create custom ("Singular", "Plural") forms for one-off words as needed.
-    //    new CustomPluralizationEntry("Course", "Courses"),
-    //    new CustomPluralizationEntry("Status", "Status") // Use same value to prevent pluralisation
-    //});
+    Inflector.PluralizationService = new EnglishPluralizationService(new[]
+    {
+        // Create custom ("Singular", "Plural") forms for one-off words as needed.
+        // new CustomPluralizationEntry("Course", "Courses"),
+        // new CustomPluralizationEntry("Status", "Status") // Use same value to prevent pluralisation
+
+		new CustomPluralizationEntry("AccountTransactionStatus", "AccountTransactionStatus")
+    });
 
 
     // Elements to generate ***************************************************************************************************************

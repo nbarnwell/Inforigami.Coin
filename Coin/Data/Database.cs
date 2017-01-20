@@ -40,13 +40,12 @@ namespace Coin.Data
         System.Data.Entity.DbSet<AccountTransaction> AccountTransactions { get; set; } // AccountTransaction
         System.Data.Entity.DbSet<AccountTransactionAccountTransactionCategory> AccountTransactionAccountTransactionCategories { get; set; } // AccountTransactionAccountTransactionCategory
         System.Data.Entity.DbSet<AccountTransactionCategory> AccountTransactionCategories { get; set; } // AccountTransactionCategory
-        System.Data.Entity.DbSet<AccountTransactionCategoryMatchPattern> AccountTransactionCategoryMatchPatterns { get; set; } // AccountTransactionCategoryMatchPattern
-        System.Data.Entity.DbSet<AccountTransactionCategoryMatchPatternMatchMethod> AccountTransactionCategoryMatchPatternMatchMethods { get; set; } // AccountTransactionCategoryMatchPatternMatchMethod
-        System.Data.Entity.DbSet<AccountTransactionStatu> AccountTransactionStatus { get; set; } // AccountTransactionStatus
+        System.Data.Entity.DbSet<AccountTransactionStatus> AccountTransactionStatus { get; set; } // AccountTransactionStatus
         System.Data.Entity.DbSet<AccountTransactionType> AccountTransactionTypes { get; set; } // AccountTransactionType
         System.Data.Entity.DbSet<Bank> Banks { get; set; } // Bank
         System.Data.Entity.DbSet<BankAccount> BankAccounts { get; set; } // BankAccount
         System.Data.Entity.DbSet<BankSpecificTransactionType> BankSpecificTransactionTypes { get; set; } // BankSpecificTransactionType
+        System.Data.Entity.DbSet<Currency> Currencies { get; set; } // Currency
         System.Data.Entity.DbSet<Fund> Funds { get; set; } // Fund
         System.Data.Entity.DbSet<Person> People { get; set; } // Person
 
@@ -76,13 +75,12 @@ namespace Coin.Data
         public System.Data.Entity.DbSet<AccountTransaction> AccountTransactions { get; set; } // AccountTransaction
         public System.Data.Entity.DbSet<AccountTransactionAccountTransactionCategory> AccountTransactionAccountTransactionCategories { get; set; } // AccountTransactionAccountTransactionCategory
         public System.Data.Entity.DbSet<AccountTransactionCategory> AccountTransactionCategories { get; set; } // AccountTransactionCategory
-        public System.Data.Entity.DbSet<AccountTransactionCategoryMatchPattern> AccountTransactionCategoryMatchPatterns { get; set; } // AccountTransactionCategoryMatchPattern
-        public System.Data.Entity.DbSet<AccountTransactionCategoryMatchPatternMatchMethod> AccountTransactionCategoryMatchPatternMatchMethods { get; set; } // AccountTransactionCategoryMatchPatternMatchMethod
-        public System.Data.Entity.DbSet<AccountTransactionStatu> AccountTransactionStatus { get; set; } // AccountTransactionStatus
+        public System.Data.Entity.DbSet<AccountTransactionStatus> AccountTransactionStatus { get; set; } // AccountTransactionStatus
         public System.Data.Entity.DbSet<AccountTransactionType> AccountTransactionTypes { get; set; } // AccountTransactionType
         public System.Data.Entity.DbSet<Bank> Banks { get; set; } // Bank
         public System.Data.Entity.DbSet<BankAccount> BankAccounts { get; set; } // BankAccount
         public System.Data.Entity.DbSet<BankSpecificTransactionType> BankSpecificTransactionTypes { get; set; } // BankSpecificTransactionType
+        public System.Data.Entity.DbSet<Currency> Currencies { get; set; } // Currency
         public System.Data.Entity.DbSet<Fund> Funds { get; set; } // Fund
         public System.Data.Entity.DbSet<Person> People { get; set; } // Person
 
@@ -139,13 +137,12 @@ namespace Coin.Data
             modelBuilder.Configurations.Add(new AccountTransactionConfiguration());
             modelBuilder.Configurations.Add(new AccountTransactionAccountTransactionCategoryConfiguration());
             modelBuilder.Configurations.Add(new AccountTransactionCategoryConfiguration());
-            modelBuilder.Configurations.Add(new AccountTransactionCategoryMatchPatternConfiguration());
-            modelBuilder.Configurations.Add(new AccountTransactionCategoryMatchPatternMatchMethodConfiguration());
-            modelBuilder.Configurations.Add(new AccountTransactionStatuConfiguration());
+            modelBuilder.Configurations.Add(new AccountTransactionStatusConfiguration());
             modelBuilder.Configurations.Add(new AccountTransactionTypeConfiguration());
             modelBuilder.Configurations.Add(new BankConfiguration());
             modelBuilder.Configurations.Add(new BankAccountConfiguration());
             modelBuilder.Configurations.Add(new BankSpecificTransactionTypeConfiguration());
+            modelBuilder.Configurations.Add(new CurrencyConfiguration());
             modelBuilder.Configurations.Add(new FundConfiguration());
             modelBuilder.Configurations.Add(new PersonConfiguration());
         }
@@ -157,13 +154,12 @@ namespace Coin.Data
             modelBuilder.Configurations.Add(new AccountTransactionConfiguration(schema));
             modelBuilder.Configurations.Add(new AccountTransactionAccountTransactionCategoryConfiguration(schema));
             modelBuilder.Configurations.Add(new AccountTransactionCategoryConfiguration(schema));
-            modelBuilder.Configurations.Add(new AccountTransactionCategoryMatchPatternConfiguration(schema));
-            modelBuilder.Configurations.Add(new AccountTransactionCategoryMatchPatternMatchMethodConfiguration(schema));
-            modelBuilder.Configurations.Add(new AccountTransactionStatuConfiguration(schema));
+            modelBuilder.Configurations.Add(new AccountTransactionStatusConfiguration(schema));
             modelBuilder.Configurations.Add(new AccountTransactionTypeConfiguration(schema));
             modelBuilder.Configurations.Add(new BankConfiguration(schema));
             modelBuilder.Configurations.Add(new BankAccountConfiguration(schema));
             modelBuilder.Configurations.Add(new BankSpecificTransactionTypeConfiguration(schema));
+            modelBuilder.Configurations.Add(new CurrencyConfiguration(schema));
             modelBuilder.Configurations.Add(new FundConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonConfiguration(schema));
             return modelBuilder;
@@ -181,13 +177,12 @@ namespace Coin.Data
         public System.Data.Entity.DbSet<AccountTransaction> AccountTransactions { get; set; }
         public System.Data.Entity.DbSet<AccountTransactionAccountTransactionCategory> AccountTransactionAccountTransactionCategories { get; set; }
         public System.Data.Entity.DbSet<AccountTransactionCategory> AccountTransactionCategories { get; set; }
-        public System.Data.Entity.DbSet<AccountTransactionCategoryMatchPattern> AccountTransactionCategoryMatchPatterns { get; set; }
-        public System.Data.Entity.DbSet<AccountTransactionCategoryMatchPatternMatchMethod> AccountTransactionCategoryMatchPatternMatchMethods { get; set; }
-        public System.Data.Entity.DbSet<AccountTransactionStatu> AccountTransactionStatus { get; set; }
+        public System.Data.Entity.DbSet<AccountTransactionStatus> AccountTransactionStatus { get; set; }
         public System.Data.Entity.DbSet<AccountTransactionType> AccountTransactionTypes { get; set; }
         public System.Data.Entity.DbSet<Bank> Banks { get; set; }
         public System.Data.Entity.DbSet<BankAccount> BankAccounts { get; set; }
         public System.Data.Entity.DbSet<BankSpecificTransactionType> BankSpecificTransactionTypes { get; set; }
+        public System.Data.Entity.DbSet<Currency> Currencies { get; set; }
         public System.Data.Entity.DbSet<Fund> Funds { get; set; }
         public System.Data.Entity.DbSet<Person> People { get; set; }
 
@@ -198,13 +193,12 @@ namespace Coin.Data
             AccountTransactions = new FakeDbSet<AccountTransaction>("Id");
             AccountTransactionAccountTransactionCategories = new FakeDbSet<AccountTransactionAccountTransactionCategory>("AccountTransactionId", "AccountTransactionCategoryId");
             AccountTransactionCategories = new FakeDbSet<AccountTransactionCategory>("Id");
-            AccountTransactionCategoryMatchPatterns = new FakeDbSet<AccountTransactionCategoryMatchPattern>("Id");
-            AccountTransactionCategoryMatchPatternMatchMethods = new FakeDbSet<AccountTransactionCategoryMatchPatternMatchMethod>("Id");
-            AccountTransactionStatus = new FakeDbSet<AccountTransactionStatu>("Id");
+            AccountTransactionStatus = new FakeDbSet<AccountTransactionStatus>("Id");
             AccountTransactionTypes = new FakeDbSet<AccountTransactionType>("Id");
             Banks = new FakeDbSet<Bank>("Id");
             BankAccounts = new FakeDbSet<BankAccount>("Id");
             BankSpecificTransactionTypes = new FakeDbSet<BankSpecificTransactionType>("Id");
+            Currencies = new FakeDbSet<Currency>("Id");
             Funds = new FakeDbSet<Fund>("Id");
             People = new FakeDbSet<Person>("Id");
         }
@@ -530,7 +524,7 @@ namespace Coin.Data
         public int Id { get; set; } // Id (Primary key)
         public string Name { get; set; } // Name (length: 256)
         public int PersonId { get; set; } // PersonId
-        public string CurrencyCode { get; set; } // CurrencyCode (length: 64)
+        public int CurrencyId { get; set; } // CurrencyId
 
         // Reverse navigation
         public virtual System.Collections.Generic.ICollection<AccountStatement> AccountStatements { get; set; } // AccountStatement.FK_AccountStatement__Account
@@ -538,6 +532,7 @@ namespace Coin.Data
         public virtual System.Collections.Generic.ICollection<Fund> Funds { get; set; } // Fund.FK_Fund__Account
 
         // Foreign keys
+        public virtual Currency Currency { get; set; } // FK_Account__Currency
         public virtual Person Person { get; set; } // FK_Account__Person
 
         public Account()
@@ -589,7 +584,7 @@ namespace Coin.Data
 
         // Foreign keys
         public virtual AccountStatement AccountStatement { get; set; } // FK_AccountTransaction__AccountStatement
-        public virtual AccountTransactionStatu AccountTransactionStatu { get; set; } // FK_AccountTransaction__AccountTransactionStatus
+        public virtual AccountTransactionStatus AccountTransactionStatus { get; set; } // FK_AccountTransaction__AccountTransactionStatus
         public virtual AccountTransactionType AccountTransactionType { get; set; } // FK_AccountTransaction__AccountTransactionType
 
         public AccountTransaction()
@@ -620,48 +615,16 @@ namespace Coin.Data
 
         // Reverse navigation
         public virtual System.Collections.Generic.ICollection<AccountTransactionAccountTransactionCategory> AccountTransactionAccountTransactionCategories { get; set; } // Many to many mapping
-        public virtual System.Collections.Generic.ICollection<AccountTransactionCategoryMatchPattern> AccountTransactionCategoryMatchPatterns { get; set; } // AccountTransactionCategoryMatchPattern.FK_AccountTransactionCategoryMatchPattern__AccountTransactionCategory
 
         public AccountTransactionCategory()
         {
             AccountTransactionAccountTransactionCategories = new System.Collections.Generic.List<AccountTransactionAccountTransactionCategory>();
-            AccountTransactionCategoryMatchPatterns = new System.Collections.Generic.List<AccountTransactionCategoryMatchPattern>();
-        }
-    }
-
-    // AccountTransactionCategoryMatchPattern
-    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
-    public class AccountTransactionCategoryMatchPattern
-    {
-        public int Id { get; set; } // Id (Primary key)
-        public int AccountTransactionCategoryId { get; set; } // AccountTransactionCategoryId
-        public string Pattern { get; set; } // Pattern (length: 256)
-        public int AccountTransactionCategoryMatchPatternMatchMethodId { get; set; } // AccountTransactionCategoryMatchPatternMatchMethodId
-
-        // Foreign keys
-        public virtual AccountTransactionCategory AccountTransactionCategory { get; set; } // FK_AccountTransactionCategoryMatchPattern__AccountTransactionCategory
-        public virtual AccountTransactionCategoryMatchPatternMatchMethod AccountTransactionCategoryMatchPatternMatchMethod { get; set; } // FK_AccountTransactionCategoryMatchPattern__AccountTransactionCategoryMatchPatternMatchMethod
-    }
-
-    // AccountTransactionCategoryMatchPatternMatchMethod
-    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
-    public class AccountTransactionCategoryMatchPatternMatchMethod
-    {
-        public int Id { get; set; } // Id (Primary key)
-        public string Name { get; set; } // Name (length: 256)
-
-        // Reverse navigation
-        public virtual System.Collections.Generic.ICollection<AccountTransactionCategoryMatchPattern> AccountTransactionCategoryMatchPatterns { get; set; } // AccountTransactionCategoryMatchPattern.FK_AccountTransactionCategoryMatchPattern__AccountTransactionCategoryMatchPatternMatchMethod
-
-        public AccountTransactionCategoryMatchPatternMatchMethod()
-        {
-            AccountTransactionCategoryMatchPatterns = new System.Collections.Generic.List<AccountTransactionCategoryMatchPattern>();
         }
     }
 
     // AccountTransactionStatus
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
-    public class AccountTransactionStatu
+    public class AccountTransactionStatus
     {
         public int Id { get; set; } // Id (Primary key)
         public string Name { get; set; } // Name (length: 256)
@@ -669,7 +632,7 @@ namespace Coin.Data
         // Reverse navigation
         public virtual System.Collections.Generic.ICollection<AccountTransaction> AccountTransactions { get; set; } // AccountTransaction.FK_AccountTransaction__AccountTransactionStatus
 
-        public AccountTransactionStatu()
+        public AccountTransactionStatus()
         {
             AccountTransactions = new System.Collections.Generic.List<AccountTransaction>();
         }
@@ -743,6 +706,23 @@ namespace Coin.Data
         public virtual Bank Bank { get; set; } // FK_BankSpecificTransactionType__Bank
     }
 
+    // Currency
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class Currency
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public string Code { get; set; } // Code (length: 50)
+        public string Name { get; set; } // Name (length: 256)
+
+        // Reverse navigation
+        public virtual System.Collections.Generic.ICollection<Account> Accounts { get; set; } // Account.FK_Account__Currency
+
+        public Currency()
+        {
+            Accounts = new System.Collections.Generic.List<Account>();
+        }
+    }
+
     // Fund
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
     public class Fund
@@ -792,9 +772,10 @@ namespace Coin.Data
             Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
             Property(x => x.PersonId).HasColumnName(@"PersonId").HasColumnType("int").IsRequired();
-            Property(x => x.CurrencyCode).HasColumnName(@"CurrencyCode").HasColumnType("nvarchar").IsRequired().HasMaxLength(64);
+            Property(x => x.CurrencyId).HasColumnName(@"CurrencyId").HasColumnType("int").IsRequired();
 
             // Foreign keys
+            HasRequired(a => a.Currency).WithMany(b => b.Accounts).HasForeignKey(c => c.CurrencyId).WillCascadeOnDelete(false); // FK_Account__Currency
             HasRequired(a => a.Person).WithMany(b => b.Accounts).HasForeignKey(c => c.PersonId).WillCascadeOnDelete(false); // FK_Account__Person
         }
     }
@@ -850,7 +831,7 @@ namespace Coin.Data
 
             // Foreign keys
             HasOptional(a => a.AccountStatement).WithMany(b => b.AccountTransactions).HasForeignKey(c => c.AccountStatementId).WillCascadeOnDelete(false); // FK_AccountTransaction__AccountStatement
-            HasRequired(a => a.AccountTransactionStatu).WithMany(b => b.AccountTransactions).HasForeignKey(c => c.AccountTransactionStatusId).WillCascadeOnDelete(false); // FK_AccountTransaction__AccountTransactionStatus
+            HasRequired(a => a.AccountTransactionStatus).WithMany(b => b.AccountTransactions).HasForeignKey(c => c.AccountTransactionStatusId).WillCascadeOnDelete(false); // FK_AccountTransaction__AccountTransactionStatus
             HasRequired(a => a.AccountTransactionType).WithMany(b => b.AccountTransactions).HasForeignKey(c => c.AccountTransactionTypeId).WillCascadeOnDelete(false); // FK_AccountTransaction__AccountTransactionType
         }
     }
@@ -898,60 +879,16 @@ namespace Coin.Data
         }
     }
 
-    // AccountTransactionCategoryMatchPattern
-    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
-    public class AccountTransactionCategoryMatchPatternConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<AccountTransactionCategoryMatchPattern>
-    {
-        public AccountTransactionCategoryMatchPatternConfiguration()
-            : this("dbo")
-        {
-        }
-
-        public AccountTransactionCategoryMatchPatternConfiguration(string schema)
-        {
-            ToTable("AccountTransactionCategoryMatchPattern", schema);
-            HasKey(x => x.Id);
-
-            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
-            Property(x => x.AccountTransactionCategoryId).HasColumnName(@"AccountTransactionCategoryId").HasColumnType("int").IsRequired();
-            Property(x => x.Pattern).HasColumnName(@"Pattern").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
-            Property(x => x.AccountTransactionCategoryMatchPatternMatchMethodId).HasColumnName(@"AccountTransactionCategoryMatchPatternMatchMethodId").HasColumnType("int").IsRequired();
-
-            // Foreign keys
-            HasRequired(a => a.AccountTransactionCategory).WithMany(b => b.AccountTransactionCategoryMatchPatterns).HasForeignKey(c => c.AccountTransactionCategoryId).WillCascadeOnDelete(false); // FK_AccountTransactionCategoryMatchPattern__AccountTransactionCategory
-            HasRequired(a => a.AccountTransactionCategoryMatchPatternMatchMethod).WithMany(b => b.AccountTransactionCategoryMatchPatterns).HasForeignKey(c => c.AccountTransactionCategoryMatchPatternMatchMethodId).WillCascadeOnDelete(false); // FK_AccountTransactionCategoryMatchPattern__AccountTransactionCategoryMatchPatternMatchMethod
-        }
-    }
-
-    // AccountTransactionCategoryMatchPatternMatchMethod
-    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
-    public class AccountTransactionCategoryMatchPatternMatchMethodConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<AccountTransactionCategoryMatchPatternMatchMethod>
-    {
-        public AccountTransactionCategoryMatchPatternMatchMethodConfiguration()
-            : this("dbo")
-        {
-        }
-
-        public AccountTransactionCategoryMatchPatternMatchMethodConfiguration(string schema)
-        {
-            ToTable("AccountTransactionCategoryMatchPatternMatchMethod", schema);
-            HasKey(x => x.Id);
-
-            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
-            Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
-        }
-    }
-
     // AccountTransactionStatus
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
-    public class AccountTransactionStatuConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<AccountTransactionStatu>
+    public class AccountTransactionStatusConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<AccountTransactionStatus>
     {
-        public AccountTransactionStatuConfiguration()
+        public AccountTransactionStatusConfiguration()
             : this("dbo")
         {
         }
 
-        public AccountTransactionStatuConfiguration(string schema)
+        public AccountTransactionStatusConfiguration(string schema)
         {
             ToTable("AccountTransactionStatus", schema);
             HasKey(x => x.Id);
@@ -1050,6 +987,26 @@ namespace Coin.Data
             // Foreign keys
             HasOptional(a => a.AccountTransactionType).WithMany(b => b.BankSpecificTransactionTypes).HasForeignKey(c => c.AccountTransactionTypeId).WillCascadeOnDelete(false); // FK_BankSpecificTransactionType__AccountTransactionType
             HasRequired(a => a.Bank).WithMany(b => b.BankSpecificTransactionTypes).HasForeignKey(c => c.BankId).WillCascadeOnDelete(false); // FK_BankSpecificTransactionType__Bank
+        }
+    }
+
+    // Currency
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class CurrencyConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Currency>
+    {
+        public CurrencyConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public CurrencyConfiguration(string schema)
+        {
+            ToTable("Currency", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.Code).HasColumnName(@"Code").HasColumnType("nvarchar").IsRequired().HasMaxLength(50);
+            Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
         }
     }
 

@@ -18,8 +18,15 @@
             Margin="0 8 0 8"
             DisplayMemberPath="PersonName">
         </ComboBox>
-        <TextBox x:Name="CurrencyCode" md:HintAssist.Hint="Currency Code" Margin="0 8 0 8" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
+        <ComboBox 
+            x:Name="Currencies"
+            SelectedItem="{Binding Currency}"
+            md:HintAssist.Hint="Currency" 
+            IsEditable="false" 
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+            Margin="0 8 0 8"
+            DisplayMemberPath="Name">
+        </ComboBox>
         <CheckBox x:Name="IsBankAccount">This is a bank account</CheckBox>
         <ContentControl 
             x:Name="BankAccountDetails"

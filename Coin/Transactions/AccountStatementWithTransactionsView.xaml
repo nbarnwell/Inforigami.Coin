@@ -1,26 +1,41 @@
 ﻿<UserControl x:Class="Coin.Transactions.AccountStatementWithTransactionsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Coin.Transactions"
              xmlns:cal="http://www.caliburnproject.org"
-             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel>
-        <WrapPanel DockPanel.Dock="Top">
-            <ContentControl Name="Account" cal:View.Context="Detail" Margin="8"></ContentControl>
-            <ContentControl Name="Statement" cal:View.Context="Detail" Margin="8"></ContentControl>
-        </WrapPanel>
-        <DataGrid 
-            Name="Transactions"
-            AutoGenerateColumns="False" 
-            CanUserAddRows="False"
-            CanUserDeleteRows="False"
-            CanUserResizeRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Period Start" Binding="{Binding PeriodStart, StringFormat={}{0:Y}}" />
-            </DataGrid.Columns>
-        </DataGrid>
-    </DockPanel>
+    <Grid>
+        <DockPanel>
+            <WrapPanel DockPanel.Dock="Top">
+                <ContentControl Name="Account" cal:View.Context="Detail" Margin="8" />
+                <ContentControl Name="Statement" cal:View.Context="Detail" Margin="8" />
+            </WrapPanel>
+            <DataGrid
+                ItemsSource="{Binding Transactions}"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                CanUserResizeRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat={}{0:C}}" />
+                    <DataGridTextColumn Header="Status" Binding="{Binding AccountTransactionStatusName}" />
+                    <DataGridTextColumn Header="Type" Binding="{Binding AccountTransactionTypeName}" />
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                    <DataGridTextColumn Header="Payee" Binding="{Binding Payee}" />
+                    <DataGridTextColumn Header="Recorded" Binding="{Binding RecordedDate}" />
+                    <DataGridTextColumn Header="Date/Time" Binding="{Binding TransactionTime}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        <Button x:Name="Add"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Margin="0 0 32 16">
+            <materialDesign:PackIcon Kind="Plus" />
+        </Button>
+    </Grid>
 </UserControl>

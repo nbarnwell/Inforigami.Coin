@@ -21,17 +21,23 @@ namespace Coin
 
         protected override void Configure()
         {
-            LogManager.GetLog = type => new CaliburnLog();
-
             _container = new SimpleContainer();
+
+            ConfigureCaliburn();
+            RegisterDatabase();
+            RegisterCommandHandlers();
+            RegisterViewModels();
+        }
+
+        private void ConfigureCaliburn()
+        {
+            LogManager.GetLog = type => new CaliburnLog();
 
             _container.Singleton<IWindowManager, WindowManager>();
             _container.Singleton<IEventAggregator, EventAggregator>();
             _container.Singleton<IViewModelFactory, ViewModelFactory>();
 
-            RegisterDatabase();
-            RegisterCommandHandlers();
-            RegisterViewModels();
+            ViewLocatorConfig.ConfigureViewLocator();
         }
 
         private void RegisterDatabase()

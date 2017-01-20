@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Coin.Transactions
+namespace Coin.Shared
 {
     /// <summary>
-    /// Interaction logic for AccountTransactionView.xaml
+    /// Interaction logic for MoneyView.xaml
     /// </summary>
-    public partial class AccountTransactionView : UserControl
+    public partial class MoneyView : UserControl
     {
-        public AccountTransactionView()
+        public MoneyView()
         {
             InitializeComponent();
         }

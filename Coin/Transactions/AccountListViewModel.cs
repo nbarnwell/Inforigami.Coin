@@ -31,7 +31,7 @@ namespace Coin.Transactions
         public IResult ShowAccount(Accounts.AccountViewModel account)
         {
             var vm = _viewModelFactory.Create<AccountStatementListViewModel>().ForAccountId(account.AccountId);
-            return new ShowViewModel(this, vm);
+            return new ShowViewModel(vm);
         }
 
         public void RefreshData()

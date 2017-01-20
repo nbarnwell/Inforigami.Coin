@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Caliburn.Micro;
 using Coin.Data;
@@ -46,7 +47,23 @@ namespace Coin.Transactions
                 _viewModelFactory.Create<AccountStatementWithTransactionsViewModel>()
                 .ForAccount(AccountDetails)
                 .ForStatement(statement);
-            return new ShowViewModel(this, vm);
+            return new ShowViewModel(vm);
+        }
+
+        public IEnumerable<IResult> Add()
+        {
+            var vm = _viewModelFactory.Create<AccountTransactionEditViewModel>().ForAccount(AccountDetails);
+            yield return new ShowDialog(vm);
+
+            yield return
+                new ProcessCommand(
+                    new RecordTransaction(
+                        vm.AccountTransactionType.Id,
+                        vm.Amount.AsMoney(),
+                        vm.Description,
+                        vm.Payee,
+                        vm.RecordedDate,
+                        vm.TransactionTime));
         }
 
         protected override void OnInitialize()

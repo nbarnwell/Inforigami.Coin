@@ -5,23 +5,27 @@ namespace Coin.Shared
 {
     public class ShowViewModel : IResult
     {
-        private readonly IChild _sender;
         private readonly IScreen _viewModelToShow;
 
         public event EventHandler<ResultCompletionEventArgs> Completed;
 
-        public ShowViewModel(IChild sender, IScreen viewModelToShow)
+        public ShowViewModel(IScreen viewModelToShow)
         {
-            if (sender == null) throw new ArgumentNullException(nameof(sender));
             if (viewModelToShow == null) throw new ArgumentNullException(nameof(viewModelToShow));
 
-            _sender = sender;
             _viewModelToShow = viewModelToShow;
         }
 
         public void Execute(CoroutineExecutionContext context)
         {
-            var workspace = CompositionInspector.FindWorkspace(_sender);
+            var contextTarget = context.Target as IChild;
+
+            if (contextTarget == null)
+            {
+                throw new InvalidOperationException("Unable to search for workspace when invoked from viewmodel that does not implement IChild");
+            }
+
+            var workspace = CompositionInspector.FindWorkspace(contextTarget);
             workspace.ActivateItem(_viewModelToShow);
 
             Completed?.Invoke(this, new ResultCompletionEventArgs());

@@ -1,13 +1,17 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Caliburn.Micro;
 using Coin.Accounts;
 using Coin.Data;
 using Coin.Infrastructure;
+using Coin.Shared;
 
 namespace Coin.Transactions
 {
     public class AccountStatementWithTransactionsViewModel : Screen
     {
+        private readonly IViewModelFactory _viewModelFactory;
         private AccountStatementViewModel _statement;
         private AccountViewModel _account;
 
@@ -33,11 +37,14 @@ namespace Coin.Transactions
             }
         }
 
-        public BindableCollection<AccountTransactionViewModel> Transactions { get; }
+        public BindableCollection<AccountTransactionEditViewModel> Transactions { get; }
 
-        public AccountStatementWithTransactionsViewModel()
+        public AccountStatementWithTransactionsViewModel(IViewModelFactory viewModelFactory)
         {
-            Transactions = new BindableCollection<AccountTransactionViewModel>();
+            if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
+            _viewModelFactory = viewModelFactory;
+
+            Transactions = new BindableCollection<AccountTransactionEditViewModel>();
         }
 
         public AccountStatementWithTransactionsViewModel ForAccount(AccountViewModel account)
@@ -52,6 +59,22 @@ namespace Coin.Transactions
             return this;
         }
 
+        public IEnumerable<IResult> Add()
+        {
+            var vm = _viewModelFactory.Create<AccountTransactionEditViewModel>().ForAccount(Account);
+            yield return new ShowDialog(vm);
+
+            yield return 
+                new ProcessCommand(
+                    new RecordTransaction(
+                        vm.AccountTransactionType.Id,
+                        vm.Amount.AsMoney(),
+                        vm.Description,
+                        vm.Payee,
+                        vm.RecordedDate,
+                        vm.TransactionTime));
+        }
+
         protected override void OnInitialize()
         {
             using (var db = new Database())
@@ -59,7 +82,7 @@ namespace Coin.Transactions
                 Transactions.AddRange(
                     db.AccountTransactions
                       .Where(x => x.AccountStatementId == Statement.Id)
-                      .Select(AccountTransactionViewModel.CreateFrom));
+                      .Select(AccountTransactionEditViewModel.CreateFrom));
             }
         }
     }

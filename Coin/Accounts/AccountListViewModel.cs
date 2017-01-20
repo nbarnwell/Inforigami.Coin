@@ -56,9 +56,9 @@ namespace Coin.Accounts
                     var entity =
                         new Data.Account
                         {
-                            Name         = accountViewModel.AccountName,
-                            PersonId     = accountViewModel.AccountHolder.PersonId,
-                            CurrencyCode = accountViewModel.CurrencyCode
+                            Name       = accountViewModel.AccountName,
+                            PersonId   = accountViewModel.AccountHolder.PersonId,
+                            CurrencyId = accountViewModel.Currency.Id
                         };
 
                     // TODO: If it's a bank account, add the bank account details
@@ -78,6 +78,8 @@ namespace Coin.Accounts
                     db.Accounts.Add(entity);
 
                     db.SaveChanges();
+
+                    db.Entry(entity).Reload();
 
                     _events.PublishOnUIThread(new EntityCreated<Data.Account>(entity));
                 }

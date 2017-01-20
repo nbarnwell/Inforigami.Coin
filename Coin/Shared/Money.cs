@@ -6,45 +6,45 @@ using System.Threading.Tasks;
 
 namespace Coin.Shared
 {
-    public class Currency
+    public class Money
     {
-        public decimal Amount { get; private set; }
-        public string CurrencyCode { get; private set; }
+        public decimal Amount { get; }
+        public string CurrencyCode { get; }
 
-        public Currency(decimal amount, string currencyCode)
+        public Money(decimal amount, string currencyCode)
         {
             Amount = amount;
             CurrencyCode = currencyCode;
         }
 
-        public static Currency operator +(Currency a, Currency b)
+        public static Money operator +(Money a, Money b)
         {
             if (a.CurrencyCode.Equals(b.CurrencyCode, StringComparison.InvariantCultureIgnoreCase))
             {
-                return new Currency(a.Amount + b.Amount, a.CurrencyCode);
+                return new Money(a.Amount + b.Amount, a.CurrencyCode);
             }
 
             throw new InvalidOperationException("Cannot add two currency values with different currency codes");
         }
 
-        public static Currency operator -(Currency a, Currency b)
+        public static Money operator -(Money a, Money b)
         {
             if (a.CurrencyCode.Equals(b.CurrencyCode, StringComparison.InvariantCultureIgnoreCase))
             {
-                return new Currency(a.Amount - b.Amount, a.CurrencyCode);
+                return new Money(a.Amount - b.Amount, a.CurrencyCode);
             }
 
             throw new InvalidOperationException("Cannot subtract two currency values with different currency codes");
         }
 
-        public static Currency operator *(Currency a, decimal multiplier)
+        public static Money operator *(Money a, decimal multiplier)
         {
-            return new Currency(a.Amount * multiplier, a.CurrencyCode);
+            return new Money(a.Amount * multiplier, a.CurrencyCode);
         }
 
-        public static Currency operator /(Currency a, decimal divisor)
+        public static Money operator /(Money a, decimal divisor)
         {
-            return new Currency(a.Amount / divisor, a.CurrencyCode);
+            return new Money(a.Amount / divisor, a.CurrencyCode);
         }
 
         public override bool Equals(object obj)
@@ -52,7 +52,7 @@ namespace Coin.Shared
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Currency) obj);
+            return Equals((Money) obj);
         }
 
         public override int GetHashCode()
@@ -68,7 +68,7 @@ namespace Coin.Shared
             return $"{Amount:F2} {CurrencyCode}";
         }
 
-        protected bool Equals(Currency other)
+        protected bool Equals(Money other)
         {
             return Amount == other.Amount && string.Equals(CurrencyCode, other.CurrencyCode);
         }

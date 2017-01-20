@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="be176fb7-9722-4481-bbe9-32c9168df132" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coin/Infrastructure/ViewLocatorConfig.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditView.xaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coin/Transactions/AccountTransactionStatusViewModel.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coin/Transactions/AccountTransactionTypeViewModel.cs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Coin/Transactions/AccountTransactionView.xaml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Coin/Transactions/AccountTransactionView.xaml.cs" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Coin/Transactions/AccountTransactionViewModel.cs" afterPath="$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditViewModel.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coin/AppBootstrapper.cs" afterPath="$PROJECT_DIR$/Coin/AppBootstrapper.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coin/Coin.csproj" afterPath="$PROJECT_DIR$/Coin/Coin.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coin/Shared/ShowViewModel.cs" afterPath="$PROJECT_DIR$/Coin/Shared/ShowViewModel.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coin/Transactions/AccountListViewModel.cs" afterPath="$PROJECT_DIR$/Coin/Transactions/AccountListViewModel.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coin/Transactions/AccountStatementListViewModel.cs" afterPath="$PROJECT_DIR$/Coin/Transactions/AccountStatementListViewModel.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coin/Transactions/AccountStatementViewModel.cs" afterPath="$PROJECT_DIR$/Coin/Transactions/AccountStatementViewModel.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsView.xaml" afterPath="$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsView.xaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsViewModel.cs" afterPath="$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsViewModel.cs" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+      <file leaf-file-name="AccountTransactionEditView.xaml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditView.xaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountTransactionStatusViewModel.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionStatusViewModel.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1484436873412" expanded="true" signature="6:38" ph="..." />
+                <marker date="1484436873412" expanded="true" signature="67:944" ph="{...}" />
+                <marker date="1484436873412" expanded="true" signature="142:942" ph="{...}" />
+                <marker date="1484436873412" expanded="true" signature="226:443" ph="{...}" />
+                <marker date="1484436873412" expanded="true" signature="284:433" ph="{...}" />
+                <marker date="1484436873412" expanded="true" signature="471:696" ph="{...}" />
+                <marker date="1484436873412" expanded="true" signature="531:686" ph="{...}" />
+                <marker date="1484436873412" expanded="true" signature="796:936" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountTransactionEditView.xaml.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditView.xaml.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1484531849705" expanded="true" signature="6:381" ph="..." />
+                <marker date="1484531849705" expanded="true" signature="410:675" ph="{...}" />
+                <marker date="1484531849705" expanded="true" signature="417:496" ph="/// Interaction logic for AccountView.xaml ... " />
+                <marker date="1484531849705" expanded="true" signature="562:673" ph="{...}" />
+                <marker date="1484531849705" expanded="true" signature="612:667" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountStatementWithTransactionsView.xaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsView.xaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1484526663736" expanded="true" signature="0:2315" ph="&lt;&lt;Grid&gt;&#10;        &lt;DockPanel&gt;&#10;            &lt;WrapPanel DockPanel.Dock=&quot;Top&quot;&gt;&#10;                &lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;                &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;            &lt;/WrapPanel&gt;&#10;            &lt;DataGrid&#10;                ItemsSource=&quot;{Binding Transactions}&quot;&#10;                AutoGenerateColumns=&quot;False&quot;&#10;                CanUserAddRows=&quot;False&quot;&#10;                CanUserDeleteRows=&quot;False&quot;&#10;                CanUserResizeRows=&quot;False&quot;&gt;&#10;                &lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;&#10;            &lt;/DataGrid&gt;&#10;        &lt;/DockPanel&gt;&#10;        &lt;Button x:Name=&quot;Add&quot;&#10;                Style=&quot;{StaticResource MaterialDesignFloatingActionMiniAccentButton}&quot;&#10;                HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Bottom&quot;&#10;                Margin=&quot;0 0 32 16&quot;&gt;&#10;            &lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;&#10;        &lt;/Button&gt;&#10;    &lt;/Grid&gt;.../&gt;" />
+                <marker date="1484526663736" expanded="true" signature="673:2300" ph="&lt;&lt;DockPanel&gt;&#10;            &lt;WrapPanel DockPanel.Dock=&quot;Top&quot;&gt;&#10;                &lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;                &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;            &lt;/WrapPanel&gt;&#10;            &lt;DataGrid&#10;                ItemsSource=&quot;{Binding Transactions}&quot;&#10;                AutoGenerateColumns=&quot;False&quot;&#10;                CanUserAddRows=&quot;False&quot;&#10;                CanUserDeleteRows=&quot;False&quot;&#10;                CanUserResizeRows=&quot;False&quot;&gt;&#10;                &lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;&#10;            &lt;/DataGrid&gt;&#10;        &lt;/DockPanel&gt; &lt;Button x:Name=&quot;Add&quot;&#10;                Style=&quot;{StaticResource MaterialDesignFloatingActionMiniAccentButton}&quot;&#10;                HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Bottom&quot;&#10;                Margin=&quot;0 0 32 16&quot;&gt;&#10;            &lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;&#10;        &lt;/Button&gt;.../&gt;" />
+                <marker date="1484526663736" expanded="true" signature="688:1996" ph="&lt;&lt;WrapPanel DockPanel.Dock=&quot;Top&quot;&gt;&#10;                &lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;                &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;            &lt;/WrapPanel&gt; &lt;DataGrid&#10;                ItemsSource=&quot;{Binding Transactions}&quot;&#10;                AutoGenerateColumns=&quot;False&quot;&#10;                CanUserAddRows=&quot;False&quot;&#10;                CanUserDeleteRows=&quot;False&quot;&#10;                CanUserResizeRows=&quot;False&quot;&gt;&#10;                &lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;&#10;            &lt;/DataGrid&gt;.../&gt;" />
+                <marker date="1484526663736" expanded="true" signature="712:945" ph="&lt;&lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt; &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;.../&gt;" />
+                <marker date="1484526663736" expanded="true" signature="958:1975" ph="&lt;&lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;.../&gt;" />
+                <marker date="1484526663736" expanded="true" signature="1205:1951" ph="&lt;&lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;.../&gt;" />
+                <marker date="1484526663736" expanded="true" signature="2005:2288" ph="&lt;&lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;.../&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Coin/Accounts/AccountListView.xaml" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountTransactionViewModel.cs" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountTransactionStatusViewModel.cs" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountTransactionTypeViewModel.cs" />
+        <option value="$PROJECT_DIR$/Coin/AppBootstrapper.cs" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountTransactionView.xaml" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsView.xaml" />
+        <option value="$PROJECT_DIR$/Coin/Shared/ShowViewModel.cs" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountListViewModel.cs" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountStatementListViewModel.cs" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsViewModel.cs" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditViewModel.cs" />
+        <option value="$PROJECT_DIR$/Coin/Infrastructure/ViewLocatorConfig.cs" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditView.xaml" />
+        <option value="$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditView.xaml.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-13" />
+    <option name="y" value="-13" />
+    <option name="width" value="2906" />
+    <option name="height" value="1746" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>General</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transactions" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transactions" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AccountStatement" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Infrastructure" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coin" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accounts" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <option name="show-all-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
+    <property name="SearchEverywhereHistoryKey" value="ATEVM&#9;FILE&#9;file://C:/Users/Neil/Documents/GitHub/Inforigami.Coin/Coin/Transactions/AccountStatementListViewModel.cs&#10;SHow&#9;FILE&#9;file://C:/Users/Neil/Documents/GitHub/Inforigami.Coin/Coin/Shared/ShowDialog.cs&#10;showvi&#9;null&#9;null&#10;add&#9;null&#9;null" />
+  </component>
+  <component name="RunManager" selected=".NET Project.Default">
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Coin/Coin.csproj" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value="Default" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Coin/bin/Debug/Coin.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Coin/bin/Debug" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be176fb7-9722-4481-bbe9-32c9168df132" name="Default" comment="" />
+      <created>1484007760193</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1484007760193</updated>
+      <workItem from="1484007763481" duration="606000" />
+      <workItem from="1484264809821" duration="15213000" />
+      <workItem from="1484508341191" duration="6401000" />
+      <workItem from="1484524467490" duration="1438000" />
+      <workItem from="1484526345623" duration="5167000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="28825000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-13" y="-13" width="2906" height="1746" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors in solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296417" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296417" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UnitTesting" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Change Signature" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22916667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296417" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4320">
+          <caret line="135" column="42" lean-forward="false" selection-start-line="135" selection-start-column="42" selection-end-line="135" selection-end-column="42" />
+          <folding>
+            <marker date="1484529177187" expanded="true" signature="6:71" ph="..." />
+            <marker date="1484529177187" expanded="true" signature="100:5447" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="160:5445" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="558:775" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="616:765" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="823:1097" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="894:1087" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1135:1397" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1203:1387" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1472:1776" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1552:1766" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1926:2159" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1988:2149" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2188:2417" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2249:2407" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2452:2705" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2519:2695" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2776:3072" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2854:3062" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3223:3442" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3490:4610" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3544:4558" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3836:4058" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4329:4544" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4700:5439" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4780:5404" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Accounts/BankAccountView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <marker date="1483319249356" expanded="true" signature="0:1151" ph="&lt;&lt;StackPanel&gt;&#10;        &lt;ComboBox &#10;            x:Name=&quot;Banks&quot;&#10;            md:HintAssist.Hint=&quot;Bank&quot; &#10;            IsEditable=&quot;false&quot; &#10;            Style=&quot;{StaticResource MaterialDesignFloatingHintComboBox}&quot;&#10;            Margin=&quot;0 8 0 8&quot;&#10;            DisplayMemberPath=&quot;BankName&quot;&gt;&#10;        &lt;/ComboBox&gt;&#10;        &lt;TextBox x:Name=&quot;CreditLimit&quot; md:HintAssist.Hint=&quot;Credit Limit&quot; Margin=&quot;0 8 0 8&quot; Style=&quot;{StaticResource MaterialDesignFloatingHintTextBox}&quot; /&gt;&#10;        &lt;ContentControl x:Name=&quot;AccountNumber&quot; /&gt;&#10;        &lt;ContentControl x:Name=&quot;SortCode&quot; /&gt;&#10;    &lt;/StackPanel&gt;.../&gt;" />
+            <marker date="1483319249356" expanded="true" signature="579:1135" ph="&lt;&lt;ComboBox &#10;            x:Name=&quot;Banks&quot;&#10;            md:HintAssist.Hint=&quot;Bank&quot; &#10;            IsEditable=&quot;false&quot; &#10;            Style=&quot;{StaticResource MaterialDesignFloatingHintComboBox}&quot;&#10;            Margin=&quot;0 8 0 8&quot;&#10;            DisplayMemberPath=&quot;BankName&quot;&gt;&#10;        &lt;/ComboBox&gt; &lt;TextBox x:Name=&quot;CreditLimit&quot; md:HintAssist.Hint=&quot;Credit Limit&quot; Margin=&quot;0 8 0 8&quot; Style=&quot;{StaticResource MaterialDesignFloatingHintTextBox}&quot; /&gt; &lt;ContentControl x:Name=&quot;AccountNumber&quot; /&gt; &lt;ContentControl x:Name=&quot;SortCode&quot; /&gt;.../&gt;" />
+            <marker date="1483319249356" expanded="true" signature="600:871" ph="&lt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="15" column="68" lean-forward="false" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementListView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1483925922282" expanded="true" signature="0:1156" ph="&lt;&lt;DockPanel&gt;&#10;        &lt;ContentControl x:Name=&quot;AccountDetails&quot; DockPanel.Dock=&quot;Top&quot; cal:View.Context=&quot;Detail&quot;&gt;&lt;/ContentControl&gt;&#10;        &lt;ItemsControl x:Name=&quot;Statements&quot;&gt;&#10;            &lt;ItemsControl.ItemTemplate&gt;&#10;                &lt;DataTemplate&gt;&#10;                    &lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;&#10;                &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;&#10;        &lt;/ItemsControl&gt;&#10;    &lt;/DockPanel&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="578:1141" ph="&lt;&lt;ContentControl x:Name=&quot;AccountDetails&quot; DockPanel.Dock=&quot;Top&quot; cal:View.Context=&quot;Detail&quot;&gt;&lt;/ContentControl&gt; &lt;ItemsControl x:Name=&quot;Statements&quot;&gt;&#10;            &lt;ItemsControl.ItemTemplate&gt;&#10;                &lt;DataTemplate&gt;&#10;                    &lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;&#10;                &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;&#10;        &lt;/ItemsControl&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="711:1124" ph="&lt;&lt;ItemsControl.ItemTemplate&gt;&#10;                &lt;DataTemplate&gt;&#10;                    &lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;&#10;                &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="758:1100" ph="&lt;&lt;DataTemplate&gt;&#10;                    &lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;&#10;                &lt;/DataTemplate&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="802:1059" ph="&lt;&lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="837:1027" ph="&lt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1484435763939" expanded="true" signature="6:52" ph="..." />
+            <marker date="1484435763939" expanded="true" signature="135:1029" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="229:487" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="296:477" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="657:763" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="850:1023" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="922:1012" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementListViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1484529609439" expanded="true" signature="6:117" ph="..." />
+            <marker date="1484529609439" expanded="true" signature="146:2293" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="204:2291" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="420:691" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="490:681" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="855:1105" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="1179:1260" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="1335:1591" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="1639:2285" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="1693:2275" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+          <folding>
+            <marker date="1484527467661" expanded="true" signature="6:138" ph="..." />
+            <marker date="1484527467661" expanded="true" signature="167:2339" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="237:2337" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="454:705" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="519:695" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="746:989" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="809:979" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="1173:1431" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="1526:1602" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="1710:1790" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="1820:1961" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="2009:2331" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="2063:2321" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1484526663736" expanded="true" signature="0:2315" ph="&lt;&lt;Grid&gt;&#10;        &lt;DockPanel&gt;&#10;            &lt;WrapPanel DockPanel.Dock=&quot;Top&quot;&gt;&#10;                &lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;                &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;            &lt;/WrapPanel&gt;&#10;            &lt;DataGrid&#10;                ItemsSource=&quot;{Binding Transactions}&quot;&#10;                AutoGenerateColumns=&quot;False&quot;&#10;                CanUserAddRows=&quot;False&quot;&#10;                CanUserDeleteRows=&quot;False&quot;&#10;                CanUserResizeRows=&quot;False&quot;&gt;&#10;                &lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;&#10;            &lt;/DataGrid&gt;&#10;        &lt;/DockPanel&gt;&#10;        &lt;Button x:Name=&quot;Add&quot;&#10;                Style=&quot;{StaticResource MaterialDesignFloatingActionMiniAccentButton}&quot;&#10;                HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Bottom&quot;&#10;                Margin=&quot;0 0 32 16&quot;&gt;&#10;            &lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;&#10;        &lt;/Button&gt;&#10;    &lt;/Grid&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="673:2300" ph="&lt;&lt;DockPanel&gt;&#10;            &lt;WrapPanel DockPanel.Dock=&quot;Top&quot;&gt;&#10;                &lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;                &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;            &lt;/WrapPanel&gt;&#10;            &lt;DataGrid&#10;                ItemsSource=&quot;{Binding Transactions}&quot;&#10;                AutoGenerateColumns=&quot;False&quot;&#10;                CanUserAddRows=&quot;False&quot;&#10;                CanUserDeleteRows=&quot;False&quot;&#10;                CanUserResizeRows=&quot;False&quot;&gt;&#10;                &lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;&#10;            &lt;/DataGrid&gt;&#10;        &lt;/DockPanel&gt; &lt;Button x:Name=&quot;Add&quot;&#10;                Style=&quot;{StaticResource MaterialDesignFloatingActionMiniAccentButton}&quot;&#10;                HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Bottom&quot;&#10;                Margin=&quot;0 0 32 16&quot;&gt;&#10;            &lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;&#10;        &lt;/Button&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="688:1996" ph="&lt;&lt;WrapPanel DockPanel.Dock=&quot;Top&quot;&gt;&#10;                &lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;                &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;            &lt;/WrapPanel&gt; &lt;DataGrid&#10;                ItemsSource=&quot;{Binding Transactions}&quot;&#10;                AutoGenerateColumns=&quot;False&quot;&#10;                CanUserAddRows=&quot;False&quot;&#10;                CanUserDeleteRows=&quot;False&quot;&#10;                CanUserResizeRows=&quot;False&quot;&gt;&#10;                &lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;&#10;            &lt;/DataGrid&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="712:945" ph="&lt;&lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt; &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="958:1975" ph="&lt;&lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="1205:1951" ph="&lt;&lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="2005:2288" ph="&lt;&lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4320">
+          <caret line="135" column="42" lean-forward="false" selection-start-line="135" selection-start-column="42" selection-end-line="135" selection-end-column="42" />
+          <folding>
+            <marker date="1484529177187" expanded="true" signature="6:71" ph="..." />
+            <marker date="1484529177187" expanded="true" signature="100:5447" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="160:5445" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="558:775" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="616:765" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="823:1097" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="894:1087" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1135:1397" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1203:1387" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1472:1776" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1552:1766" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1926:2159" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1988:2149" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2188:2417" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2249:2407" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2452:2705" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2519:2695" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2776:3072" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2854:3062" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3223:3442" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3490:4610" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3544:4558" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3836:4058" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4329:4544" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4700:5439" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4780:5404" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Accounts/BankAccountView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <marker date="1483319249356" expanded="true" signature="0:1151" ph="&lt;&lt;StackPanel&gt;&#10;        &lt;ComboBox &#10;            x:Name=&quot;Banks&quot;&#10;            md:HintAssist.Hint=&quot;Bank&quot; &#10;            IsEditable=&quot;false&quot; &#10;            Style=&quot;{StaticResource MaterialDesignFloatingHintComboBox}&quot;&#10;            Margin=&quot;0 8 0 8&quot;&#10;            DisplayMemberPath=&quot;BankName&quot;&gt;&#10;        &lt;/ComboBox&gt;&#10;        &lt;TextBox x:Name=&quot;CreditLimit&quot; md:HintAssist.Hint=&quot;Credit Limit&quot; Margin=&quot;0 8 0 8&quot; Style=&quot;{StaticResource MaterialDesignFloatingHintTextBox}&quot; /&gt;&#10;        &lt;ContentControl x:Name=&quot;AccountNumber&quot; /&gt;&#10;        &lt;ContentControl x:Name=&quot;SortCode&quot; /&gt;&#10;    &lt;/StackPanel&gt;.../&gt;" />
+            <marker date="1483319249356" expanded="true" signature="579:1135" ph="&lt;&lt;ComboBox &#10;            x:Name=&quot;Banks&quot;&#10;            md:HintAssist.Hint=&quot;Bank&quot; &#10;            IsEditable=&quot;false&quot; &#10;            Style=&quot;{StaticResource MaterialDesignFloatingHintComboBox}&quot;&#10;            Margin=&quot;0 8 0 8&quot;&#10;            DisplayMemberPath=&quot;BankName&quot;&gt;&#10;        &lt;/ComboBox&gt; &lt;TextBox x:Name=&quot;CreditLimit&quot; md:HintAssist.Hint=&quot;Credit Limit&quot; Margin=&quot;0 8 0 8&quot; Style=&quot;{StaticResource MaterialDesignFloatingHintTextBox}&quot; /&gt; &lt;ContentControl x:Name=&quot;AccountNumber&quot; /&gt; &lt;ContentControl x:Name=&quot;SortCode&quot; /&gt;.../&gt;" />
+            <marker date="1483319249356" expanded="true" signature="600:871" ph="&lt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3840">
+          <caret line="120" column="51" lean-forward="false" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="51" />
+          <folding>
+            <marker date="1484529177187" expanded="true" signature="6:71" ph="..." />
+            <marker date="1484529177187" expanded="true" signature="100:5447" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="160:5445" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="558:775" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="616:765" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="823:1097" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="894:1087" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1135:1397" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1203:1387" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1472:1776" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1552:1766" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1926:2159" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1988:2149" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2188:2417" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2249:2407" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2452:2705" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2519:2695" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2776:3072" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2854:3062" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3223:3442" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3490:4610" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3544:4558" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3836:4058" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4329:4544" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4700:5439" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4780:5404" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Infrastructure/ListExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Infrastructure/ViewModelFactory.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Infrastructure/ViewLocatorConfig.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/AppBootstrapper.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/App.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="5" column="139" lean-forward="false" selection-start-line="5" selection-start-column="139" selection-end-line="5" selection-end-column="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountListView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Accounts/AccountListView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Data/Database.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="663" column="0" lean-forward="false" selection-start-line="663" selection-start-column="0" selection-end-line="663" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionTypeViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1120">
+          <caret line="35" column="21" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/AppBootstrapper.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Infrastructure/ViewModelFactory.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Infrastructure/ListExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/App.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="12" column="96" lean-forward="false" selection-start-line="12" selection-start-column="96" selection-end-line="12" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountListView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionView.xaml" />
+    <entry file="file://$PROJECT_DIR$/Coin/Accounts/AccountListView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <marker date="1483571963522" expanded="true" signature="0:1303" ph="&lt;&lt;Grid&gt;&#10;&#10;        &lt;ListBox x:Name=&quot;Accounts&quot;&gt;&#10;            &lt;ItemsControl.ItemTemplate&gt;&#10;                &lt;DataTemplate&gt;&#10;                    &lt;ContentControl cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&lt;/ContentControl&gt;&#10;                &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;&#10;        &lt;/ListBox&gt;&#10;&#10;        &lt;Button x:Name=&quot;AddAccount&quot;&#10;                Style=&quot;{StaticResource MaterialDesignFloatingActionMiniAccentButton}&quot; &#10;                HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Bottom&quot;&#10;                Margin=&quot;0 0 32 16&quot;&gt;&#10;            &lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;&#10;        &lt;/Button&gt;&#10;&#10;    &lt;/Grid&gt;.../&gt;" />
+            <marker date="1483571963522" expanded="true" signature="647:1288" ph="&lt;&lt;ListBox x:Name=&quot;Accounts&quot;&gt;&#10;            &lt;ItemsControl.ItemTemplate&gt;&#10;                &lt;DataTemplate&gt;&#10;                    &lt;ContentControl cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&lt;/ContentControl&gt;&#10;                &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;&#10;        &lt;/ListBox&gt; &lt;Button x:Name=&quot;AddAccount&quot;&#10;                Style=&quot;{StaticResource MaterialDesignFloatingActionMiniAccentButton}&quot; &#10;                HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Bottom&quot;&#10;                Margin=&quot;0 0 32 16&quot;&gt;&#10;            &lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;&#10;        &lt;/Button&gt;.../&gt;" />
+            <marker date="1483571963522" expanded="true" signature="663:974" ph="&lt;&lt;ItemsControl.ItemTemplate&gt;&#10;                &lt;DataTemplate&gt;&#10;                    &lt;ContentControl cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&lt;/ContentControl&gt;&#10;                &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;.../&gt;" />
+            <marker date="1483571963522" expanded="true" signature="703:955" ph="&lt;&lt;DataTemplate&gt;&#10;                    &lt;ContentControl cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&lt;/ContentControl&gt;&#10;                &lt;/DataTemplate&gt;.../&gt;" />
+            <marker date="1483571963522" expanded="true" signature="747:914" ph="&lt;&lt;ContentControl cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&lt;/ContentControl&gt;.../&gt;" />
+            <marker date="1483571963522" expanded="true" signature="984:1275" ph="&lt;&lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatement/ListItem.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1483927149669" expanded="true" signature="0:704" ph="&lt;&lt;TextBlock x:Name=&quot;PeriodStart&quot; Text=&quot;{Binding PeriodStart, StringFormat={}{0:Y}}&quot; Style=&quot;{StaticResource MaterialDesignBody2TextBlock}&quot;&gt;&lt;/TextBlock&gt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1484435763939" expanded="true" signature="6:52" ph="..." />
+            <marker date="1484435763939" expanded="true" signature="135:1029" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="229:487" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="296:477" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="657:763" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="850:1023" ph="{...}" />
+            <marker date="1484435763939" expanded="true" signature="922:1012" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementListView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1483925922282" expanded="true" signature="0:1156" ph="&lt;&lt;DockPanel&gt;&#10;        &lt;ContentControl x:Name=&quot;AccountDetails&quot; DockPanel.Dock=&quot;Top&quot; cal:View.Context=&quot;Detail&quot;&gt;&lt;/ContentControl&gt;&#10;        &lt;ItemsControl x:Name=&quot;Statements&quot;&gt;&#10;            &lt;ItemsControl.ItemTemplate&gt;&#10;                &lt;DataTemplate&gt;&#10;                    &lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;&#10;                &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;&#10;        &lt;/ItemsControl&gt;&#10;    &lt;/DockPanel&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="578:1141" ph="&lt;&lt;ContentControl x:Name=&quot;AccountDetails&quot; DockPanel.Dock=&quot;Top&quot; cal:View.Context=&quot;Detail&quot;&gt;&lt;/ContentControl&gt; &lt;ItemsControl x:Name=&quot;Statements&quot;&gt;&#10;            &lt;ItemsControl.ItemTemplate&gt;&#10;                &lt;DataTemplate&gt;&#10;                    &lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;&#10;                &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;&#10;        &lt;/ItemsControl&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="711:1124" ph="&lt;&lt;ItemsControl.ItemTemplate&gt;&#10;                &lt;DataTemplate&gt;&#10;                    &lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;&#10;                &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="758:1100" ph="&lt;&lt;DataTemplate&gt;&#10;                    &lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;&#10;                &lt;/DataTemplate&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="802:1059" ph="&lt;&lt;Button Style=&quot;{StaticResource FlatButton}&quot; cal:Message.Attach=&quot;ShowStatement($dataContext)&quot; cal:View.Model=&quot;{Binding}&quot; cal:View.Context=&quot;ListItem&quot; Margin=&quot;16&quot;&gt;&#10;                    &lt;/Button&gt;.../&gt;" />
+            <marker date="1483925922282" expanded="true" signature="837:1027" ph="&lt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Accounts/BankAccountView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <marker date="1483319249356" expanded="true" signature="0:1151" ph="&lt;&lt;StackPanel&gt;&#10;        &lt;ComboBox &#10;            x:Name=&quot;Banks&quot;&#10;            md:HintAssist.Hint=&quot;Bank&quot; &#10;            IsEditable=&quot;false&quot; &#10;            Style=&quot;{StaticResource MaterialDesignFloatingHintComboBox}&quot;&#10;            Margin=&quot;0 8 0 8&quot;&#10;            DisplayMemberPath=&quot;BankName&quot;&gt;&#10;        &lt;/ComboBox&gt;&#10;        &lt;TextBox x:Name=&quot;CreditLimit&quot; md:HintAssist.Hint=&quot;Credit Limit&quot; Margin=&quot;0 8 0 8&quot; Style=&quot;{StaticResource MaterialDesignFloatingHintTextBox}&quot; /&gt;&#10;        &lt;ContentControl x:Name=&quot;AccountNumber&quot; /&gt;&#10;        &lt;ContentControl x:Name=&quot;SortCode&quot; /&gt;&#10;    &lt;/StackPanel&gt;.../&gt;" />
+            <marker date="1483319249356" expanded="true" signature="579:1135" ph="&lt;&lt;ComboBox &#10;            x:Name=&quot;Banks&quot;&#10;            md:HintAssist.Hint=&quot;Bank&quot; &#10;            IsEditable=&quot;false&quot; &#10;            Style=&quot;{StaticResource MaterialDesignFloatingHintComboBox}&quot;&#10;            Margin=&quot;0 8 0 8&quot;&#10;            DisplayMemberPath=&quot;BankName&quot;&gt;&#10;        &lt;/ComboBox&gt; &lt;TextBox x:Name=&quot;CreditLimit&quot; md:HintAssist.Hint=&quot;Credit Limit&quot; Margin=&quot;0 8 0 8&quot; Style=&quot;{StaticResource MaterialDesignFloatingHintTextBox}&quot; /&gt; &lt;ContentControl x:Name=&quot;AccountNumber&quot; /&gt; &lt;ContentControl x:Name=&quot;SortCode&quot; /&gt;.../&gt;" />
+            <marker date="1483319249356" expanded="true" signature="600:871" ph="&lt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatement/ListItem.xaml.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1483924965064" expanded="true" signature="6:381" ph="..." />
+            <marker date="1483924965064" expanded="true" signature="427:653" ph="{...}" />
+            <marker date="1483924965064" expanded="true" signature="434:510" ph="/// Interaction logic for ListItem.xaml ... " />
+            <marker date="1483924965064" expanded="true" signature="558:651" ph="{...}" />
+            <marker date="1483924965064" expanded="true" signature="590:645" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Infrastructure/CaliburnLog.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <marker date="1483359221771" expanded="true" signature="6:139" ph="..." />
+            <marker date="1483359221771" expanded="true" signature="170:1868" ph="{...}" />
+            <marker date="1483359221771" expanded="true" signature="208:1866" ph="{...}" />
+            <marker date="1483359221771" expanded="true" signature="276:371" ph="{...}" />
+            <marker date="1483359221771" expanded="true" signature="434:529" ph="{...}" />
+            <marker date="1483359221771" expanded="true" signature="577:720" ph="{...}" />
+            <marker date="1483359221771" expanded="true" signature="784:1031" ph="{...}" />
+            <marker date="1483359221771" expanded="true" signature="898:982" ph="{...}" />
+            <marker date="1483359221771" expanded="true" signature="1085:1538" ph="{...}" />
+            <marker date="1483359221771" expanded="true" signature="1144:1228" ph="{...}" />
+            <marker date="1483359221771" expanded="true" signature="1613:1860" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Shared/CompositionInspector.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding>
+            <marker date="1483567424205" expanded="true" signature="6:35" ph="..." />
+            <marker date="1483567424205" expanded="true" signature="58:544" ph="{...}" />
+            <marker date="1483567424205" expanded="true" signature="105:542" ph="{...}" />
+            <marker date="1483567424205" expanded="true" signature="184:536" ph="{...}" />
+            <marker date="1483567424205" expanded="true" signature="276:372" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="42" column="99" lean-forward="false" selection-start-line="42" selection-start-column="99" selection-end-line="42" selection-end-column="99" />
+          <folding>
+            <marker date="1484527467661" expanded="true" signature="6:138" ph="..." />
+            <marker date="1484527467661" expanded="true" signature="167:2339" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="237:2337" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="454:705" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="519:695" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="746:989" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="809:979" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="1173:1431" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="1526:1602" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="1710:1790" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="1820:1961" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="2009:2331" ph="{...}" />
+            <marker date="1484527467661" expanded="true" signature="2063:2321" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Shared/ShowDialog.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="832">
+          <caret line="36" column="33" lean-forward="false" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+          <folding>
+            <marker date="1483567958870" expanded="true" signature="6:35" ph="..." />
+            <marker date="1483567958870" expanded="true" signature="58:2022" ph="{...}" />
+            <marker date="1483567958870" expanded="true" signature="105:2020" ph="{...}" />
+            <marker date="1483567958870" expanded="true" signature="340:510" ph="{...}" />
+            <marker date="1483567958870" expanded="true" signature="574:796" ph="{...}" />
+            <marker date="1483567958870" expanded="true" signature="885:1405" ph="{...}" />
+            <marker date="1483567958870" expanded="true" signature="924:1395" ph="{...}" />
+            <marker date="1483567958870" expanded="true" signature="1304:1379" ph="{...}" />
+            <marker date="1483567958870" expanded="true" signature="1478:2014" ph="{...}" />
+            <marker date="1483567958870" expanded="true" signature="1566:1915" ph="{...}" />
+            <marker date="1483567958870" expanded="true" signature="1770:1860" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountListViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="33" column="37" lean-forward="false" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <marker date="1484529609505" expanded="true" signature="6:117" ph="..." />
+            <marker date="1484529609505" expanded="true" signature="146:1790" ph="{...}" />
+            <marker date="1484529609505" expanded="true" signature="195:1788" ph="{...}" />
+            <marker date="1484529609505" expanded="true" signature="485:733" ph="{...}" />
+            <marker date="1484529609505" expanded="true" signature="781:828" ph="{...}" />
+            <marker date="1484529609505" expanded="true" signature="899:1073" ph="{...}" />
+            <marker date="1484529609505" expanded="true" signature="1108:1781" ph="{...}" />
+            <marker date="1484529609505" expanded="true" signature="1193:1771" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Shared/ShowViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="24" column="141" lean-forward="false" selection-start-line="24" selection-start-column="141" selection-end-line="24" selection-end-column="141" />
+          <folding>
+            <marker date="1484529609487" expanded="true" signature="6:35" ph="..." />
+            <marker date="1484529609487" expanded="true" signature="58:1023" ph="{...}" />
+            <marker date="1484529609487" expanded="true" signature="101:1021" ph="{...}" />
+            <marker date="1484529609487" expanded="true" signature="286:454" ph="{...}" />
+            <marker date="1484529609487" expanded="true" signature="518:1015" ph="{...}" />
+            <marker date="1484529609487" expanded="true" signature="626:800" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementListViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+          <folding>
+            <marker date="1484529609439" expanded="true" signature="6:117" ph="..." />
+            <marker date="1484529609439" expanded="true" signature="146:2293" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="204:2291" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="420:691" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="490:681" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="855:1105" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="1179:1260" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="1335:1591" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="1639:2285" ph="{...}" />
+            <marker date="1484529609439" expanded="true" signature="1693:2275" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding>
+            <marker date="1484529177187" expanded="true" signature="6:71" ph="..." />
+            <marker date="1484529177187" expanded="true" signature="100:5447" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="160:5445" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="558:775" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="616:765" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="823:1097" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="894:1087" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1135:1397" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1203:1387" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1472:1776" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1552:1766" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1926:2159" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="1988:2149" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2188:2417" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2249:2407" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2452:2705" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2519:2695" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2776:3072" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="2854:3062" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3223:3442" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3490:4610" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3544:4558" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="3836:4058" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4329:4544" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4700:5439" ph="{...}" />
+            <marker date="1484529177187" expanded="true" signature="4780:5404" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Infrastructure/ViewLocatorConfig.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1043">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <marker date="1484531469337" expanded="true" signature="6:123" ph="..." />
+            <marker date="1484531469337" expanded="true" signature="154:1578" ph="{...}" />
+            <marker date="1484531469337" expanded="true" signature="198:1576" ph="{...}" />
+            <marker date="1484531469337" expanded="true" signature="254:1570" ph="{...}" />
+            <marker date="1484531469337" expanded="true" signature="350:1557" ph="{...}" />
+            <marker date="1484531469337" expanded="true" signature="419:634" ph="{...}" />
+            <marker date="1484531469337" expanded="true" signature="741:845" ph="{...}" />
+            <marker date="1484531469337" expanded="true" signature="883:1068" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountStatementWithTransactionsView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1484526663736" expanded="true" signature="0:2315" ph="&lt;&lt;Grid&gt;&#10;        &lt;DockPanel&gt;&#10;            &lt;WrapPanel DockPanel.Dock=&quot;Top&quot;&gt;&#10;                &lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;                &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;            &lt;/WrapPanel&gt;&#10;            &lt;DataGrid&#10;                ItemsSource=&quot;{Binding Transactions}&quot;&#10;                AutoGenerateColumns=&quot;False&quot;&#10;                CanUserAddRows=&quot;False&quot;&#10;                CanUserDeleteRows=&quot;False&quot;&#10;                CanUserResizeRows=&quot;False&quot;&gt;&#10;                &lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;&#10;            &lt;/DataGrid&gt;&#10;        &lt;/DockPanel&gt;&#10;        &lt;Button x:Name=&quot;Add&quot;&#10;                Style=&quot;{StaticResource MaterialDesignFloatingActionMiniAccentButton}&quot;&#10;                HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Bottom&quot;&#10;                Margin=&quot;0 0 32 16&quot;&gt;&#10;            &lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;&#10;        &lt;/Button&gt;&#10;    &lt;/Grid&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="673:2300" ph="&lt;&lt;DockPanel&gt;&#10;            &lt;WrapPanel DockPanel.Dock=&quot;Top&quot;&gt;&#10;                &lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;                &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;            &lt;/WrapPanel&gt;&#10;            &lt;DataGrid&#10;                ItemsSource=&quot;{Binding Transactions}&quot;&#10;                AutoGenerateColumns=&quot;False&quot;&#10;                CanUserAddRows=&quot;False&quot;&#10;                CanUserDeleteRows=&quot;False&quot;&#10;                CanUserResizeRows=&quot;False&quot;&gt;&#10;                &lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;&#10;            &lt;/DataGrid&gt;&#10;        &lt;/DockPanel&gt; &lt;Button x:Name=&quot;Add&quot;&#10;                Style=&quot;{StaticResource MaterialDesignFloatingActionMiniAccentButton}&quot;&#10;                HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Bottom&quot;&#10;                Margin=&quot;0 0 32 16&quot;&gt;&#10;            &lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;&#10;        &lt;/Button&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="688:1996" ph="&lt;&lt;WrapPanel DockPanel.Dock=&quot;Top&quot;&gt;&#10;                &lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;                &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;&#10;            &lt;/WrapPanel&gt; &lt;DataGrid&#10;                ItemsSource=&quot;{Binding Transactions}&quot;&#10;                AutoGenerateColumns=&quot;False&quot;&#10;                CanUserAddRows=&quot;False&quot;&#10;                CanUserDeleteRows=&quot;False&quot;&#10;                CanUserResizeRows=&quot;False&quot;&gt;&#10;                &lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;&#10;            &lt;/DataGrid&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="712:945" ph="&lt;&lt;ContentControl Name=&quot;Account&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt; &lt;ContentControl Name=&quot;Statement&quot; cal:View.Context=&quot;Detail&quot; Margin=&quot;8&quot; /&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="958:1975" ph="&lt;&lt;DataGrid.Columns&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt;&#10;                    &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;&#10;                &lt;/DataGrid.Columns&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="1205:1951" ph="&lt;&lt;DataGridTextColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount, StringFormat={}{0:C}}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Status&quot; Binding=&quot;{Binding AccountTransactionStatusName}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Type&quot; Binding=&quot;{Binding AccountTransactionTypeName}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Description&quot; Binding=&quot;{Binding Description}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Payee&quot; Binding=&quot;{Binding Payee}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Recorded&quot; Binding=&quot;{Binding RecordedDate}&quot; /&gt; &lt;DataGridTextColumn Header=&quot;Date/Time&quot; Binding=&quot;{Binding TransactionTime}&quot; /&gt;.../&gt;" />
+            <marker date="1484526663736" expanded="true" signature="2005:2288" ph="&lt;&lt;materialDesign:PackIcon Kind=&quot;Plus&quot; /&gt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionStatusViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1484436873412" expanded="true" signature="6:38" ph="..." />
+            <marker date="1484436873412" expanded="true" signature="67:944" ph="{...}" />
+            <marker date="1484436873412" expanded="true" signature="142:942" ph="{...}" />
+            <marker date="1484436873412" expanded="true" signature="226:443" ph="{...}" />
+            <marker date="1484436873412" expanded="true" signature="284:433" ph="{...}" />
+            <marker date="1484436873412" expanded="true" signature="471:696" ph="{...}" />
+            <marker date="1484436873412" expanded="true" signature="531:686" ph="{...}" />
+            <marker date="1484436873412" expanded="true" signature="796:936" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditView.xaml.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1484531849705" expanded="true" signature="6:381" ph="..." />
+            <marker date="1484531849705" expanded="true" signature="410:675" ph="{...}" />
+            <marker date="1484531849705" expanded="true" signature="417:496" ph="/// Interaction logic for AccountView.xaml ... " />
+            <marker date="1484531849705" expanded="true" signature="562:673" ph="{...}" />
+            <marker date="1484531849705" expanded="true" signature="612:667" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coin/Transactions/AccountTransactionEditView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
