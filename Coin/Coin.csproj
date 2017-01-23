@@ -154,9 +154,17 @@
     <Compile Include="People\Person\ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Playground\PlaygroundView.xaml.cs">
+      <DependentUpon>PlaygroundView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Playground\PlaygroundWorkspace.cs" />
     <Compile Include="Shared\AuditingCommandHandler.cs" />
     <Compile Include="Shared\CompositionInspector.cs" />
     <Compile Include="Shared\CurrencyViewModel.cs" />
+    <Compile Include="Shared\DateTimeView.xaml.cs">
+      <DependentUpon>DateTimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\DateTimeViewModel.cs" />
     <Compile Include="Shared\Money.cs" />
     <Compile Include="Shared\MoneyView.xaml.cs">
       <DependentUpon>MoneyView.xaml</DependentUpon>
@@ -276,6 +284,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="People\Person\ListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Playground\PlaygroundView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shared\DateTimeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

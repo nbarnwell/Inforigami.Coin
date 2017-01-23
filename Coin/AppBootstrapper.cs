@@ -53,7 +53,12 @@ namespace Coin
             var viewModelTypes =
                 GetType().Assembly
                          .GetTypes()
-                         .Where(x => x.Name.EndsWith("ViewModel"));
+                         .Where(x =>
+                             !x.IsAbstract
+                             && x.Name.EndsWith("ViewModel")
+                             || x.Name.EndsWith("Workspace")
+                             || (x.Name.EndsWith("Screen") && x != typeof(Screen)));
+
             foreach (var viewModelType in viewModelTypes)
             {
                 if (!_container.HasHandler(viewModelType, null))

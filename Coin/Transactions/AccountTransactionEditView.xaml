@@ -10,11 +10,13 @@
     <StackPanel>
         <DockPanel>
             <md:TimePicker 
+                 Text="{Binding TransactionDate.TimeOfDay}"
                  Margin="4 8 0 8"
                  DockPanel.Dock="Right"
                  Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
                  md:HintAssist.Hint="Time" />
             <DatePicker 
+                Text="{Binding TransactionDate.Date}"
                 Margin="0 8 0 8" 
                 md:HintAssist.Hint="Date"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />

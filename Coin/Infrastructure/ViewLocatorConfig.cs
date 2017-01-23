@@ -14,7 +14,7 @@ namespace Coin.Infrastructure
             {
                 var modifiers = new[]
                 {
-                    new Regex("Model$", RegexOptions.Compiled),
+                    new Regex("ViewModel$", RegexOptions.Compiled),
                     new Regex("Screen$", RegexOptions.Compiled),
                     new Regex("Workspace$", RegexOptions.Compiled)
                 };
@@ -23,8 +23,17 @@ namespace Coin.Infrastructure
 
                 foreach (var regex in modifiers)
                 {
-                    viewTypeName = regex.Replace(viewTypeName, "");
+                    var newViewTypeName = regex.Replace(viewTypeName, "");
+
+                    // Stop on the first one to take effect
+                    if (!newViewTypeName.Equals(viewTypeName, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        viewTypeName = newViewTypeName;
+                        break;
+                    }
                 }
+
+                viewTypeName += "View";
 
                 if (context != null)
                 {
