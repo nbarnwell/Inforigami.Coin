@@ -10,12 +10,12 @@ namespace Coin.Transactions
     public class AccountTransactionEditViewModel : Screen
     {
         private int _id;
-        private DateTimeOffset? _transactionTime;
+        private DateTimeViewModel _transactionTime;
         private DateTime _recordedDate;
         private MoneyViewModel _amount;
         private string _payee;
         private string _description;
-        private AccountTransactionTypeViewModel _accountTransactionType;
+        private AccountTransactionTypeViewModel _selectedAccountTransactionType;
 
         public int Id   
         {
@@ -28,7 +28,7 @@ namespace Coin.Transactions
             }
         }
 
-        public DateTimeOffset? TransactionTime
+        public DateTimeViewModel TransactionTime
         {
             get { return _transactionTime; }
             set
@@ -83,14 +83,14 @@ namespace Coin.Transactions
             }
         }
 
-        public AccountTransactionTypeViewModel AccountTransactionType
+        public AccountTransactionTypeViewModel SelectedAccountTransactionType
         {
-            get { return _accountTransactionType; }
+            get { return _selectedAccountTransactionType; }
             set
             {
-                if (value == _accountTransactionType) return;
-                _accountTransactionType= value;
-                NotifyOfPropertyChange(() => AccountTransactionType);
+                if (value == _selectedAccountTransactionType) return;
+                _selectedAccountTransactionType= value;
+                NotifyOfPropertyChange(() => SelectedAccountTransactionType);
             }
         }
 
@@ -117,16 +117,17 @@ namespace Coin.Transactions
                       .OrderBy(x => x.Name)
                       .Select(AccountTransactionTypeViewModel.CreateFrom));
 
-                if (AccountTransactionType != null)
+                if (SelectedAccountTransactionType != null)
                 {
-                    AccountTransactionType =
+                    SelectedAccountTransactionType =
                         AccountTransactionTypes
-                            .SingleOrDefault(x => x.Id == AccountTransactionType.Id);
+                            .SingleOrDefault(x => x.Id == SelectedAccountTransactionType.Id);
                 }
             }
 
             RecordedDate = DateTime.Now;
             Amount = Amount ?? new MoneyViewModel {Amount = null, Currency = AccountCurrency};
+            TransactionTime = TransactionTime ?? new DateTimeViewModel();
         }
 
         public static AccountTransactionEditViewModel CreateFrom(AccountTransaction arg)
@@ -138,11 +139,11 @@ namespace Coin.Transactions
                 Id                           = arg.Id,
                 Amount                       = MoneyViewModel.CreateFrom(arg.Amount, currencyViewModel),
                 AccountCurrency              = currencyViewModel,
-                AccountTransactionType       = AccountTransactionTypeViewModel.CreateFrom(arg.AccountTransactionType),
+                SelectedAccountTransactionType       = AccountTransactionTypeViewModel.CreateFrom(arg.AccountTransactionType),
                 Description                  = arg.Description,
                 Payee                        = arg.Payee,
                 RecordedDate                 = arg.RecordedDate,
-                TransactionTime              = arg.TransactionTime
+                TransactionTime              = DateTimeViewModel.CreateFrom(arg.TransactionTime?.Date, arg.TransactionTime?.TimeOfDay)
             };
 
             return vm;

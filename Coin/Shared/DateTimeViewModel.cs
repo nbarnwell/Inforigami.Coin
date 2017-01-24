@@ -30,9 +30,21 @@ namespace Coin.Shared
             }
         }
 
-        public DateTime? GetSelectedDateTime()
+        public static DateTimeViewModel CreateFrom(DateTime? dateTime, TimeSpan? timeOfDay)
         {
-            return SelectedDate?.Add(SelectedTime ?? TimeSpan.Zero);
+            return new DateTimeViewModel
+            {
+                SelectedDate = dateTime,
+                SelectedTime = timeOfDay
+            };
+        }
+
+        public DateTimeOffset? GetDateTimeOffset()
+        {
+            return
+                SelectedDate != null
+                    ? new DateTimeOffset(SelectedDate.Value.Add(SelectedTime ?? TimeSpan.Zero), DateTimeOffset.Now.Offset)
+                    : (DateTimeOffset?) null;
         }
     }
 }

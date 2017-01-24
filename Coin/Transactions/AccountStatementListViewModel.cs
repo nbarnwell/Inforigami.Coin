@@ -58,12 +58,12 @@ namespace Coin.Transactions
             yield return
                 new ProcessCommand(
                     new RecordTransaction(
-                        vm.AccountTransactionType.Id,
+                        vm.SelectedAccountTransactionType.Id,
                         vm.Amount.AsMoney(),
                         vm.Description,
                         vm.Payee,
                         vm.RecordedDate,
-                        vm.TransactionTime));
+                        vm.TransactionTime.GetDateTimeOffset()));
         }
 
         protected override void OnInitialize()
