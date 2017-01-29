@@ -34,7 +34,7 @@ namespace Coin.Infrastructure
         private static string FormatMessage(object sender, string logLevel, string format, object[] args)
         {
             return
-                string.Format("{0}{1}{2}{1}{3}",
+                string.Format("Source: {0}{1}Level: {2}{1}Message: {3}",
                     sender.GetType().Name,
                     Environment.NewLine,
                     logLevel,
