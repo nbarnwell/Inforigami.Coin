@@ -12,7 +12,9 @@ namespace Coin
 
     public class AppBootstrapper : BootstrapperBase
     {
-        private SimpleContainer _container;
+        private static SimpleContainer _container;
+
+        public static SimpleContainer Container => _container;
 
         public AppBootstrapper()
         {
@@ -23,15 +25,37 @@ namespace Coin
         {
             _container = new SimpleContainer();
 
+            RegisterLogging();
             ConfigureCaliburn();
             RegisterDatabase();
             RegisterCommandHandlers();
             RegisterViewModels();
         }
 
+        private void RegisterLogging()
+        {
+            _container.Singleton<ILogger, RegaloLoggingAdapter>();
+
+            var logger = _container.GetInstance<ILogger>();
+
+            Application.DispatcherUnhandledException += (sender, args) =>
+            {
+                logger.Error(sender, args.Exception, args.Exception.Message);
+            };
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+            {
+                var exception = (Exception)args.ExceptionObject;
+                logger.Error(sender, exception, exception.Message);
+            };
+
+            logger.Info(this, "Logging initialised");
+        }
+
         private void ConfigureCaliburn()
         {
-            LogManager.GetLog = type => new CaliburnLog();
+            _container.Singleton<ILog, CaliburnLog>();
+            LogManager.GetLog = type => _container.GetInstance<ILog>();
 
             _container.Singleton<IWindowManager, WindowManager>();
             _container.Singleton<IEventAggregator, EventAggregator>();
@@ -70,16 +94,35 @@ namespace Coin
 
         private void RegisterCommandHandlers()
         {
-            _container.Singleton<ICommandProcessor, CommandProcessor>();
+            _container.Singleton<ICommandProcessor, CommandProcessor>("CommandProcessor");
 
             var commandHandlerTypes =
                 GetType().Assembly
                          .GetTypes()
-                         .Where(x => typeof(ICommandHandler<>).IsAssignableFrom(x));
+                         .Where(IsCommandHandler)
+                         .ToList();
+
             foreach (var handlerType in commandHandlerTypes)
             {
                 _container.RegisterPerRequest(handlerType.GetInterfaces()[0], handlerType.FullName, handlerType);
             }
+
+            Resolver.Configure(
+                type => _container.GetInstance(type, ""),
+                type => _container.GetAllInstances(type),
+                o => {});
+        }
+
+        private static bool IsCommandHandler(Type x)
+        {
+            return !x.IsAbstract && ImplementsCommandHandlerInterface(x);
+        }
+
+        private static bool ImplementsCommandHandlerInterface(Type x)
+        {
+            return x.GetInterfaces()
+                    .Where(y => y.IsGenericType)
+                    .Any(y => typeof(ICommandHandler<>).IsAssignableFrom(y.GetGenericTypeDefinition()));
         }
 
         protected override object GetInstance(Type service, string key)

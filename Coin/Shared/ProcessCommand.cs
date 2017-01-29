@@ -1,5 +1,6 @@
 ﻿using System;
 using Caliburn.Micro;
+using Inforigami.Regalo.Core;
 
 namespace Coin.Shared
 {
@@ -17,13 +18,12 @@ namespace Coin.Shared
 
         public void Execute(CoroutineExecutionContext context)
         {
-            throw new NotImplementedException();
+            var processor = (ICommandProcessor)AppBootstrapper.Container.GetInstance(typeof(ICommandProcessor), "CommandProcessor");
+
+            processor.Process(_command);
 
             var completed = Completed;
-            if (completed != null)
-            {
-                completed(this, new ResultCompletionEventArgs());
-            }
+            completed?.Invoke(this, new ResultCompletionEventArgs());
         }
     }
 }

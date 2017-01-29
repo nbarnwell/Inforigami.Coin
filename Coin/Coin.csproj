@@ -141,6 +141,7 @@
     <Compile Include="Infrastructure\CaliburnLog.cs" />
     <Compile Include="Infrastructure\ListExtensions.cs" />
     <Compile Include="Infrastructure\IViewModelFactory.cs" />
+    <Compile Include="Infrastructure\RegaloLoggingAdapter.cs" />
     <Compile Include="Infrastructure\ViewLocatorConfig.cs" />
     <Compile Include="Infrastructure\ViewModelFactory.cs" />
     <Compile Include="People\PersonListView.xaml.cs">
