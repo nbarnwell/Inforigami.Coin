@@ -50,7 +50,7 @@ namespace Coin.Shell
                                      _viewModelFactory.Create<PersonListViewModel>()),
                 _viewModelFactory.Create<WorkspaceViewModel>()
                                  .WithViewModel(
-                                     _viewModelFactory.Create<Transactions.AccountListViewModel>()),
+                                     _viewModelFactory.Create<Transactions.AccountListScreen>()),
                 _viewModelFactory.Create<WorkspaceViewModel>()
                                  .WithViewModel(
                                      _viewModelFactory.Create<Playground.PlaygroundWorkspace>())

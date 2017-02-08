@@ -162,6 +162,7 @@
     <Compile Include="Shared\AuditingCommandHandler.cs" />
     <Compile Include="Shared\CompositionInspector.cs" />
     <Compile Include="Shared\CurrencyViewModel.cs" />
+    <Compile Include="Shared\DateTimeOffsetExtensions.cs" />
     <Compile Include="Shared\DateTimeView.xaml.cs">
       <DependentUpon>DateTimeView.xaml</DependentUpon>
     </Compile>
@@ -187,6 +188,7 @@
     <Compile Include="Shared\ScreenHeaderViewModel.cs" />
     <Compile Include="Shared\ShowDialog.cs" />
     <Compile Include="Shared\ShowViewModel.cs" />
+    <Compile Include="Shared\ShowWorkspace.cs" />
     <Compile Include="Shared\WorkspaceView.xaml.cs">
       <DependentUpon>WorkspaceView.xaml</DependentUpon>
     </Compile>
@@ -209,10 +211,14 @@
       <DependentUpon>WorkspaceHostView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell\WorkspaceHostViewModel.cs" />
+    <Compile Include="Transactions\AccountingWorkspace.cs" />
+    <Compile Include="Transactions\AccountingWorkspaceView.xaml.cs">
+      <DependentUpon>AccountingWorkspaceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transactions\AccountListView.xaml.cs">
       <DependentUpon>AccountListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountListViewModel.cs" />
+    <Compile Include="Transactions\AccountListScreen.cs" />
     <Compile Include="Transactions\AccountStatementViewModel.cs" />
     <Compile Include="Transactions\AccountStatementWithTransactionsView.xaml.cs">
       <DependentUpon>AccountStatementWithTransactionsView.xaml</DependentUpon>
@@ -230,10 +236,10 @@
     <Compile Include="Transactions\AccountTransactionStatusViewModel.cs" />
     <Compile Include="Transactions\AccountTransactionTypeViewModel.cs" />
     <Compile Include="Transactions\AccountTransactionEditViewModel.cs" />
-    <Compile Include="Transactions\AccountStatementListView.xaml.cs">
-      <DependentUpon>AccountStatementListView.xaml</DependentUpon>
+    <Compile Include="Transactions\AccountSummaryView.xaml.cs">
+      <DependentUpon>AccountSummaryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountStatementListViewModel.cs" />
+    <Compile Include="Transactions\AccountSummaryScreen.cs" />
     <Compile Include="Transactions\RecordTransaction.cs" />
     <Compile Include="Transactions\RecordTransactionHandler.cs" />
     <Page Include="Accounts\AccountListView.xaml">
@@ -324,6 +330,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Transactions\AccountingWorkspaceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Transactions\AccountListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -340,7 +350,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountStatementListView.xaml">
+    <Page Include="Transactions\AccountSummaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -387,6 +397,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
+    <Resource Include="Transactions\Layout.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

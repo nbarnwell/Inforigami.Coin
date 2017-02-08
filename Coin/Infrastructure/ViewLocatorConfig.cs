@@ -14,31 +14,31 @@ namespace Coin.Infrastructure
             {
                 var modifiers = new[]
                 {
-                    new Regex("ViewModel$", RegexOptions.Compiled),
-                    new Regex("Screen$", RegexOptions.Compiled),
-                    new Regex("Workspace$", RegexOptions.Compiled)
+                    new { Regex = new Regex("ViewModel$", RegexOptions.Compiled), Replacement = "" },
+                    new { Regex = new Regex("Screen$", RegexOptions.Compiled), Replacement = "" },
+                    new { Regex = new Regex("Workspace$", RegexOptions.Compiled), Replacement = "Workspace" }
                 };
 
-                var viewTypeName = modelType.FullName;
+                var viewModelTypeName = modelType.FullName;
+                string viewTypeName = "";
 
-                foreach (var regex in modifiers)
+                foreach (var modifier in modifiers)
                 {
-                    var newViewTypeName = regex.Replace(viewTypeName, "");
+                    var match = modifier.Regex.Match(viewModelTypeName);
 
-                    // Stop on the first one to take effect
-                    if (!newViewTypeName.Equals(viewTypeName, StringComparison.InvariantCultureIgnoreCase))
+                    if (match.Success)
                     {
-                        viewTypeName = newViewTypeName;
-                        break;
+                        viewTypeName = modifier.Regex.Replace(viewModelTypeName, modifier.Replacement);
+
+                        if (context != null)
+                        {
+                            viewTypeName += "." + context;
+                        }
+                        else
+                        {
+                            viewTypeName += "View";
+                        }
                     }
-                }
-
-                viewTypeName += "View";
-
-                if (context != null)
-                {
-                    viewTypeName = viewTypeName.Remove(viewTypeName.Length - 4, 4);
-                    viewTypeName = viewTypeName + "." + context;
                 }
 
                 var viewType = (from assmebly in AssemblySource.Instance

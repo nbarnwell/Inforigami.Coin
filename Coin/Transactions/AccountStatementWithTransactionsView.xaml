@@ -37,5 +37,6 @@
                 Margin="0 0 32 16">
             <materialDesign:PackIcon Kind="Plus" />
         </Button>
+        <Button x:Name="Close" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 8 8 0">Close</Button>
     </Grid>
 </UserControl>

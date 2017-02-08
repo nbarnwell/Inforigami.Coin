@@ -75,6 +75,11 @@ namespace Coin.Transactions
                         vm.TransactionTime.GetDateTimeOffset()));
         }
 
+        public void Close()
+        {
+            TryClose();
+        }
+
         protected override void OnInitialize()
         {
             using (var db = new Database())

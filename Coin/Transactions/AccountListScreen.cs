@@ -7,15 +7,15 @@ using Coin.Shared;
 
 namespace Coin.Transactions
 {
-    public class AccountListViewModel : Screen
+    public class AccountListScreen : Screen
     {
         private readonly IViewModelFactory _viewModelFactory;
 
         public BindableCollection<Accounts.AccountViewModel> Accounts { get; }
 
-        public override string DisplayName => "Account Statements";
+        public override string DisplayName => "Accounting";
 
-        public AccountListViewModel(IViewModelFactory viewModelFactory)
+        public AccountListScreen(IViewModelFactory viewModelFactory)
         {
             if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
             _viewModelFactory = viewModelFactory;
@@ -23,14 +23,14 @@ namespace Coin.Transactions
             Accounts = new BindableCollection<Accounts.AccountViewModel>();
         }
 
-        protected override void OnInitialize()
+        protected override void OnActivate()
         {
             RefreshData();
         }
 
         public IResult ShowAccount(Accounts.AccountViewModel account)
         {
-            var vm = _viewModelFactory.Create<AccountStatementListViewModel>().ForAccountId(account.AccountId);
+            var vm = _viewModelFactory.Create<AccountSummaryScreen>().ForAccountId(account.AccountId);
             return new ShowViewModel(vm);
         }
 

@@ -1,0 +1,4 @@
+﻿AccountingWorkspace
+	AccountListViewModel
+		AccountStatementListViewModel
+			AccountStatementWithTransactionsViewModel

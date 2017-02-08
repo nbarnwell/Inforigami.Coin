@@ -18,9 +18,9 @@ namespace Coin.Transactions
     /// <summary>
     /// Interaction logic for AccountView.xaml
     /// </summary>
-    public partial class AccountStatementListView : UserControl
+    public partial class AccountSummaryView : UserControl
     {
-        public AccountStatementListView()
+        public AccountSummaryView()
         {
             InitializeComponent();
         }
