@@ -18,5 +18,10 @@ namespace Coin.Transactions
         {
             ActivateItem(_viewModelFactory.Create<AccountListScreen>());
         }
+
+        public override void ActivateItem(IScreen item)
+        {
+            base.ActivateItem(item);
+        }
     }
 }

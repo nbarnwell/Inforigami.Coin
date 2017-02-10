@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Coin.Transactions
 {
     /// <summary>
-    /// Interaction logic for AccountStatementWithTransactionsView.xaml
+    /// Interaction logic for AccountStatementSummaryView.xaml
     /// </summary>
-    public partial class AccountStatementWithTransactionsView : UserControl
+    public partial class AccountStatementSummaryView : UserControl
     {
-        public AccountStatementWithTransactionsView()
+        public AccountStatementSummaryView()
         {
             InitializeComponent();
         }

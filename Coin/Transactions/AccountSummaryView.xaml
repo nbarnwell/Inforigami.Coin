@@ -10,18 +10,34 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <DockPanel>
-            <ContentControl x:Name="AccountDetails" DockPanel.Dock="Top" cal:View.Context="Detail" Margin="16"></ContentControl>
-            <Grid>
-                <ItemsControl x:Name="Statements" Visibility="{Binding SelectedStatement.ActiveItem, Converter={StaticResource InvertedNullVisibilityConverter}}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Style="{StaticResource FlatButton}" cal:Message.Attach="ShowStatement($dataContext)" cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16">
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <ContentControl cal:View.Model="{Binding SelectedStatement.ActiveItem}" Visibility="{Binding SelectedStatement.ActiveItem, Converter={StaticResource NullVisibilityConverter}}"></ContentControl>
-            </Grid>
+            <StackPanel DockPanel.Dock="Top" Margin="8">
+
+                <DockPanel>
+                    <Button x:Name="TryClose"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            VerticalAlignment="Top"
+                            DockPanel.Dock="Right">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Close</TextBlock>
+                            <md:PackIcon Kind="Close" />
+                        </StackPanel>
+                    </Button>
+                    <StackPanel Margin="8 0 0 0">
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">Account Summary</TextBlock>
+                        <TextBlock Text="{Binding AccountDetails.AccountName}" Style="{StaticResource MaterialDesignSubheadingTextBlock}"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+
+            </StackPanel>
+            <ItemsControl x:Name="Statements" Visibility="{Binding SelectedStatement.ActiveItem, Converter={StaticResource InvertedNullVisibilityConverter}}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Style="{StaticResource FlatButton}" cal:Message.Attach="ShowStatement($dataContext)" cal:View.Model="{Binding}" Margin="16">
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
         </DockPanel>
     </Grid>
 </UserControl>

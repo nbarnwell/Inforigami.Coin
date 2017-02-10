@@ -15,8 +15,6 @@ namespace Coin.Transactions
         private Accounts.AccountViewModel _accountDetails;
         private int _accountId;
 
-        public IConductor SelectedStatement { get; set; }
-
         public Accounts.AccountViewModel AccountDetails
         {
             get { return _accountDetails; }
@@ -35,7 +33,6 @@ namespace Coin.Transactions
             if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
             _viewModelFactory = viewModelFactory;
 
-            SelectedStatement = new Conductor<IScreen>();
             Statements = new BindableCollection<AccountStatementViewModel>();
         }
 
@@ -45,13 +42,13 @@ namespace Coin.Transactions
             return this;
         }
 
-        public void ShowStatement(AccountStatementViewModel statement)
+        public IResult ShowStatement(AccountStatementViewModel statement)
         {
             var vm = 
-                _viewModelFactory.Create<AccountStatementWithTransactionsViewModel>()
+                _viewModelFactory.Create<AccountStatementSummaryScreen>()
                 .ForAccount(AccountDetails)
                 .ForStatement(statement);
-            SelectedStatement.ActivateItem(vm);
+            return new ShowScreen(vm);
         }
 
         protected override void OnInitialize()

@@ -20,14 +20,8 @@ namespace Coin.Transactions
         }
 
         public int Id { get; set; }
-        public BindableCollection<AccountTransactionEditViewModel> Transactions { get; }
 
-        public AccountStatementViewModel()
-        {
-            Transactions = new BindableCollection<AccountTransactionEditViewModel>();
-        }
-
-        public static AccountStatementViewModel CreateFrom(Data.AccountStatement arg)
+        public static AccountStatementViewModel CreateFrom(AccountStatement arg)
         {
             return new AccountStatementViewModel
             {

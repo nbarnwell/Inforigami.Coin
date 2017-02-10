@@ -9,7 +9,7 @@ using Coin.Shared;
 
 namespace Coin.Transactions
 {
-    public class AccountStatementWithTransactionsViewModel : Screen
+    public class AccountStatementSummaryScreen : Screen
     {
         private readonly IViewModelFactory _viewModelFactory;
         private AccountStatementViewModel _statement;
@@ -39,7 +39,7 @@ namespace Coin.Transactions
 
         public BindableCollection<AccountTransactionEditViewModel> Transactions { get; }
 
-        public AccountStatementWithTransactionsViewModel(IViewModelFactory viewModelFactory)
+        public AccountStatementSummaryScreen(IViewModelFactory viewModelFactory)
         {
             if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
             _viewModelFactory = viewModelFactory;
@@ -47,13 +47,13 @@ namespace Coin.Transactions
             Transactions = new BindableCollection<AccountTransactionEditViewModel>();
         }
 
-        public AccountStatementWithTransactionsViewModel ForAccount(AccountViewModel account)
+        public AccountStatementSummaryScreen ForAccount(AccountViewModel account)
         {
             Account = account;
             return this;
         }
 
-        public AccountStatementWithTransactionsViewModel ForStatement(AccountStatementViewModel statement)
+        public AccountStatementSummaryScreen ForStatement(AccountStatementViewModel statement)
         {
             Statement = statement;
             return this;
@@ -75,13 +75,10 @@ namespace Coin.Transactions
                         vm.TransactionTime.GetDateTimeOffset()));
         }
 
-        public void Close()
+        protected override void OnActivate()
         {
-            TryClose();
-        }
+            Transactions.Clear();
 
-        protected override void OnInitialize()
-        {
             using (var db = new Database())
             {
                 Transactions.AddRange(

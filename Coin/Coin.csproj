@@ -187,7 +187,7 @@
     </Compile>
     <Compile Include="Shared\ScreenHeaderViewModel.cs" />
     <Compile Include="Shared\ShowDialog.cs" />
-    <Compile Include="Shared\ShowViewModel.cs" />
+    <Compile Include="Shared\ShowScreen.cs" />
     <Compile Include="Shared\ShowWorkspace.cs" />
     <Compile Include="Shared\WorkspaceView.xaml.cs">
       <DependentUpon>WorkspaceView.xaml</DependentUpon>
@@ -220,15 +220,12 @@
     </Compile>
     <Compile Include="Transactions\AccountListScreen.cs" />
     <Compile Include="Transactions\AccountStatementViewModel.cs" />
-    <Compile Include="Transactions\AccountStatementWithTransactionsView.xaml.cs">
-      <DependentUpon>AccountStatementWithTransactionsView.xaml</DependentUpon>
+    <Compile Include="Transactions\AccountStatementSummaryView.xaml.cs">
+      <DependentUpon>AccountStatementSummaryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountStatementWithTransactionsViewModel.cs" />
-    <Compile Include="Transactions\AccountStatement\Detail.xaml.cs">
-      <DependentUpon>Detail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Transactions\AccountStatement\ListItem.xaml.cs">
-      <DependentUpon>ListItem.xaml</DependentUpon>
+    <Compile Include="Transactions\AccountStatementSummaryScreen.cs" />
+    <Compile Include="Transactions\AccountStatementView.xaml.cs">
+      <DependentUpon>AccountStatementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transactions\AccountTransactionEditView.xaml.cs">
       <DependentUpon>AccountTransactionEditView.xaml</DependentUpon>
@@ -338,15 +335,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountStatementWithTransactionsView.xaml">
+    <Page Include="Transactions\AccountStatementSummaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountStatement\Detail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Transactions\AccountStatement\ListItem.xaml">
+    <Page Include="Transactions\AccountStatementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
