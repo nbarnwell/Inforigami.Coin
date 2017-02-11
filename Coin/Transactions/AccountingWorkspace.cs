@@ -8,6 +8,8 @@ namespace Coin.Transactions
     {
         private readonly IViewModelFactory _viewModelFactory;
 
+        public override string DisplayName => "Accounting";
+
         public AccountingWorkspace(IViewModelFactory viewModelFactory)
         {
             if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));

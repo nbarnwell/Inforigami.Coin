@@ -71,6 +71,10 @@
       <HintPath>..\packages\MaterialDesignThemes.2.2.1.750\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -159,7 +163,7 @@
       <DependentUpon>PlaygroundView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Playground\PlaygroundWorkspace.cs" />
-    <Compile Include="Shared\AuditingCommandHandler.cs" />
+    <Compile Include="Shared\MessageAuditingHandler.cs" />
     <Compile Include="Shared\CompositionInspector.cs" />
     <Compile Include="Shared\CurrencyViewModel.cs" />
     <Compile Include="Shared\DateTimeOffsetExtensions.cs" />
@@ -167,6 +171,7 @@
       <DependentUpon>DateTimeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shared\DateTimeViewModel.cs" />
+    <Compile Include="Shared\EventAggregatorAdapter.cs" />
     <Compile Include="Shared\Money.cs" />
     <Compile Include="Shared\MoneyView.xaml.cs">
       <DependentUpon>MoneyView.xaml</DependentUpon>
@@ -230,6 +235,7 @@
     <Compile Include="Transactions\AccountTransactionEditView.xaml.cs">
       <DependentUpon>AccountTransactionEditView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transactions\AccountTransactionStatus.cs" />
     <Compile Include="Transactions\AccountTransactionStatusViewModel.cs" />
     <Compile Include="Transactions\AccountTransactionTypeViewModel.cs" />
     <Compile Include="Transactions\AccountTransactionEditViewModel.cs" />

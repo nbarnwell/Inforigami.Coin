@@ -16,6 +16,7 @@ namespace Coin.Shared
                 if (value.Equals(_selectedDate)) return;
                 _selectedDate = value;
                 NotifyOfPropertyChange(() => SelectedDate);
+                NotifyOfPropertyChange(() => SelectedDateTime);
             }
         }
 
@@ -27,8 +28,11 @@ namespace Coin.Shared
                 if (value.Equals(_selectedTime)) return;
                 _selectedTime = value;
                 NotifyOfPropertyChange(() => SelectedTime);
+                NotifyOfPropertyChange(() => SelectedDateTime);
             }
         }
+
+        public DateTime SelectedDateTime => SelectedDate.GetValueOrDefault().Add(SelectedTime.GetValueOrDefault());
 
         public static DateTimeViewModel CreateFrom(DateTime? dateTime, TimeSpan? timeOfDay)
         {

@@ -28,7 +28,7 @@ namespace Coin
             RegisterLogging();
             ConfigureCaliburn();
             RegisterDatabase();
-            RegisterCommandHandlers();
+            RegisterMessageHandlers();
             RegisterViewModels();
         }
 
@@ -92,17 +92,18 @@ namespace Coin
             }
         }
 
-        private void RegisterCommandHandlers()
+        private void RegisterMessageHandlers()
         {
             _container.Singleton<ICommandProcessor, CommandProcessor>("CommandProcessor");
+            _container.Singleton<IEventBus, EventBus>("EventBus");
 
-            var commandHandlerTypes =
+            var messageHandlerTypes =
                 GetType().Assembly
                          .GetTypes()
-                         .Where(IsCommandHandler)
+                         .Where(IsMessageHandler)
                          .ToList();
 
-            foreach (var handlerType in commandHandlerTypes)
+            foreach (var handlerType in messageHandlerTypes)
             {
                 _container.RegisterPerRequest(handlerType.GetInterfaces()[0], handlerType.FullName, handlerType);
             }
@@ -113,16 +114,18 @@ namespace Coin
                 o => {});
         }
 
-        private static bool IsCommandHandler(Type x)
+        private static bool IsMessageHandler(Type x)
         {
-            return !x.IsAbstract && ImplementsCommandHandlerInterface(x);
+            return !x.IsAbstract && ImplementsMessageHandlerInterface(x);
         }
 
-        private static bool ImplementsCommandHandlerInterface(Type x)
+        private static bool ImplementsMessageHandlerInterface(Type x)
         {
             return x.GetInterfaces()
                     .Where(y => y.IsGenericType)
-                    .Any(y => typeof(ICommandHandler<>).IsAssignableFrom(y.GetGenericTypeDefinition()));
+                    .Any(y => 
+                    typeof(ICommandHandler<>).IsAssignableFrom(y.GetGenericTypeDefinition())
+                    || typeof(IEventHandler<>).IsAssignableFrom(y.GetGenericTypeDefinition()));
         }
 
         protected override object GetInstance(Type service, string key)

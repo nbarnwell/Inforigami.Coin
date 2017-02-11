@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using Caliburn.Micro;
 using Coin.Accounts;

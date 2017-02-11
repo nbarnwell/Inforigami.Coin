@@ -1,6 +1,8 @@
-﻿namespace Coin.Shared
+﻿using Inforigami.Regalo.Interfaces;
+
+namespace Coin.Shared
 {
-    public class EntityUpdated<TEntity>
+    public class EntityUpdated<TEntity> : Event
     {
         public TEntity Entity { get; private set; }
 

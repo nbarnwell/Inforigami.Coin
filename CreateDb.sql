@@ -26,25 +26,42 @@ go
 use Coin;
 GO
 
--- drop index IX_DomainEvent__AggregateId_Version on AggregateRootEvent;
--- drop table AggregateRootEvent;
--- drop table AggregateRoot;
--- drop table AccountTransactionAccountTransactionCategory;
--- drop table AccountTransaction;
--- drop table BankSpecificTransactionType;
--- drop table AccountTransactionType;
--- drop table AccountTransactionCategoryMatchPattern;
--- drop table AccountTransactionCategoryMatchPatternMatchMethod;
--- drop table AccountTransactionCategory;
--- drop table AccountTransactionStatus;
--- drop table AccountStatement;
--- drop table Fund;
--- drop index IX_Account_AccountNumberAndSortCode on BankAccount;
--- drop table BankAccount;
--- drop table Account;
--- drop table [User];
--- drop table Household;
--- drop table Bank;
+/*
+drop index IX_DomainEvent__AggregateId_Version on AggregateRootEvent;
+drop table AggregateRootEvent;
+drop table AggregateRoot;
+drop table AccountTransactionAccountTransactionCategory;
+drop table AccountTransaction;
+drop table BankSpecificTransactionType;
+drop table AccountTransactionType;
+drop table AccountTransactionCategoryMatchPattern;
+drop table AccountTransactionCategoryMatchPatternMatchMethod;
+drop table AccountTransactionCategory;
+drop table AccountTransactionStatus;
+drop table AccountStatement;
+drop table Fund;
+drop index IX_Account_AccountNumberAndSortCode on BankAccount;
+drop table BankAccount;
+drop table Account;
+drop table [User];
+drop table Household;
+drop table Bank;
+drop index IX_AuditLogByCorrelationId on AuditLog;
+drop table AuditLog;
+*/
+
+create table AuditLog (
+	Id int not null identity(1,1),
+	MessageId uniqueidentifier not null,
+	CorrelationId uniqueidentifier not null,
+	CausationId uniqueidentifier not null,
+	Timestamp datetimeoffset(2) not null,
+	MessageTypeName nvarchar(512) not null,
+	PayloadJson nvarchar(max) not null,
+	constraint PK_Audit primary key (Id)
+);
+
+create index IX_AuditLogByCorrelationId on AuditLog (CorrelationId);
 
 create table Currency (
 	Id int not null,

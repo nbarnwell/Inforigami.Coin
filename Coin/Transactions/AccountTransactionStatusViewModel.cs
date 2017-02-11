@@ -30,7 +30,7 @@ namespace Coin.Transactions
             }
         }
 
-        public static AccountTransactionStatusViewModel CreateFrom(AccountTransactionStatus status)
+        public static AccountTransactionStatusViewModel CreateFrom(Data.AccountTransactionStatus status)
         {
             var vm = new AccountTransactionStatusViewModel {Id = status.Id, Name = status.Name};
             return vm;

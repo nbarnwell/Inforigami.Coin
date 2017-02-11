@@ -6,8 +6,17 @@
              xmlns:local="clr-namespace:Coin.Transactions"
              xmlns:cal="http://www.caliburnproject.org"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="RightCell">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="TextAlignment" Value="Right"/>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
         <DockPanel>
 
@@ -37,13 +46,13 @@
                 CanUserDeleteRows="False"
                 CanUserResizeRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat={}{0:C}}" />
-                    <DataGridTextColumn Header="Status" Binding="{Binding AccountTransactionStatusName}" />
-                    <DataGridTextColumn Header="Type" Binding="{Binding AccountTransactionTypeName}" />
-                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                    <DataGridTextColumn Header="Payee" Binding="{Binding Payee}" />
-                    <DataGridTextColumn Header="Recorded" Binding="{Binding RecordedDate}" />
-                    <DataGridTextColumn Header="Date/Time" Binding="{Binding TransactionTime}" />
+                    <DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat={}{0:F2}}" IsReadOnly="True" ElementStyle="{StaticResource RightCell}" />
+                    <DataGridTextColumn Header="Status" Binding="{Binding AccountTransactionStatusName}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Type" Binding="{Binding AccountTransactionTypeName}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Payee" Binding="{Binding Payee}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Recorded" Binding="{Binding RecordedDate}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Date/Time" Binding="{Binding TransactionTime}" IsReadOnly="True" />
                 </DataGrid.Columns>
             </DataGrid>
 

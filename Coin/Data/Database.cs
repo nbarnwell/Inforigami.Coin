@@ -42,6 +42,7 @@ namespace Coin.Data
         System.Data.Entity.DbSet<AccountTransactionCategory> AccountTransactionCategories { get; set; } // AccountTransactionCategory
         System.Data.Entity.DbSet<AccountTransactionStatus> AccountTransactionStatus { get; set; } // AccountTransactionStatus
         System.Data.Entity.DbSet<AccountTransactionType> AccountTransactionTypes { get; set; } // AccountTransactionType
+        System.Data.Entity.DbSet<AuditLog> AuditLogs { get; set; } // AuditLog
         System.Data.Entity.DbSet<Bank> Banks { get; set; } // Bank
         System.Data.Entity.DbSet<BankAccount> BankAccounts { get; set; } // BankAccount
         System.Data.Entity.DbSet<BankSpecificTransactionType> BankSpecificTransactionTypes { get; set; } // BankSpecificTransactionType
@@ -77,6 +78,7 @@ namespace Coin.Data
         public System.Data.Entity.DbSet<AccountTransactionCategory> AccountTransactionCategories { get; set; } // AccountTransactionCategory
         public System.Data.Entity.DbSet<AccountTransactionStatus> AccountTransactionStatus { get; set; } // AccountTransactionStatus
         public System.Data.Entity.DbSet<AccountTransactionType> AccountTransactionTypes { get; set; } // AccountTransactionType
+        public System.Data.Entity.DbSet<AuditLog> AuditLogs { get; set; } // AuditLog
         public System.Data.Entity.DbSet<Bank> Banks { get; set; } // Bank
         public System.Data.Entity.DbSet<BankAccount> BankAccounts { get; set; } // BankAccount
         public System.Data.Entity.DbSet<BankSpecificTransactionType> BankSpecificTransactionTypes { get; set; } // BankSpecificTransactionType
@@ -139,6 +141,7 @@ namespace Coin.Data
             modelBuilder.Configurations.Add(new AccountTransactionCategoryConfiguration());
             modelBuilder.Configurations.Add(new AccountTransactionStatusConfiguration());
             modelBuilder.Configurations.Add(new AccountTransactionTypeConfiguration());
+            modelBuilder.Configurations.Add(new AuditLogConfiguration());
             modelBuilder.Configurations.Add(new BankConfiguration());
             modelBuilder.Configurations.Add(new BankAccountConfiguration());
             modelBuilder.Configurations.Add(new BankSpecificTransactionTypeConfiguration());
@@ -156,6 +159,7 @@ namespace Coin.Data
             modelBuilder.Configurations.Add(new AccountTransactionCategoryConfiguration(schema));
             modelBuilder.Configurations.Add(new AccountTransactionStatusConfiguration(schema));
             modelBuilder.Configurations.Add(new AccountTransactionTypeConfiguration(schema));
+            modelBuilder.Configurations.Add(new AuditLogConfiguration(schema));
             modelBuilder.Configurations.Add(new BankConfiguration(schema));
             modelBuilder.Configurations.Add(new BankAccountConfiguration(schema));
             modelBuilder.Configurations.Add(new BankSpecificTransactionTypeConfiguration(schema));
@@ -179,6 +183,7 @@ namespace Coin.Data
         public System.Data.Entity.DbSet<AccountTransactionCategory> AccountTransactionCategories { get; set; }
         public System.Data.Entity.DbSet<AccountTransactionStatus> AccountTransactionStatus { get; set; }
         public System.Data.Entity.DbSet<AccountTransactionType> AccountTransactionTypes { get; set; }
+        public System.Data.Entity.DbSet<AuditLog> AuditLogs { get; set; }
         public System.Data.Entity.DbSet<Bank> Banks { get; set; }
         public System.Data.Entity.DbSet<BankAccount> BankAccounts { get; set; }
         public System.Data.Entity.DbSet<BankSpecificTransactionType> BankSpecificTransactionTypes { get; set; }
@@ -195,6 +200,7 @@ namespace Coin.Data
             AccountTransactionCategories = new FakeDbSet<AccountTransactionCategory>("Id");
             AccountTransactionStatus = new FakeDbSet<AccountTransactionStatus>("Id");
             AccountTransactionTypes = new FakeDbSet<AccountTransactionType>("Id");
+            AuditLogs = new FakeDbSet<AuditLog>("Id");
             Banks = new FakeDbSet<Bank>("Id");
             BankAccounts = new FakeDbSet<BankAccount>("Id");
             BankSpecificTransactionTypes = new FakeDbSet<BankSpecificTransactionType>("Id");
@@ -657,6 +663,19 @@ namespace Coin.Data
         }
     }
 
+    // AuditLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class AuditLog
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public System.Guid MessageId { get; set; } // MessageId
+        public System.Guid CorrelationId { get; set; } // CorrelationId
+        public System.Guid CausationId { get; set; } // CausationId
+        public System.DateTimeOffset Timestamp { get; set; } // Timestamp
+        public string MessageTypeName { get; set; } // MessageTypeName (length: 512)
+        public string PayloadJson { get; set; } // PayloadJson
+    }
+
     // Bank
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
     public class Bank
@@ -915,6 +934,30 @@ namespace Coin.Data
             Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
             Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
             Property(x => x.IsIncome).HasColumnName(@"IsIncome").HasColumnType("bit").IsRequired();
+        }
+    }
+
+    // AuditLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class AuditLogConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<AuditLog>
+    {
+        public AuditLogConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public AuditLogConfiguration(string schema)
+        {
+            ToTable("AuditLog", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.MessageId).HasColumnName(@"MessageId").HasColumnType("uniqueidentifier").IsRequired();
+            Property(x => x.CorrelationId).HasColumnName(@"CorrelationId").HasColumnType("uniqueidentifier").IsRequired();
+            Property(x => x.CausationId).HasColumnName(@"CausationId").HasColumnType("uniqueidentifier").IsRequired();
+            Property(x => x.Timestamp).HasColumnName(@"Timestamp").HasColumnType("datetimeoffset").IsRequired();
+            Property(x => x.MessageTypeName).HasColumnName(@"MessageTypeName").HasColumnType("nvarchar").IsRequired().HasMaxLength(512);
+            Property(x => x.PayloadJson).HasColumnName(@"PayloadJson").HasColumnType("nvarchar(max)").IsRequired();
         }
     }
 
