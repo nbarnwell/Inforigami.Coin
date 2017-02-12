@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="300" Background="White">
     <DockPanel>
         <TextBlock DockPanel.Dock="Right" Text="{Binding Currency.Code}" Margin="8 24 0 8" materialDesign:HintAssist.Hint="Currency" Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
-        <TextBox Name="Amount" Margin="0 8 0 8" TextAlignment="Right" materialDesign:HintAssist.Hint="Amount" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+        <TextBox Name="AmountInput" Margin="0 8 0 8" TextAlignment="Right" materialDesign:HintAssist.Hint="Amount" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
     </DockPanel>
 
 </UserControl>

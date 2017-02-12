@@ -6,14 +6,33 @@ namespace Coin.Shared
     {
         private decimal? _amount;
         private CurrencyViewModel _currency;
+        private string _amountInput;
+
+        public string AmountInput
+        {
+            get { return _amountInput; }
+            set
+            {
+                if (value == _amountInput) return;
+                _amountInput = value;
+                NotifyOfPropertyChange(() => AmountInput);
+            }
+        }
 
         public decimal? Amount
         {
-            get { return _amount; }
+            get
+            {
+                decimal amount;
+                decimal.TryParse(AmountInput, out amount);
+                return amount;
+            }
+
             set
             {
                 if (value == _amount) return;
                 _amount = value;
+                AmountInput = _amount.ToString();
                 NotifyOfPropertyChange(() => Amount);
             }
         }
