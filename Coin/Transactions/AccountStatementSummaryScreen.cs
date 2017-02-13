@@ -70,16 +70,19 @@ namespace Coin.Transactions
             var vm = _viewModelFactory.Create<AccountTransactionEditViewModel>().ForAccount(Account);
             yield return new ShowDialog(vm);
 
-            yield return 
+            yield return
                 new ProcessCommand(
                     new RecordTransaction(
                         Statement.Id,
                         vm.SelectedAccountTransactionType.Id,
-                        vm.GetTotal(),
                         vm.Description,
                         vm.Payee,
-                        DateTime.Now, 
-                        vm.TransactionTime.GetDateTimeOffset()));
+                        DateTime.Now,
+                        vm.TransactionTime.GetDateTimeOffset(),
+                        vm.CategorySplits.Select(
+                            x => new RecordTransaction.CategorySplit(
+                                x.Category.Id,
+                                x.SplitAmount))));
         }
 
         public void Handle(EntityCreated<AccountTransaction> message)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Caliburn.Micro;
 using Coin.Data;
 using Coin.Shared;
@@ -26,7 +27,7 @@ namespace Coin.Transactions
                 {
                     AccountTransactionStatusId = (int)AccountTransactionStatus.Recorded,
                     AccountTransactionTypeId = command.TransactionTypeId,
-                    Amount = command.Amount.Amount,
+                    Amount = command.CategorySplits.Sum(x => x.Amount),
                     Description = command.Description,
                     Payee = command.Payee,
                     RecordedDate = command.RecordedDate,
@@ -34,7 +35,18 @@ namespace Coin.Transactions
                 };
 
                 statement.AccountTransactions.Add(accountTransaction);
-                
+
+                foreach (var split in command.CategorySplits)
+                {
+                    accountTransaction.AccountTransactionAccountTransactionCategories
+                                      .Add(
+                                          new AccountTransactionAccountTransactionCategory
+                                          {
+                                              AccountTransactionCategoryId = split.CategoryId,
+                                              Amount = split.Amount
+                                          });
+                }
+
                 // TODO: If this isn't, for some reason, the latest statement, recalculate all statements' starting balances
 
                 db.SaveChanges();
