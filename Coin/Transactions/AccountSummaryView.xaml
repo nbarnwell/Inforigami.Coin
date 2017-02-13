@@ -29,14 +29,17 @@
                 </DockPanel>
 
             </StackPanel>
-            <ItemsControl x:Name="Statements" Visibility="{Binding SelectedStatement.ActiveItem, Converter={StaticResource InvertedNullVisibilityConverter}}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Style="{StaticResource FlatButton}" cal:Message.Attach="ShowStatement($dataContext)" cal:View.Model="{Binding}" Margin="16">
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="Statements" Visibility="{Binding SelectedStatement.ActiveItem, Converter={StaticResource InvertedNullVisibilityConverter}}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource FlatButton}" cal:Message.Attach="ShowStatement($dataContext)" cal:View.Model="{Binding}" Margin="16">
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
 
         </DockPanel>
     </Grid>
