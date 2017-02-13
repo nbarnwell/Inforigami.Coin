@@ -10,7 +10,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
 
     <md:DialogHost
-        IsOpen="{Binding DialogConductor.ActiveItem, Converter={StaticResource NullToVisibilityConverter}}"
+        IsOpen="{Binding DialogConductor.ActiveItem, Converter={StaticResource NullToFalseConverter}}"
         DialogContent="{Binding DialogConductor.ActiveItem}">
         <md:DialogHost.DialogContentTemplate>
             <DataTemplate>

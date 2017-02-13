@@ -75,10 +75,10 @@ namespace Coin.Transactions
                     new RecordTransaction(
                         Statement.Id,
                         vm.SelectedAccountTransactionType.Id,
-                        vm.Amount.AsMoney(),
+                        vm.GetTotal(),
                         vm.Description,
                         vm.Payee,
-                        vm.RecordedDate,
+                        DateTime.Now, 
                         vm.TransactionTime.GetDateTimeOffset()));
         }
 

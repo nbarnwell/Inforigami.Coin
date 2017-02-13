@@ -20,6 +20,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
 
                 <ResourceDictionary>
 
@@ -96,10 +97,14 @@
                         </Setter>
                     </Style>
 
-                    <!-- Converters -->
+                    <!-- Right-align columns in DataGrid -->
+                    <Style TargetType="{x:Type TextBlock}" x:Key="RightCell">
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="TextAlignment" Value="Right"/>
+                    </Style>
 
-                    <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
-                    <shared:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+                    <!-- Converters -->
+                    <shared:NullBooleanConverter x:Key="NullToFalseConverter" ValueIfNull="False" />
 
                     <!-- Icons -->
                     <Viewbox x:Key="HomeIcon">
@@ -113,6 +118,10 @@
         </ResourceDictionary>
     </Application.Resources>
 </Application>
+
+
+
+
 
 
 

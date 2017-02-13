@@ -20,7 +20,7 @@
         Identifier="RootDialog" 
         SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}"
         DialogContent="{Binding Dialog.Activeitem}"
-        IsOpen="{Binding Dialog.ActiveItem, Converter={StaticResource NullToVisibilityConverter}}">
+        IsOpen="{Binding Dialog.ActiveItem, Converter={StaticResource NullToFalseConverter}}">
         <md:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
             <md:DrawerHost.LeftDrawerContent>
                 <DockPanel MinWidth="212">

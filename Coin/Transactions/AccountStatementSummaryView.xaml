@@ -11,10 +11,6 @@
              d:DesignHeight="300" d:DesignWidth="300">
 
     <UserControl.Resources>
-        <Style TargetType="{x:Type TextBlock}" x:Key="RightCell">
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="TextAlignment" Value="Right"/>
-        </Style>
     </UserControl.Resources>
 
     <Grid>

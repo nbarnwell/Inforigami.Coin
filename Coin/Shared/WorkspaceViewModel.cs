@@ -6,14 +6,15 @@ namespace Coin.Shared
     {
         private IScreen _viewModel;
 
-        public Conductor<IScreen> DialogConductor { get; private set; }
+        public IConductor DialogConductor { get; private set; }
 
         public override string DisplayName => _viewModel.DisplayName;
 
         public WorkspaceViewModel()
         {
-            DialogConductor = new Conductor<IScreen>();
-            DialogConductor.ConductWith(this);
+            var conductor = new Collection.OneActive();
+            conductor.ConductWith(this);
+            DialogConductor = conductor;
         }
 
         public WorkspaceViewModel WithViewModel(IScreen screen)

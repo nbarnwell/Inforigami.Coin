@@ -10,6 +10,8 @@ namespace Coin.Shell
         private NavbarViewModel _navbar;
         private WorkspaceHostViewModel _workspaceHost;
 
+        public IConductor DialogConductor { get; private set; }
+
         public NavbarViewModel Navbar
         {
             get { return _navbar; }

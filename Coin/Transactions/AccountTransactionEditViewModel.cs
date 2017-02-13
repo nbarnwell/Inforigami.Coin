@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using Caliburn.Micro;
 using Coin.Accounts;
@@ -12,11 +11,11 @@ namespace Coin.Transactions
     {
         private int _id;
         private DateTimeViewModel _transactionTime;
-        private DateTime _recordedDate;
-        private MoneyViewModel _amount;
         private string _payee;
-        private string _description;
         private AccountTransactionTypeViewModel _selectedAccountTransactionType;
+        private string _description;
+        private string _splitAmount;
+        private ListItemViewModel _selectedCategory;
 
         public int Id   
         {
@@ -40,28 +39,6 @@ namespace Coin.Transactions
             }
         }
 
-        public DateTime RecordedDate
-        {
-            get { return _recordedDate; }
-            set
-            {
-                if (value.Equals(_recordedDate)) return;
-                _recordedDate = value;
-                NotifyOfPropertyChange(() => RecordedDate);
-            }
-        }
-
-        public MoneyViewModel Amount
-        {
-            get { return _amount; }
-            set
-            {
-                if (value == _amount) return;
-                _amount = value;
-                NotifyOfPropertyChange(() => Amount);
-            }
-        }
-
         public string Payee
         {
             get { return _payee; }
@@ -70,17 +47,6 @@ namespace Coin.Transactions
                 if (value == _payee) return;
                 _payee = value;
                 NotifyOfPropertyChange(() => Payee);
-            }
-        }
-
-        public string Description
-        {
-            get { return _description; }
-            set
-            {
-                if (value == _description) return;
-                _description = value;
-                NotifyOfPropertyChange(() => Description);
             }
         }
 
@@ -95,12 +61,85 @@ namespace Coin.Transactions
             }
         }
 
+        public string Description
+        {
+            get { return _description; }
+            set
+            {
+                if (value == _description) return;
+                _description = value;
+                NotifyOfPropertyChange(() => Description);
+            }
+        }
+
+        public string SplitAmount
+        {
+            get { return _splitAmount; }
+            set
+            {
+                if (value == _splitAmount) return;
+                _splitAmount = value;
+                NotifyOfPropertyChange(() => SplitAmount);
+            }
+        }
+
+        public ListItemViewModel SelectedCategory
+        {
+            get { return _selectedCategory; }
+            set
+            {
+                if (Equals(value, _selectedCategory)) return;
+                _selectedCategory = value;
+                NotifyOfPropertyChange(() => SelectedCategory);
+            }
+        }
+
+        public decimal AmountTotal
+        {
+            get { return CategorySplits.Sum(x => x.SplitAmount); }
+        }
+
         public CurrencyViewModel AccountCurrency { get; set; }
         public BindableCollection<AccountTransactionTypeViewModel> AccountTransactionTypes { get; }
+        public BindableCollection<ListItemViewModel> Categories { get; }
+        public BindableCollection<AccountTransactionCategorySplitViewModel> CategorySplits { get; }
 
         public AccountTransactionEditViewModel()
         {
             AccountTransactionTypes = new BindableCollection<AccountTransactionTypeViewModel>();
+            Categories = new BindableCollection<ListItemViewModel>();
+            CategorySplits = new BindableCollection<AccountTransactionCategorySplitViewModel>();
+        }
+
+        public Money GetTotal()
+        {
+            return new Money(CategorySplits.Sum(x => x.SplitAmount), AccountCurrency.Code);
+        }
+
+        public void AddSplit()
+        {
+            decimal splitAmount;
+            if (decimal.TryParse(SplitAmount, out splitAmount))
+            {
+                CategorySplits.Add(
+                    new AccountTransactionCategorySplitViewModel(
+                        splitAmount,
+                        SelectedCategory));
+
+                SplitAmount = "";
+                SelectedCategory = null;
+                NotifyOfPropertyChange(() => AmountTotal);
+            }
+            else
+            {
+                throw new NotImplementedException("TODO: MessageBox to user");
+            }
+        }
+
+        public void RemoveSplit(AccountTransactionCategorySplitViewModel split)
+        {
+            CategorySplits.Remove(split);
+            NotifyOfPropertyChange(() => AmountTotal);
         }
 
         public AccountTransactionEditViewModel ForAccount(AccountViewModel account)
@@ -124,10 +163,17 @@ namespace Coin.Transactions
                         AccountTransactionTypes
                             .SingleOrDefault(x => x.Id == SelectedAccountTransactionType.Id);
                 }
+
+                Categories.AddRange(
+                    db.AccountTransactionCategories
+                      .OrderBy(x => x.Name)
+                      .Select(x => new ListItemViewModel
+                      {
+                          Id = x.Id,
+                          Name = x.Name,
+                      }));
             }
 
-            RecordedDate = DateTime.Now;
-            Amount = Amount ?? new MoneyViewModel {Amount = null, Currency = AccountCurrency};
             TransactionTime = TransactionTime ?? new DateTimeViewModel();
         }
 
@@ -137,15 +183,15 @@ namespace Coin.Transactions
 
             var vm = new AccountTransactionEditViewModel
             {
-                Id                           = arg.Id,
-                Amount                       = MoneyViewModel.CreateFrom(arg.Amount, currencyViewModel),
-                AccountCurrency              = currencyViewModel,
-                SelectedAccountTransactionType       = AccountTransactionTypeViewModel.CreateFrom(arg.AccountTransactionType),
-                Description                  = arg.Description,
-                Payee                        = arg.Payee,
-                RecordedDate                 = arg.RecordedDate,
-                TransactionTime              = DateTimeViewModel.CreateFrom(arg.TransactionTime?.Date, arg.TransactionTime?.TimeOfDay)
+                Id                             = arg.Id,
+                AccountCurrency                = currencyViewModel,
+                SelectedAccountTransactionType = AccountTransactionTypeViewModel.CreateFrom(arg.AccountTransactionType),
+                Description                    = arg.Description,
+                Payee                          = arg.Payee,
+                TransactionTime                =
+                    DateTimeViewModel.CreateFrom(arg.TransactionTime?.Date, arg.TransactionTime?.TimeOfDay)
             };
+
 
             return vm;
         }

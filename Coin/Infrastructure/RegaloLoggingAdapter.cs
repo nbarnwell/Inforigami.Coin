@@ -55,15 +55,9 @@ namespace Coin.Infrastructure
 
         private string FormatException(Exception ex)
         {
-            if (ex is TargetInvocationException)
-            {
-                return "*** TargetInvocationException (redacted)";
-            }
-
             var result = new StringBuilder();
 
-            result.AppendFormat("*** {0}", ex.GetType().Name).AppendLine();
-            result.AppendFormat("\"{0}\"", ex.Message).AppendLine();
+            result.AppendFormat("*** {0}: \"{1}\"", ex.GetType().Name, ex.Message).AppendLine();
             result.AppendFormat("{0}", ex.StackTrace).AppendLine();
 
             return result.ToString();

@@ -163,6 +163,10 @@
       <DependentUpon>PlaygroundView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Playground\PlaygroundWorkspace.cs" />
+    <Compile Include="Shared\ListItemView.xaml.cs">
+      <DependentUpon>ListItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\ListItemViewModel.cs" />
     <Compile Include="Shared\MessageAuditingHandler.cs" />
     <Compile Include="Shared\CompositionInspector.cs" />
     <Compile Include="Shared\CurrencyViewModel.cs" />
@@ -184,7 +188,7 @@
     <Compile Include="Shared\EntityCreated.cs" />
     <Compile Include="Shared\EntityUpdated.cs" />
     <Compile Include="Shared\MaterialGrid.cs" />
-    <Compile Include="Shared\NullToVisibilityConverter.cs" />
+    <Compile Include="Shared\NullBooleanConverter.cs" />
     <Compile Include="Shared\ProcessCommand.cs" />
     <Compile Include="Shared\RefreshRequested.cs" />
     <Compile Include="Shared\ScreenHeaderView.xaml.cs">
@@ -232,6 +236,7 @@
     <Compile Include="Transactions\AccountStatementView.xaml.cs">
       <DependentUpon>AccountStatementView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transactions\AccountTransactionCategorySplitViewModel.cs" />
     <Compile Include="Transactions\AccountTransactionEditView.xaml.cs">
       <DependentUpon>AccountTransactionEditView.xaml</DependentUpon>
     </Compile>
@@ -306,6 +311,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Shared\DialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shared\ListItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

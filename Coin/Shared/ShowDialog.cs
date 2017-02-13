@@ -43,7 +43,7 @@ namespace Coin.Shared
             }
         }
 
-        private Conductor<IScreen> GetDialogConductor(object viewModel)
+        private IConductor GetDialogConductor(object viewModel)
         {
             object current = viewModel;
             while (current is IChild)
