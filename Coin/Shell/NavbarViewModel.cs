@@ -1,9 +1,9 @@
 ﻿using System;
 using Caliburn.Micro;
-using Coin.Accounts;
-using Coin.Banking;
+using Coin.CRUD.Accounts;
+using Coin.CRUD.Banks;
+using Coin.CRUD.People;
 using Coin.Infrastructure;
-using Coin.People;
 using Coin.Shared;
 
 namespace Coin.Shell

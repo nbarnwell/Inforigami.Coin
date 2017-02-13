@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Caliburn.Micro;
+using Coin.CRUD.Accounts;
 using Coin.Data;
 using Coin.Infrastructure;
 using Coin.Shared;
@@ -11,7 +12,7 @@ namespace Coin.Transactions
     {
         private readonly IViewModelFactory _viewModelFactory;
 
-        public BindableCollection<Accounts.AccountViewModel> Accounts { get; }
+        public BindableCollection<AccountViewModel> Accounts { get; }
 
         public override string DisplayName => "Accounting";
 
@@ -20,7 +21,7 @@ namespace Coin.Transactions
             if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
             _viewModelFactory = viewModelFactory;
 
-            Accounts = new BindableCollection<Accounts.AccountViewModel>();
+            Accounts = new BindableCollection<AccountViewModel>();
         }
 
         protected override void OnActivate()
@@ -28,7 +29,7 @@ namespace Coin.Transactions
             RefreshData();
         }
 
-        public IResult ShowAccount(Accounts.AccountViewModel account)
+        public IResult ShowAccount(AccountViewModel account)
         {
             var vm = _viewModelFactory.Create<AccountSummaryScreen>().ForAccountId(account.AccountId);
             return new ShowScreen(vm);
@@ -49,7 +50,7 @@ namespace Coin.Transactions
 
                 var items =
                     q.ToList()
-                     .Select(x => Coin.Accounts.AccountViewModel.CreateFrom(x.BasicAccountDetails, x.BankAccountDetails));
+                     .Select(x => AccountViewModel.CreateFrom(x.BasicAccountDetails, x.BankAccountDetails));
 
                 Accounts.AddRange(items);
             }

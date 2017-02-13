@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Caliburn.Micro;
+using Coin.CRUD.Accounts;
 using Coin.Data;
 using Coin.Infrastructure;
 using Coin.Shared;
@@ -12,10 +13,10 @@ namespace Coin.Transactions
     public class AccountSummaryScreen : Screen
     {
         private readonly IViewModelFactory _viewModelFactory;
-        private Accounts.AccountViewModel _accountDetails;
+        private AccountViewModel _accountDetails;
         private int _accountId;
 
-        public Accounts.AccountViewModel AccountDetails
+        public AccountViewModel AccountDetails
         {
             get { return _accountDetails; }
             set
@@ -61,7 +62,7 @@ namespace Coin.Transactions
                       .Single(x => x.Id == _accountId);
 
                 AccountDetails =
-                    Accounts.AccountViewModel.CreateFrom(
+                    AccountViewModel.CreateFrom(
                         accountDetails, 
                         accountDetails.BankAccounts.FirstOrDefault());
 

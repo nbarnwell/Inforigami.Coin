@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Caliburn.Micro;
-using Coin.Accounts;
+using Coin.CRUD.Accounts;
 using Coin.Data;
 using Coin.Shared;
 

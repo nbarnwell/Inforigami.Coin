@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
@@ -60,7 +61,44 @@ namespace Coin.Infrastructure
             result.AppendFormat("*** {0}: \"{1}\"", ex.GetType().Name, ex.Message).AppendLine();
             result.AppendFormat("{0}", ex.StackTrace).AppendLine();
 
+            var dbEntityValidationException = ex as DbEntityValidationException;
+            if (dbEntityValidationException != null)
+            {
+                result.AppendLine();
+                AppendDbEntityValidationErrors(result, dbEntityValidationException);
+            }
+
             return result.ToString();
+        }
+
+        private static void AppendDbEntityValidationErrors(
+            StringBuilder result,
+            DbEntityValidationException dbEntityValidationException)
+        {
+            result.AppendLine("Entity Validation Errors:");
+
+            int validationErrorIndex = 0;
+            foreach (var entityValidationError in dbEntityValidationException.EntityValidationErrors)
+            {
+                result.AppendFormat("   Validation Error {0}", validationErrorIndex).AppendLine();
+                result.AppendFormat("      Current values:").AppendLine();
+                foreach (var propertyName in entityValidationError.Entry.CurrentValues.PropertyNames)
+                {
+                    result.AppendFormat(
+                        "         {0} = {1}", propertyName,
+                        entityValidationError.Entry.CurrentValues[propertyName])
+                          .AppendLine();
+                }
+
+                result.AppendFormat("      Errors:").AppendLine();
+                foreach (var validationError in entityValidationError.ValidationErrors)
+                {
+                    result.AppendFormat(
+                        "         {0}: {1}", validationError.PropertyName,
+                        validationError.ErrorMessage)
+                          .AppendLine();
+                }
+            }
         }
 
         private IEnumerable<Exception> GetExceptions(Exception exception)

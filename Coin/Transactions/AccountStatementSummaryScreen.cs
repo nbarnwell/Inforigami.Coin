@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using Caliburn.Micro;
-using Coin.Accounts;
+using Coin.CRUD.Accounts;
 using Coin.Data;
 using Coin.Infrastructure;
 using Coin.Shared;

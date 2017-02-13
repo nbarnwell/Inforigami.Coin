@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Coin.CRUD.Accounts.BankAccountView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <ComboBox 
+            x:Name="Banks"
+            md:HintAssist.Hint="Bank" 
+            IsEditable="false" 
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+            Margin="0 8 0 8"
+            DisplayMemberPath="BankName">
+        </ComboBox>
+        <TextBox x:Name="CreditLimit" md:HintAssist.Hint="Credit Limit" Margin="0 8 0 8" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <ContentControl x:Name="AccountNumber" />
+        <ContentControl x:Name="SortCode" />
+    </StackPanel>
+
+</UserControl>

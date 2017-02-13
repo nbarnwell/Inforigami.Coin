@@ -100,43 +100,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Accounts\AccountListView.xaml.cs">
+    <Compile Include="CRUD\Accounts\AccountListView.xaml.cs">
       <DependentUpon>AccountListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Accounts\AccountListViewModel.cs" />
-    <Compile Include="Accounts\AccountNumber.cs" />
-    <Compile Include="Accounts\AccountNumberView.xaml.cs">
+    <Compile Include="CRUD\Accounts\AccountListViewModel.cs" />
+    <Compile Include="CRUD\Accounts\AccountNumber.cs" />
+    <Compile Include="CRUD\Accounts\AccountNumberView.xaml.cs">
       <DependentUpon>AccountNumberView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Accounts\AccountNumberViewModel.cs" />
-    <Compile Include="Accounts\AccountView.xaml.cs">
+    <Compile Include="CRUD\Accounts\AccountNumberViewModel.cs" />
+    <Compile Include="CRUD\Accounts\AccountView.xaml.cs">
       <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Accounts\AccountViewModel.cs" />
-    <Compile Include="Accounts\Account\Detail.xaml.cs">
+    <Compile Include="CRUD\Accounts\AccountViewModel.cs" />
+    <Compile Include="CRUD\Accounts\Account\Detail.xaml.cs">
       <DependentUpon>Detail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Accounts\Account\ListItem.xaml.cs">
+    <Compile Include="CRUD\Accounts\Account\ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Accounts\BankAccountView.xaml.cs">
+    <Compile Include="CRUD\Accounts\BankAccountView.xaml.cs">
       <DependentUpon>BankAccountView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Accounts\BankAccountViewModel.cs" />
-    <Compile Include="Accounts\SortCode.cs" />
-    <Compile Include="Accounts\SortCodeView.xaml.cs">
+    <Compile Include="CRUD\Accounts\BankAccountViewModel.cs" />
+    <Compile Include="CRUD\Accounts\SortCode.cs" />
+    <Compile Include="CRUD\Accounts\SortCodeView.xaml.cs">
       <DependentUpon>SortCodeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Accounts\SortCodeViewModel.cs" />
+    <Compile Include="CRUD\Accounts\SortCodeViewModel.cs" />
     <Compile Include="AppBootstrapper.cs" />
-    <Compile Include="Banking\BankListView.xaml.cs">
+    <Compile Include="CRUD\Banks\BankListView.xaml.cs">
       <DependentUpon>BankListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Banking\BankListViewModel.cs" />
-    <Compile Include="Banking\BankView.xaml.cs">
+    <Compile Include="CRUD\Banks\BankListViewModel.cs" />
+    <Compile Include="CRUD\Banks\BankView.xaml.cs">
       <DependentUpon>BankView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Banking\BankViewModel.cs" />
+    <Compile Include="CRUD\Banks\BankViewModel.cs" />
     <Compile Include="Data\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,15 +148,15 @@
     <Compile Include="Infrastructure\RegaloLoggingAdapter.cs" />
     <Compile Include="Infrastructure\ViewLocatorConfig.cs" />
     <Compile Include="Infrastructure\ViewModelFactory.cs" />
-    <Compile Include="People\PersonListView.xaml.cs">
+    <Compile Include="CRUD\People\PersonListView.xaml.cs">
       <DependentUpon>PersonListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="People\PersonListViewModel.cs" />
-    <Compile Include="People\PersonView.xaml.cs">
+    <Compile Include="CRUD\People\PersonListViewModel.cs" />
+    <Compile Include="CRUD\People\PersonView.xaml.cs">
       <DependentUpon>PersonView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="People\PersonViewModel.cs" />
-    <Compile Include="People\Person\ListItem.xaml.cs">
+    <Compile Include="CRUD\People\PersonViewModel.cs" />
+    <Compile Include="CRUD\People\Person\ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Playground\PlaygroundView.xaml.cs">
@@ -250,55 +250,55 @@
     <Compile Include="Transactions\AccountSummaryScreen.cs" />
     <Compile Include="Transactions\RecordTransaction.cs" />
     <Compile Include="Transactions\RecordTransactionHandler.cs" />
-    <Page Include="Accounts\AccountListView.xaml">
+    <Page Include="CRUD\Accounts\AccountListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Accounts\AccountNumberView.xaml">
+    <Page Include="CRUD\Accounts\AccountNumberView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Accounts\AccountView.xaml">
+    <Page Include="CRUD\Accounts\AccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Accounts\Account\Detail.xaml">
+    <Page Include="CRUD\Accounts\Account\Detail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Accounts\Account\ListItem.xaml">
+    <Page Include="CRUD\Accounts\Account\ListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Accounts\BankAccountView.xaml">
+    <Page Include="CRUD\Accounts\BankAccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Accounts\SortCodeView.xaml">
+    <Page Include="CRUD\Accounts\SortCodeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Banking\BankListView.xaml">
+    <Page Include="CRUD\Banks\BankListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Banking\BankView.xaml">
+    <Page Include="CRUD\Banks\BankView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Banking\Bank\ListItem.xaml">
+    <Page Include="CRUD\Banks\Bank\ListItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="People\PersonListView.xaml">
+    <Page Include="CRUD\People\PersonListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="People\PersonView.xaml">
+    <Page Include="CRUD\People\PersonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="People\Person\ListItem.xaml">
+    <Page Include="CRUD\People\Person\ListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
