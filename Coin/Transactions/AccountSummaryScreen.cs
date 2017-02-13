@@ -70,6 +70,7 @@ namespace Coin.Transactions
 
                 Statements.AddRange(
                     accountDetails.AccountStatements
+                                  .OrderByDescending(x => x.PeriodStart)
                                   .Select(AccountStatementViewModel.CreateFrom));
 
                 db.SaveChanges();
@@ -85,7 +86,7 @@ namespace Coin.Transactions
             if (!statements.Any())
             {
                 // Create one for the current month
-                var thisMonth = now.AddDays(0 - now.Day).Add(now.TimeOfDay);
+                var thisMonth = BeginningOfMonth(now);
                 var nextMonth = thisMonth.AddMonths(1);
 
                 var newStatement =
@@ -120,6 +121,11 @@ namespace Coin.Transactions
                     }
                 }
             }
+        }
+
+        private DateTimeOffset BeginningOfMonth(DateTimeOffset input)
+        {
+            return new DateTimeOffset(input.Year, input.Month, 1, 0, 0, 0, input.Offset);
         }
 
         private IEnumerable<DateTimeOffset> MonthsSince(DateTimeOffset endOfMostRecentStatement)
