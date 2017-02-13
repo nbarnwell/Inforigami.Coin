@@ -9,18 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
-        <DockPanel DockPanel.Dock="Top" Margin="8">
-            <Button x:Name="TryClose"
-                            Style="{StaticResource MaterialDesignFlatButton}"
-                            VerticalAlignment="Top"
-                            DockPanel.Dock="Right">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Close</TextBlock>
-                    <materialDesign:PackIcon Kind="Close" />
-                </StackPanel>
-            </Button>
-            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">Accounts</TextBlock>
-        </DockPanel>
+        <TextBlock DockPanel.Dock="Top" Margin="8" Style="{StaticResource MaterialDesignTitleTextBlock}">Accounts</TextBlock>
 
         <ItemsControl x:Name="Accounts">
             <ItemsControl.ItemTemplate>
