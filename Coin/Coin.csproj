@@ -202,16 +202,20 @@
       <DependentUpon>WorkspaceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shared\WorkspaceViewModel.cs" />
+    <Compile Include="Shell\AppBarView.xaml.cs">
+      <DependentUpon>AppBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\AppBarViewModel.cs" />
     <Compile Include="Shell\IShell.cs" />
     <Compile Include="Shell\IWorkspaceHost.cs" />
     <Compile Include="Shell\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell\ShellViewModel.cs" />
-    <Compile Include="Shell\NavbarView.xaml.cs">
-      <DependentUpon>NavbarView.xaml</DependentUpon>
+    <Compile Include="Shell\SideNavView.xaml.cs">
+      <DependentUpon>SideNavView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Shell\NavbarViewModel.cs" />
+    <Compile Include="Shell\SideNavViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -330,11 +334,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Shell\AppBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shell\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Shell\NavbarView.xaml">
+    <Page Include="Shell\SideNavView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

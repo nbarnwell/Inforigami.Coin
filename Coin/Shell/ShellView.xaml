@@ -5,7 +5,7 @@
         xmlns:cal="http://www.caliburnproject.org"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
-        TextElement.FontSize="14"
+        TextElement.FontSize="12"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
 
@@ -16,48 +16,64 @@
         </PriorityBinding>
     </Window.Title>
 
-    <md:DialogHost 
-        Identifier="RootDialog" 
-        SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}"
-        DialogContent="{Binding Dialog.Activeitem}"
-        IsOpen="{Binding Dialog.ActiveItem, Converter={StaticResource NullToFalseConverter}}">
-        <md:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
-            <md:DrawerHost.LeftDrawerContent>
-                <DockPanel MinWidth="212">
-                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
-                                    DockPanel.Dock="Top"
-                                    HorizontalAlignment="Right" Margin="16"
-                                    IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                    <ContentControl cal:View.Model="{Binding Navbar}" PreviewMouseLeftButtonUp="Navbar_PreviewMouseLeftButtonUp" />
-                </DockPanel>
-            </md:DrawerHost.LeftDrawerContent>
-            <DockPanel>
-                <md:ColorZone Padding="16" md:ShadowAssist.ShadowDepth="Depth2"
-                                            Mode="PrimaryMid" DockPanel.Dock="Top">
-                    <DockPanel>
-                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False"
-                                        x:Name="MenuToggleButton"/>
-                        <md:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
-                            <StackPanel>
-                                <Button x:Name="RefreshData" cal:Message.Attach="RefreshData">Refresh</Button>
-                            </StackPanel>
-                        </md:PopupBox>
-                        <TextBlock Margin="16,0,0,0" VerticalAlignment="Center" FontSize="22">
-                            <TextBlock.Text>
-                                <PriorityBinding>
-                                    <Binding Path="ActiveItem.ActiveItem.DisplayName"></Binding>
-                                    <Binding Path="DisplayName"></Binding>
-                                </PriorityBinding>
-                            </TextBlock.Text>
-                        </TextBlock>
-                    </DockPanel>
-                </md:ColorZone>
-                <Grid ZIndex="-99">
-                    <ContentControl cal:View.Model="{Binding WorkspaceHost}" />
-                    <md:Snackbar MessageQueue="{md:MessageQueue}" x:Name="MainSnackbar" />
-                </Grid>
+    <DockPanel>
+        <md:ColorZone cal:View.Model="{Binding AppBar}" 
+                      MinHeight="56"
+                      Padding="16" 
+                      md:ShadowAssist.ShadowDepth="Depth2" 
+                      Mode="PrimaryMid" 
+                      DockPanel.Dock="Top" />
+
+        <Grid DockPanel.Dock="Left" ZIndex="-98">
+            <Border cal:View.Model="{Binding SideNav}" 
+                      MinWidth="200"
+                      md:ShadowAssist.ShadowDepth="Depth1" 
+                      Background="#3C485D" />
+        </Grid>
+
+        <Grid ZIndex="-99">
+            <ContentControl cal:View.Model="{Binding WorkspaceHost}" />
+            <md:Snackbar MessageQueue="{md:MessageQueue}" x:Name="MainSnackbar" />
+        </Grid>
+
+    </DockPanel>
+
+
+    <!--<md:DrawerHost IsLeftDrawerOpen="True">
+        <md:DrawerHost.LeftDrawerContent>
+            <DockPanel MinWidth="300">
+                <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                              DockPanel.Dock="Top"
+                              HorizontalAlignment="Right" Margin="16"
+                              IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
+                <ContentControl cal:View.Model="{Binding Navbar}" PreviewMouseLeftButtonUp="Navbar_PreviewMouseLeftButtonUp" />
             </DockPanel>
-        </md:DrawerHost>
-    </md:DialogHost>
+        </md:DrawerHost.LeftDrawerContent>
+        <DockPanel>
+            <md:ColorZone Padding="16" md:ShadowAssist.ShadowDepth="Depth2"
+                          Mode="PrimaryMid" DockPanel.Dock="Top">
+                <DockPanel>
+                    <md:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                        <StackPanel>
+                            <Button x:Name="RefreshData" cal:Message.Attach="RefreshData">Refresh</Button>
+                        </StackPanel>
+                    </md:PopupBox>
+                    <TextBlock Margin="16,0,0,0" VerticalAlignment="Center" FontSize="22">
+                        <TextBlock.Text>
+                            <PriorityBinding>
+                                <Binding Path="ActiveItem.ActiveItem.DisplayName"></Binding>
+                                <Binding Path="DisplayName"></Binding>
+                            </PriorityBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DockPanel>
+            </md:ColorZone>
+            <Grid ZIndex="-99">
+                <ContentControl cal:View.Model="{Binding WorkspaceHost}" />
+                <md:Snackbar MessageQueue="{md:MessageQueue}" x:Name="MainSnackbar" />
+            </Grid>
+        </DockPanel>
+    </md:DrawerHost>-->
+
 
 </Window>

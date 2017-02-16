@@ -22,7 +22,7 @@ namespace Coin.Shell
                 dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
             }
 
-            MenuToggleButton.IsChecked = false;
+            //MenuToggleButton.IsChecked = false;
         }
     }
 }

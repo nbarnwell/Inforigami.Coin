@@ -7,45 +7,28 @@ namespace Coin.Shell
     public class ShellViewModel : Conductor<IScreen>, IShell
     {
         private readonly IEventAggregator _events;
-        private NavbarViewModel _navbar;
-        private WorkspaceHostViewModel _workspaceHost;
 
-        public IConductor DialogConductor { get; private set; }
-
-        public NavbarViewModel Navbar
-        {
-            get { return _navbar; }
-            private set
-            {
-                if (Equals(value, _navbar)) return;
-                _navbar = value;
-                NotifyOfPropertyChange(() => Navbar);
-            }
-        }
-
-        public WorkspaceHostViewModel WorkspaceHost
-        {
-            get { return _workspaceHost; }
-            private set
-            {
-                if (Equals(value, _workspaceHost)) return;
-                _workspaceHost = value;
-                NotifyOfPropertyChange(() => WorkspaceHost);
-            }
-        }
+        public AppBarViewModel AppBar { get; set; }
+        public SideNavViewModel SideNav { get; set; }
+        public WorkspaceHostViewModel WorkspaceHost { get; set; }
 
         public override string DisplayName => "Coin";
 
-        public ShellViewModel(NavbarViewModel navbar, WorkspaceHostViewModel workspaceHost, IEventAggregator events)
+        public ShellViewModel(
+            AppBarViewModel appBar,
+            SideNavViewModel sideNav,
+            WorkspaceHostViewModel workspaceHost,
+            IEventAggregator events)
         {
-            if (navbar == null) throw new ArgumentNullException(nameof(navbar));
+            if (appBar == null) throw new ArgumentNullException(nameof(appBar));
+            if (sideNav == null) throw new ArgumentNullException(nameof(sideNav));
             if (workspaceHost == null) throw new ArgumentNullException(nameof(workspaceHost));
             if (events == null) throw new ArgumentNullException(nameof(events));
 
-            _events = events;
-
-            Navbar = navbar;
+            AppBar = appBar;
+            SideNav = sideNav;
             WorkspaceHost = workspaceHost;
+            _events = events;
         }
 
         protected override void OnActivate()
