@@ -8,7 +8,31 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <md:DialogHost
+    <Grid>
+        <ContentControl Name="ActiveItem">
+        </ContentControl>
+        <ContentControl Name="DialogHost" 
+                        Visibility="{Binding DialogConductor.ActiveItem, Converter={StaticResource NullVisibilityConverter}}">
+            <Grid>
+                <Border Background="Black" 
+                        Opacity="0.2">
+                </Border>
+                <ContentControl HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center">
+                    <md:Card HorizontalAlignment="Center" 
+                             VerticalAlignment="Center">
+                        <ContentControl Content="{Binding DialogConductor.ActiveItem}" 
+                                        cal:View.Model="{Binding DialogConductor.ActiveItem}">
+                        </ContentControl>
+                    </md:Card>
+                </ContentControl>
+            </Grid>
+        </ContentControl>
+    </Grid>
+
+    <!--<md:DialogHost
         IsOpen="{Binding DialogConductor.ActiveItem, Converter={StaticResource NullToFalseConverter}}"
         DialogContent="{Binding DialogConductor.ActiveItem}">
         <md:DialogHost.DialogContentTemplate>
@@ -17,6 +41,6 @@
             </DataTemplate>
         </md:DialogHost.DialogContentTemplate>
         <ContentControl Name="ActiveItem"></ContentControl>
-    </md:DialogHost>
+    </md:DialogHost>-->
 
 </UserControl>
