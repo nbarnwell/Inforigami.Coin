@@ -189,6 +189,7 @@
     <Compile Include="Shared\EntityUpdated.cs" />
     <Compile Include="Shared\MaterialGrid.cs" />
     <Compile Include="Shared\NullBooleanConverter.cs" />
+    <Compile Include="Shared\NullEffectConverter.cs" />
     <Compile Include="Shared\ProcessCommand.cs" />
     <Compile Include="Shared\RefreshRequested.cs" />
     <Compile Include="Shared\ScreenHeaderView.xaml.cs">
