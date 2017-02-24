@@ -3,6 +3,7 @@ using System.Linq;
 using Caliburn.Micro;
 using Coin.CRUD.Accounts;
 using Coin.Data;
+using Coin.Infrastructure;
 using Coin.Shared;
 
 namespace Coin.Transactions
@@ -16,6 +17,7 @@ namespace Coin.Transactions
         private string _description;
         private string _splitAmount;
         private ListItemViewModel _selectedCategory;
+        private string _selectedCategoryText;
 
         public int Id   
         {
@@ -94,6 +96,17 @@ namespace Coin.Transactions
             }
         }
 
+        public string SelectedCategoryText
+        {
+            get { return _selectedCategoryText; }
+            set
+            {
+                if (value == _selectedCategoryText) return;
+                _selectedCategoryText = value;
+                NotifyOfPropertyChange(() => SelectedCategoryText);
+            }
+        }
+
         public decimal AmountTotal
         {
             get { return CategorySplits.Sum(x => x.SplitAmount); }
@@ -118,6 +131,11 @@ namespace Coin.Transactions
 
         public void AddSplit()
         {
+            if (SelectedCategory == null && !string.IsNullOrWhiteSpace(SelectedCategoryText))
+            {
+                CreateAndSelectNewCategory();
+            }
+
             decimal splitAmount;
             if (decimal.TryParse(SplitAmount, out splitAmount))
             {
@@ -134,6 +152,40 @@ namespace Coin.Transactions
             {
                 throw new NotImplementedException("TODO: MessageBox to user");
             }
+        }
+
+        private void CreateAndSelectNewCategory()
+        {
+            // Create the category as entered
+            var category =
+                new AccountTransactionCategory
+                {
+                    Name = SelectedCategoryText
+                };
+
+            using (var db = new Database())
+            {
+                db.AccountTransactionCategories.Add(category);
+                db.SaveChanges();
+                db.Entry(category).Reload();
+            }
+
+            var categoryViewModel =
+                new ListItemViewModel
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                };
+
+            Categories.InsertWhere(
+                x => string.Compare(
+                    x.Name,
+                    SelectedCategoryText,
+                    StringComparison.InvariantCultureIgnoreCase) <= 0,
+                categoryViewModel);
+
+            SelectedCategory =
+                categoryViewModel;
         }
 
         public void RemoveSplit(AccountTransactionCategorySplitViewModel split)

@@ -34,11 +34,12 @@
             <ComboBox 
                 x:Name="Categories"
                 md:HintAssist.Hint="Category" 
-                IsEditable="false" 
+                IsEditable="True" 
                 Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                 Margin="8 8 0 8"
                 Width="200"
-                DisplayMemberPath="Name">
+                DisplayMemberPath="Name"
+                Text="{Binding SelectedCategoryText}">
             </ComboBox>
             <Button x:Name="AddSplit" Margin="8 8 8 0" Style="{StaticResource MaterialDesignFlatButton}">Add</Button>
 
