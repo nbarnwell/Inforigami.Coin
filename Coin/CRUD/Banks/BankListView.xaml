@@ -11,13 +11,25 @@
 
     <Grid>
 
-        <ListBox x:Name="Banks">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16"></ContentControl>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ListBox>
+        <md:Card>
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="8">
+                    <DockPanel>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">Banks</TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+                
+                <ListBox x:Name="Banks">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16"></ContentControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </md:Card>
 
         <Button x:Name="AddBank"
                 Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 

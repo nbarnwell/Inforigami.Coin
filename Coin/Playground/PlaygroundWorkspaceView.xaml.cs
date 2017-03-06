@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Coin.Playground
 {
     /// <summary>
-    /// Interaction logic for PlaygroundView.xaml
+    /// Interaction logic for PlaygroundWorkspaceView.xaml
     /// </summary>
-    public partial class PlaygroundView : UserControl
+    public partial class PlaygroundWorkspaceView : UserControl
     {
-        public PlaygroundView()
+        public PlaygroundWorkspaceView()
         {
             InitializeComponent();
         }

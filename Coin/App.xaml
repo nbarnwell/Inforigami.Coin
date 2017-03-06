@@ -24,8 +24,6 @@
 
                 <ResourceDictionary>
 
-                    <local:AppBootstrapper x:Key="bootstrapper" />
-
                     <!-- Controls -->
                     <Style TargetType="{x:Type ListBox}">
                         <Setter Property="BorderThickness" Value="0"/>

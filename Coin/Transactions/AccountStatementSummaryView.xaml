@@ -10,53 +10,53 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <UserControl.Resources>
-    </UserControl.Resources>
-
     <Grid>
-        <DockPanel>
+        <materialDesign:Card>
+            <DockPanel>
 
-            <StackPanel DockPanel.Dock="Top" Margin="8">
-                <DockPanel>
-                    <Button x:Name="TryClose"
+                <StackPanel DockPanel.Dock="Top" Margin="8">
+                    <DockPanel>
+                        <Button x:Name="TryClose"
                             Style="{StaticResource MaterialDesignFlatButton}"
                             VerticalAlignment="Top"
                             DockPanel.Dock="Right">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Close</TextBlock>
-                            <materialDesign:PackIcon Kind="Close" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Close</TextBlock>
+                                <materialDesign:PackIcon Kind="Close" />
+                            </StackPanel>
+                        </Button>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">Account Statement</TextBlock>
+                            <TextBlock Text="{Binding Account.AccountName}" Style="{StaticResource MaterialDesignSubheadingTextBlock}"></TextBlock>
+                            <TextBlock Text="{Binding Statement.PeriodStart, StringFormat={}{0:Y}}" Style="{StaticResource MaterialDesignSubheadingTextBlock}"></TextBlock>
                         </StackPanel>
-                    </Button>
-                    <StackPanel Margin="8 0 0 0">
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">Account Statement</TextBlock>
-                        <TextBlock Text="{Binding Account.AccountName}" Style="{StaticResource MaterialDesignSubheadingTextBlock}"></TextBlock>
-                        <TextBlock Text="{Binding Statement.PeriodStart, StringFormat={}{0:Y}}" Style="{StaticResource MaterialDesignSubheadingTextBlock}"></TextBlock>
-                    </StackPanel>
-                </DockPanel>
-            </StackPanel>
+                    </DockPanel>
+                </StackPanel>
 
-            <DataGrid
-                ItemsSource="{Binding Transactions}"
-                AutoGenerateColumns="False"
-                CanUserAddRows="False"
-                CanUserDeleteRows="False"
-                CanUserResizeRows="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat={}{0:F2}}" IsReadOnly="True" ElementStyle="{StaticResource RightCell}" />
-                    <DataGridTextColumn Header="Status" Binding="{Binding AccountTransactionStatusName}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Type" Binding="{Binding AccountTransactionTypeName}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Payee" Binding="{Binding Payee}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Recorded" Binding="{Binding RecordedDate}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Date/Time" Binding="{Binding TransactionTime}" IsReadOnly="True" />
-                </DataGrid.Columns>
-            </DataGrid>
+                <DataGrid
+                    ItemsSource="{Binding Transactions}"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    CanUserResizeRows="False"
+                    IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat={}{0:F2}}"  ElementStyle="{StaticResource RightCell}" />
+                        <DataGridTextColumn Header="Status" Binding="{Binding AccountTransactionStatusName}"  />
+                        <DataGridTextColumn Header="Type" Binding="{Binding AccountTransactionTypeName}"  />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"  />
+                        <DataGridTextColumn Header="Payee" Binding="{Binding Payee}"  />
+                        <DataGridTextColumn Header="Recorded" Binding="{Binding RecordedDate}"  />
+                        <DataGridTextColumn Header="Date/Time" Binding="{Binding TransactionTime}"  />
+                    </DataGrid.Columns>
+                </DataGrid>
 
-        </DockPanel>
+            </DockPanel>
+        </materialDesign:Card>
+
         <Button x:Name="Add"
                 Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                Margin="0 0 32 16">
+                HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Plus" />
         </Button>
     </Grid>

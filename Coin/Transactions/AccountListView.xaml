@@ -8,18 +8,41 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel>
-        <TextBlock DockPanel.Dock="Top" Margin="8" Style="{StaticResource MaterialDesignTitleTextBlock}">Accounts</TextBlock>
+    <Grid>
+        <materialDesign:Card>
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="8">
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">Accounts</TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
 
-        <ItemsControl x:Name="Accounts">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Style="{StaticResource FlatButton}" cal:Message.Attach="ShowAccount($dataContext)" cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16">
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                <ItemsControl x:Name="Accounts">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource FlatButton}" cal:Message.Attach="ShowAccount($dataContext)"
+                                cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16">
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
-    </DockPanel>
+            </DockPanel>
+        </materialDesign:Card>
+
+        <Button x:Name="AddAccount"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <materialDesign:PackIcon Kind="Plus" />
+        </Button>
+    </Grid>
 </UserControl>
+
+
+
+
+
+
 

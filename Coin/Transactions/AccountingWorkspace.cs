@@ -16,14 +16,12 @@ namespace Coin.Transactions
             _viewModelFactory = viewModelFactory;
         }
 
-        protected override void OnInitialize()
+        protected override void OnActivate()
         {
-            ActivateItem(_viewModelFactory.Create<AccountListScreen>());
-        }
-
-        public override void ActivateItem(IScreen item)
-        {
-            base.ActivateItem(item);
+            if (ActiveItem == null)
+            {
+                ActivateItem(_viewModelFactory.Create<AccountListScreen>());
+            }
         }
     }
 }

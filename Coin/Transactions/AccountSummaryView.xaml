@@ -8,7 +8,7 @@
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <md:Card>
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Margin="8">
 
@@ -22,7 +22,7 @@
                             <md:PackIcon Kind="Close" />
                         </StackPanel>
                     </Button>
-                    <StackPanel Margin="8 0 0 0">
+                    <StackPanel>
                         <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">Account Summary</TextBlock>
                         <TextBlock Text="{Binding AccountDetails.AccountName}" Style="{StaticResource MaterialDesignSubheadingTextBlock}"></TextBlock>
                     </StackPanel>
@@ -42,5 +42,5 @@
             </ScrollViewer>
 
         </DockPanel>
-    </Grid>
+    </md:Card>
 </UserControl>

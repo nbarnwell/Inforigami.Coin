@@ -143,6 +143,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\CaliburnLog.cs" />
+    <Compile Include="Infrastructure\CompositionInspector.cs" />
     <Compile Include="Infrastructure\ListExtensions.cs" />
     <Compile Include="Infrastructure\IViewModelFactory.cs" />
     <Compile Include="Infrastructure\RegaloLoggingAdapter.cs" />
@@ -159,8 +160,8 @@
     <Compile Include="CRUD\People\Person\ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Playground\PlaygroundView.xaml.cs">
-      <DependentUpon>PlaygroundView.xaml</DependentUpon>
+    <Compile Include="Playground\PlaygroundWorkspaceView.xaml.cs">
+      <DependentUpon>PlaygroundWorkspaceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Playground\PlaygroundWorkspace.cs" />
     <Compile Include="Shared\ListItemView.xaml.cs">
@@ -168,7 +169,6 @@
     </Compile>
     <Compile Include="Shared\ListItemViewModel.cs" />
     <Compile Include="Shared\MessageAuditingHandler.cs" />
-    <Compile Include="Shared\CompositionInspector.cs" />
     <Compile Include="Shared\CurrencyViewModel.cs" />
     <Compile Include="Shared\DateTimeOffsetExtensions.cs" />
     <Compile Include="Shared\DateTimeView.xaml.cs">
@@ -307,7 +307,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Playground\PlaygroundView.xaml">
+    <Page Include="Playground\PlaygroundWorkspaceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

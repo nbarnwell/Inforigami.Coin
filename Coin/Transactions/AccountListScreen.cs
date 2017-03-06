@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Caliburn.Micro;
 using Coin.CRUD.Accounts;
@@ -11,15 +12,19 @@ namespace Coin.Transactions
     public class AccountListScreen : Screen
     {
         private readonly IViewModelFactory _viewModelFactory;
+        private readonly IEventAggregator _events;
 
         public BindableCollection<AccountViewModel> Accounts { get; }
 
         public override string DisplayName => "Accounting";
 
-        public AccountListScreen(IViewModelFactory viewModelFactory)
+        public AccountListScreen(IViewModelFactory viewModelFactory, IEventAggregator events)
         {
             if (viewModelFactory == null) throw new ArgumentNullException(nameof(viewModelFactory));
+            if (events == null) throw new ArgumentNullException(nameof(events));
+
             _viewModelFactory = viewModelFactory;
+            _events = events;
 
             Accounts = new BindableCollection<AccountViewModel>();
         }
@@ -56,5 +61,47 @@ namespace Coin.Transactions
             }
         }
 
+        public IEnumerable<IResult> AddAccount()
+        {
+            var accountViewModel = _viewModelFactory.Create<AccountViewModel>();
+            var showDialog = new ShowDialog(accountViewModel);
+            yield return showDialog;
+
+            if (showDialog.Result == true)
+            {
+                using (var db = new Database())
+                {
+                    var entity =
+                        new Data.Account
+                        {
+                            Name = accountViewModel.AccountName,
+                            PersonId = accountViewModel.AccountHolder.PersonId,
+                            CurrencyId = accountViewModel.Currency.Id
+                        };
+
+                    // TODO: If it's a bank account, add the bank account details
+                    if (accountViewModel.IsBankAccount)
+                    {
+                        var bankDetails = accountViewModel.BankAccountDetails;
+                        entity.BankAccounts.Add(
+                            new BankAccount
+                            {
+                                BankId = bankDetails.SelectedBank.BankId,
+                                CreditLimit = bankDetails.CreditLimit,
+                                AccountNumber = bankDetails.AccountNumber.Value,
+                                SortCode = bankDetails.SortCode.Value
+                            });
+                    }
+
+                    db.Accounts.Add(entity);
+
+                    db.SaveChanges();
+
+                    db.Entry(entity).Reload();
+
+                    _events.PublishOnUIThread(new EntityCreated<Data.Account>(entity));
+                }
+            }
+        }
     }
 }

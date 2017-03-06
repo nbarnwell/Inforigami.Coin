@@ -9,18 +9,29 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
 
-        <ListBox x:Name="Accounts">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16"></ContentControl>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ListBox>
+        <materialDesign:Card>
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="8">
+                    <DockPanel>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">Accounts</TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+
+                <ListBox x:Name="Accounts">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16"></ContentControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </materialDesign:Card>
 
         <Button x:Name="AddAccount"
                 Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
-                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                Margin="0 0 32 16">
+                HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Plus" />
         </Button>
 

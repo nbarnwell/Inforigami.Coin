@@ -17,7 +17,8 @@
 
     <Grid>
         <ContentControl Name="ActiveItem" 
-                        Effect="{Binding DialogConductor.ActiveItem, Converter={StaticResource NullEffectConverter}}">
+                        Effect="{Binding DialogConductor.ActiveItem, Converter={StaticResource NullEffectConverter}}"
+                        Margin="16">
         </ContentControl>
         <ContentControl Name="DialogHost" 
                         Visibility="{Binding DialogConductor.ActiveItem, Converter={StaticResource NullVisibilityConverter}}">
@@ -39,16 +40,4 @@
             </Grid>
         </ContentControl>
     </Grid>
-
-    <!--<md:DialogHost
-        IsOpen="{Binding DialogConductor.ActiveItem, Converter={StaticResource NullToFalseConverter}}"
-        DialogContent="{Binding DialogConductor.ActiveItem}">
-        <md:DialogHost.DialogContentTemplate>
-            <DataTemplate>
-                <ContentControl cal:View.Model="{Binding}"></ContentControl>
-            </DataTemplate>
-        </md:DialogHost.DialogContentTemplate>
-        <ContentControl Name="ActiveItem"></ContentControl>
-    </md:DialogHost>-->
-
 </UserControl>

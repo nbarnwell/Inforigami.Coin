@@ -9,13 +9,25 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
 
-        <ListBox x:Name="People">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16"></ContentControl>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ListBox>
+        <md:Card>
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="8">
+                    <DockPanel>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">People</TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+                
+                <ListBox x:Name="People">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl cal:View.Model="{Binding}" cal:View.Context="ListItem" Margin="16"></ContentControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </md:Card>
 
         <Button x:Name="AddPerson"
                 Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 

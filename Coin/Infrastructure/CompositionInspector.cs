@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Caliburn.Micro;
+using Coin.Shared;
 
-namespace Coin.Shared
+namespace Coin.Infrastructure
 {
     public static class CompositionInspector
     {

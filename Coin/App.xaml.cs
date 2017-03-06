@@ -9,6 +9,8 @@ namespace Coin
         public App()
         {
             InitializeComponent();
+
+            new AppBootstrapper();
         }
 
         protected override void OnStartup(StartupEventArgs e)

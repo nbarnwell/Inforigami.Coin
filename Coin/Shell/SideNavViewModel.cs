@@ -51,9 +51,9 @@ namespace Coin.Shell
                 _viewModelFactory.Create<WorkspaceViewModel>()
                                  .WithViewModel(
                                      _viewModelFactory.Create<Transactions.AccountingWorkspace>()),
-                _viewModelFactory.Create<WorkspaceViewModel>()
-                                 .WithViewModel(
-                                     _viewModelFactory.Create<Playground.PlaygroundWorkspace>())
+                //_viewModelFactory.Create<WorkspaceViewModel>()
+                //                 .WithViewModel(
+                //                     _viewModelFactory.Create<Playground.PlaygroundWorkspace>())
             };
 
         }

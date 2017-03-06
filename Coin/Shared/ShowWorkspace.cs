@@ -1,5 +1,6 @@
 using System;
 using Caliburn.Micro;
+using Coin.Infrastructure;
 
 namespace Coin.Shared
 {
