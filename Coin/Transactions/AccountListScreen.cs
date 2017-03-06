@@ -9,7 +9,7 @@ using Coin.Shared;
 
 namespace Coin.Transactions
 {
-    public class AccountListScreen : Screen
+    public class AccountListScreen : Screen, IHandle<RefreshRequested>, IHandle<EntityCreated<Data.Account>>
     {
         private readonly IViewModelFactory _viewModelFactory;
         private readonly IEventAggregator _events;
@@ -27,11 +27,17 @@ namespace Coin.Transactions
             _events = events;
 
             Accounts = new BindableCollection<AccountViewModel>();
+            _events.Subscribe(this);
         }
 
         protected override void OnActivate()
         {
             RefreshData();
+        }
+
+        public override void TryClose(bool? dialogResult = null)
+        {
+            _events.Unsubscribe(this);
         }
 
         public IResult ShowAccount(AccountViewModel account)
@@ -102,6 +108,19 @@ namespace Coin.Transactions
                     _events.PublishOnUIThread(new EntityCreated<Data.Account>(entity));
                 }
             }
+        }
+
+        public void Handle(RefreshRequested message)
+        {
+            RefreshData();
+        }
+
+        public void Handle(EntityCreated<Account> message)
+        {
+            var vm = AccountViewModel.CreateFrom(message.Entity, message.Entity.BankAccounts.FirstOrDefault());
+            Accounts.InsertWhere(
+                x => string.Compare(x.AccountName, vm.AccountName, StringComparison.Ordinal) >= 0,
+                vm);
         }
     }
 }
