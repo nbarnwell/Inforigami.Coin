@@ -137,6 +137,20 @@
       <DependentUpon>BankView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CRUD\Banks\BankViewModel.cs" />
+    <Compile Include="CRUD\Vehicles\CreateVehicle.cs" />
+    <Compile Include="CRUD\Vehicles\CreateVehicleHandler.cs" />
+    <Compile Include="CRUD\Vehicles\VehicleEditScreen.cs" />
+    <Compile Include="CRUD\Vehicles\VehicleEditView.xaml.cs">
+      <DependentUpon>VehicleEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\Vehicles\VehicleListItemViewModel.cs" />
+    <Compile Include="CRUD\Vehicles\VehicleListItem\Card.xaml.cs">
+      <DependentUpon>Card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\Vehicles\VehicleListView.xaml.cs">
+      <DependentUpon>VehicleListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\Vehicles\VehicleListScreen.cs" />
     <Compile Include="Data\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -307,6 +321,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CRUD\Vehicles\VehicleEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CRUD\Vehicles\VehicleListItem\Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CRUD\Vehicles\VehicleListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Playground\PlaygroundWorkspaceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -415,6 +441,9 @@
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
     <Resource Include="Transactions\Layout.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="VehicleManagement\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

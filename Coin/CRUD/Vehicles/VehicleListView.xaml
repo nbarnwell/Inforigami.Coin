@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Coin.CRUD.Vehicles.VehicleListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Coin.CRUD.Vehicles"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+
+        <ItemsControl Name="Vehicles">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl cal:View.Model="{Binding}" cal:View.Context="Card"></ContentControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Control.Margin" Value="8"></Setter>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+
+        <Button x:Name="AddVehicle"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Margin="0 0 32 16">
+            <materialDesign:PackIcon Kind="Plus" />
+        </Button>
+
+    </Grid>
+
+</UserControl>

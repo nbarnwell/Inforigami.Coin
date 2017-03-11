@@ -259,3 +259,100 @@ insert into AccountTransactionType (Id, Name, IsIncome) values (6, 'Transfer Out
 insert into AccountTransactionType (Id, Name, IsIncome) values (7, 'Interest Charged', 0);
 insert into AccountTransactionType (Id, Name, IsIncome) values (8, 'Interest Earned', 1);
 insert into AccountTransactionType (Id, Name, IsIncome) values (9, 'Deposit', 1);
+
+create table VehicleType (
+	Id int not null,
+	Name nvarchar(256) not null,
+	constraint PK_VehicleType primary key (Id)
+);
+
+insert into VehicleType (Id, Name) values (0, 'Car');
+insert into VehicleType (Id, Name) values (1, 'Motorbike');
+
+create table Vehicle (
+	Id int not null identity(1,1),
+	VehicleTypeId int not null,
+	Name nvarchar(256) not null,
+	Make nvarchar(256) not null,
+	Model nvarchar(256) not null,
+	Registration nvarchar(256) not null,
+	constraint PK_Vehicle primary key (Id),
+	constraint FK_Vehicle__VehicleType foreign key (VehicleTypeId) references VehicleType (Id)
+);
+
+create table VehicleRefuelLog (
+	Id int not null identity(1,1),
+	VehicleId int not null,
+	FuelLitres decimal not null,
+	PencePerLitre int not null,
+	Mileage int not null,
+	constraint PK_VehicleRefuelLog primary key (Id),
+	constraint FK_VehicleRefuelLog foreign key (VehicleId) references Vehicle (Id)
+);
+
+create table VehicleTravelPurposeType (
+	Id int not null,
+	Name nvarchar(256) not null,
+	constraint PK_VehicleTravelPurposeType primary key (Id)
+);
+
+insert into VehicleTravelPurposeType (Id, Name) values (0, 'Personal');
+insert into VehicleTravelPurposeType (Id, Name) values (1, 'Business');
+
+create table VehicleMileageLog (
+	Id int not null identity(1,1),
+	VehicleId int not null,
+	TripDateTime datetimeoffset(2) not null,
+	StartMileage int not null,
+	EndMileage int not null,
+	VehicleTravelPurposeTypeId int not null,
+	Purpose nvarchar(512) not null,
+	[From] nvarchar(512) not null,
+	[To] nvarchar(512) not null,
+	constraint PK_VehicleMileageLog primary key (Id),
+	constraint FK_VehicleMileageLog__Vehicle foreign key (VehicleId) references Vehicle (Id),
+	constraint FK_VehicleMileageLog__VehicleTravelPurposeType foreign key (VehicleTravelPurposeTypeId) references VehicleTravelPurposeType (Id)
+);
+
+create table VehicleMaintenanceLogType (
+	Id int not null,
+	Name nvarchar(256) not null,
+	constraint PK_VehicleMaintenanceLogType primary key (Id)
+);
+
+insert into VehicleMaintenanceLogType (Id, Name) values (0, 'Annual Service');
+insert into VehicleMaintenanceLogType (Id, Name) values (1, 'Parts Replaced');
+
+create table VehicleMaintenanceLog (
+	Id int not null identity(1,1),
+	VehicleId int not null,
+	MaintenanceDateTime datetimeoffset(2) not null,
+	Mileage int not null,
+	constraint PK_VehicleMaintenanceLog primary key (Id),
+	constraint FK_VehicleMaintenanceLog__Vehicle foreign key (VehicleId) references Vehicle (Id)
+);
+
+create table VehiclePart (
+	Id int not null,
+	Name nvarchar(256) not null,
+	VehicleTypeId int not null,
+	constraint PK_VehiclePart primary key (Id),
+	constraint FK_VehiclePart__VehicleType foreign key (VehicleTypeId) references VehicleType (Id)
+);
+
+insert into VehiclePart (Id, Name) values (1, 0, 'Front Left Tyre');
+insert into VehiclePart (Id, Name) values (2, 0, 'Front Right Tyre');
+insert into VehiclePart (Id, Name) values (3, 0, 'Rear Right Tyre');
+insert into VehiclePart (Id, Name) values (4, 0, 'Read Right Tyre');
+insert into VehiclePart (Id, Name) values (5, 0, 'Windscreen Wipers');
+insert into VehiclePart (Id, Name) values (6, 1, 'Front Tyre');
+insert into VehiclePart (Id, Name) values (7, 1, 'Rear Tyre');
+
+create table VehiclePartsReplacementLog (
+	Id int not null identity(1,1),
+	VehicleMaintenanceLogId int not null,
+	VehiclePartId int not null,
+	constraint PK_VehiclePartsReplacementLog primary key (Id),
+	constraint FK_VehiclePartsReplacementLog__VehicleMaintenanceLog foreign key (VehicleMaintenanceLogId) references VehicleMaintenanceLog (Id),
+	constraint FK_VehiclePartsReplacementLog__VehiclePart foreign key (VehiclePartId) references VehiclePart (Id)
+);

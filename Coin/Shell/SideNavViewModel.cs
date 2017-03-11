@@ -2,6 +2,7 @@
 using Caliburn.Micro;
 using Coin.CRUD.Banks;
 using Coin.CRUD.People;
+using Coin.CRUD.Vehicles;
 using Coin.Infrastructure;
 using Coin.Shared;
 
@@ -47,6 +48,9 @@ namespace Coin.Shell
                 _viewModelFactory.Create<WorkspaceViewModel>()
                                  .WithViewModel(
                                      _viewModelFactory.Create<PersonListViewModel>()),
+                _viewModelFactory.Create<WorkspaceViewModel>()
+                                 .WithViewModel(
+                                     _viewModelFactory.Create<VehicleListScreen>()),
             };
 
         }

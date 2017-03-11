@@ -49,6 +49,15 @@ namespace Coin.Data
         System.Data.Entity.DbSet<Currency> Currencies { get; set; } // Currency
         System.Data.Entity.DbSet<Fund> Funds { get; set; } // Fund
         System.Data.Entity.DbSet<Person> People { get; set; } // Person
+        System.Data.Entity.DbSet<Vehicle> Vehicles { get; set; } // Vehicle
+        System.Data.Entity.DbSet<VehicleMaintenanceLog> VehicleMaintenanceLogs { get; set; } // VehicleMaintenanceLog
+        System.Data.Entity.DbSet<VehicleMaintenanceLogType> VehicleMaintenanceLogTypes { get; set; } // VehicleMaintenanceLogType
+        System.Data.Entity.DbSet<VehicleMileageLog> VehicleMileageLogs { get; set; } // VehicleMileageLog
+        System.Data.Entity.DbSet<VehiclePart> VehicleParts { get; set; } // VehiclePart
+        System.Data.Entity.DbSet<VehiclePartsReplacementLog> VehiclePartsReplacementLogs { get; set; } // VehiclePartsReplacementLog
+        System.Data.Entity.DbSet<VehicleRefuelLog> VehicleRefuelLogs { get; set; } // VehicleRefuelLog
+        System.Data.Entity.DbSet<VehicleTravelPurposeType> VehicleTravelPurposeTypes { get; set; } // VehicleTravelPurposeType
+        System.Data.Entity.DbSet<VehicleType> VehicleTypes { get; set; } // VehicleType
 
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();
@@ -85,6 +94,15 @@ namespace Coin.Data
         public System.Data.Entity.DbSet<Currency> Currencies { get; set; } // Currency
         public System.Data.Entity.DbSet<Fund> Funds { get; set; } // Fund
         public System.Data.Entity.DbSet<Person> People { get; set; } // Person
+        public System.Data.Entity.DbSet<Vehicle> Vehicles { get; set; } // Vehicle
+        public System.Data.Entity.DbSet<VehicleMaintenanceLog> VehicleMaintenanceLogs { get; set; } // VehicleMaintenanceLog
+        public System.Data.Entity.DbSet<VehicleMaintenanceLogType> VehicleMaintenanceLogTypes { get; set; } // VehicleMaintenanceLogType
+        public System.Data.Entity.DbSet<VehicleMileageLog> VehicleMileageLogs { get; set; } // VehicleMileageLog
+        public System.Data.Entity.DbSet<VehiclePart> VehicleParts { get; set; } // VehiclePart
+        public System.Data.Entity.DbSet<VehiclePartsReplacementLog> VehiclePartsReplacementLogs { get; set; } // VehiclePartsReplacementLog
+        public System.Data.Entity.DbSet<VehicleRefuelLog> VehicleRefuelLogs { get; set; } // VehicleRefuelLog
+        public System.Data.Entity.DbSet<VehicleTravelPurposeType> VehicleTravelPurposeTypes { get; set; } // VehicleTravelPurposeType
+        public System.Data.Entity.DbSet<VehicleType> VehicleTypes { get; set; } // VehicleType
 
         static Database()
         {
@@ -148,6 +166,15 @@ namespace Coin.Data
             modelBuilder.Configurations.Add(new CurrencyConfiguration());
             modelBuilder.Configurations.Add(new FundConfiguration());
             modelBuilder.Configurations.Add(new PersonConfiguration());
+            modelBuilder.Configurations.Add(new VehicleConfiguration());
+            modelBuilder.Configurations.Add(new VehicleMaintenanceLogConfiguration());
+            modelBuilder.Configurations.Add(new VehicleMaintenanceLogTypeConfiguration());
+            modelBuilder.Configurations.Add(new VehicleMileageLogConfiguration());
+            modelBuilder.Configurations.Add(new VehiclePartConfiguration());
+            modelBuilder.Configurations.Add(new VehiclePartsReplacementLogConfiguration());
+            modelBuilder.Configurations.Add(new VehicleRefuelLogConfiguration());
+            modelBuilder.Configurations.Add(new VehicleTravelPurposeTypeConfiguration());
+            modelBuilder.Configurations.Add(new VehicleTypeConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -166,6 +193,15 @@ namespace Coin.Data
             modelBuilder.Configurations.Add(new CurrencyConfiguration(schema));
             modelBuilder.Configurations.Add(new FundConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonConfiguration(schema));
+            modelBuilder.Configurations.Add(new VehicleConfiguration(schema));
+            modelBuilder.Configurations.Add(new VehicleMaintenanceLogConfiguration(schema));
+            modelBuilder.Configurations.Add(new VehicleMaintenanceLogTypeConfiguration(schema));
+            modelBuilder.Configurations.Add(new VehicleMileageLogConfiguration(schema));
+            modelBuilder.Configurations.Add(new VehiclePartConfiguration(schema));
+            modelBuilder.Configurations.Add(new VehiclePartsReplacementLogConfiguration(schema));
+            modelBuilder.Configurations.Add(new VehicleRefuelLogConfiguration(schema));
+            modelBuilder.Configurations.Add(new VehicleTravelPurposeTypeConfiguration(schema));
+            modelBuilder.Configurations.Add(new VehicleTypeConfiguration(schema));
             return modelBuilder;
         }
     }
@@ -190,6 +226,15 @@ namespace Coin.Data
         public System.Data.Entity.DbSet<Currency> Currencies { get; set; }
         public System.Data.Entity.DbSet<Fund> Funds { get; set; }
         public System.Data.Entity.DbSet<Person> People { get; set; }
+        public System.Data.Entity.DbSet<Vehicle> Vehicles { get; set; }
+        public System.Data.Entity.DbSet<VehicleMaintenanceLog> VehicleMaintenanceLogs { get; set; }
+        public System.Data.Entity.DbSet<VehicleMaintenanceLogType> VehicleMaintenanceLogTypes { get; set; }
+        public System.Data.Entity.DbSet<VehicleMileageLog> VehicleMileageLogs { get; set; }
+        public System.Data.Entity.DbSet<VehiclePart> VehicleParts { get; set; }
+        public System.Data.Entity.DbSet<VehiclePartsReplacementLog> VehiclePartsReplacementLogs { get; set; }
+        public System.Data.Entity.DbSet<VehicleRefuelLog> VehicleRefuelLogs { get; set; }
+        public System.Data.Entity.DbSet<VehicleTravelPurposeType> VehicleTravelPurposeTypes { get; set; }
+        public System.Data.Entity.DbSet<VehicleType> VehicleTypes { get; set; }
 
         public FakeDatabase()
         {
@@ -207,6 +252,15 @@ namespace Coin.Data
             Currencies = new FakeDbSet<Currency>("Id");
             Funds = new FakeDbSet<Fund>("Id");
             People = new FakeDbSet<Person>("Id");
+            Vehicles = new FakeDbSet<Vehicle>("Id");
+            VehicleMaintenanceLogs = new FakeDbSet<VehicleMaintenanceLog>("Id");
+            VehicleMaintenanceLogTypes = new FakeDbSet<VehicleMaintenanceLogType>("Id");
+            VehicleMileageLogs = new FakeDbSet<VehicleMileageLog>("Id");
+            VehicleParts = new FakeDbSet<VehiclePart>("Id");
+            VehiclePartsReplacementLogs = new FakeDbSet<VehiclePartsReplacementLog>("Id");
+            VehicleRefuelLogs = new FakeDbSet<VehicleRefuelLog>("Id");
+            VehicleTravelPurposeTypes = new FakeDbSet<VehicleTravelPurposeType>("Id");
+            VehicleTypes = new FakeDbSet<VehicleType>("Id");
         }
 
         public int SaveChangesCount { get; private set; }
@@ -770,6 +824,162 @@ namespace Coin.Data
         }
     }
 
+    // Vehicle
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class Vehicle
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public int VehicleTypeId { get; set; } // VehicleTypeId
+        public string Name { get; set; } // Name (length: 256)
+        public string Make { get; set; } // Make (length: 256)
+        public string Model { get; set; } // Model (length: 256)
+        public string Registration { get; set; } // Registration (length: 256)
+
+        // Reverse navigation
+        public virtual System.Collections.Generic.ICollection<VehicleMaintenanceLog> VehicleMaintenanceLogs { get; set; } // VehicleMaintenanceLog.FK_VehicleMaintenanceLog__Vehicle
+        public virtual System.Collections.Generic.ICollection<VehicleMileageLog> VehicleMileageLogs { get; set; } // VehicleMileageLog.FK_VehicleMileageLog__Vehicle
+        public virtual System.Collections.Generic.ICollection<VehicleRefuelLog> VehicleRefuelLogs { get; set; } // VehicleRefuelLog.FK_VehicleRefuelLog
+
+        // Foreign keys
+        public virtual VehicleType VehicleType { get; set; } // FK_Vehicle__VehicleType
+
+        public Vehicle()
+        {
+            VehicleMaintenanceLogs = new System.Collections.Generic.List<VehicleMaintenanceLog>();
+            VehicleMileageLogs = new System.Collections.Generic.List<VehicleMileageLog>();
+            VehicleRefuelLogs = new System.Collections.Generic.List<VehicleRefuelLog>();
+        }
+    }
+
+    // VehicleMaintenanceLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleMaintenanceLog
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public int VehicleId { get; set; } // VehicleId
+        public System.DateTimeOffset MaintenanceDateTime { get; set; } // MaintenanceDateTime
+        public int Mileage { get; set; } // Mileage
+
+        // Reverse navigation
+        public virtual System.Collections.Generic.ICollection<VehiclePartsReplacementLog> VehiclePartsReplacementLogs { get; set; } // VehiclePartsReplacementLog.FK_VehiclePartsReplacementLog__VehicleMaintenanceLog
+
+        // Foreign keys
+        public virtual Vehicle Vehicle { get; set; } // FK_VehicleMaintenanceLog__Vehicle
+
+        public VehicleMaintenanceLog()
+        {
+            VehiclePartsReplacementLogs = new System.Collections.Generic.List<VehiclePartsReplacementLog>();
+        }
+    }
+
+    // VehicleMaintenanceLogType
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleMaintenanceLogType
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public string Name { get; set; } // Name (length: 256)
+    }
+
+    // VehicleMileageLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleMileageLog
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public int VehicleId { get; set; } // VehicleId
+        public System.DateTimeOffset TripDateTime { get; set; } // TripDateTime
+        public int StartMileage { get; set; } // StartMileage
+        public int EndMileage { get; set; } // EndMileage
+        public int VehicleTravelPurposeTypeId { get; set; } // VehicleTravelPurposeTypeId
+        public string Purpose { get; set; } // Purpose (length: 512)
+        public string From { get; set; } // From (length: 512)
+        public string To { get; set; } // To (length: 512)
+
+        // Foreign keys
+        public virtual Vehicle Vehicle { get; set; } // FK_VehicleMileageLog__Vehicle
+        public virtual VehicleTravelPurposeType VehicleTravelPurposeType { get; set; } // FK_VehicleMileageLog__VehicleTravelPurposeType
+    }
+
+    // VehiclePart
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehiclePart
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public string Name { get; set; } // Name (length: 256)
+        public int VehicleTypeId { get; set; } // VehicleTypeId
+
+        // Reverse navigation
+        public virtual System.Collections.Generic.ICollection<VehiclePartsReplacementLog> VehiclePartsReplacementLogs { get; set; } // VehiclePartsReplacementLog.FK_VehiclePartsReplacementLog__VehiclePart
+
+        // Foreign keys
+        public virtual VehicleType VehicleType { get; set; } // FK_VehiclePart__VehicleType
+
+        public VehiclePart()
+        {
+            VehiclePartsReplacementLogs = new System.Collections.Generic.List<VehiclePartsReplacementLog>();
+        }
+    }
+
+    // VehiclePartsReplacementLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehiclePartsReplacementLog
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public int VehicleMaintenanceLogId { get; set; } // VehicleMaintenanceLogId
+        public int VehiclePartId { get; set; } // VehiclePartId
+
+        // Foreign keys
+        public virtual VehicleMaintenanceLog VehicleMaintenanceLog { get; set; } // FK_VehiclePartsReplacementLog__VehicleMaintenanceLog
+        public virtual VehiclePart VehiclePart { get; set; } // FK_VehiclePartsReplacementLog__VehiclePart
+    }
+
+    // VehicleRefuelLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleRefuelLog
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public int VehicleId { get; set; } // VehicleId
+        public decimal FuelLitres { get; set; } // FuelLitres
+        public int PencePerLitre { get; set; } // PencePerLitre
+        public int Mileage { get; set; } // Mileage
+
+        // Foreign keys
+        public virtual Vehicle Vehicle { get; set; } // FK_VehicleRefuelLog
+    }
+
+    // VehicleTravelPurposeType
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleTravelPurposeType
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public string Name { get; set; } // Name (length: 256)
+
+        // Reverse navigation
+        public virtual System.Collections.Generic.ICollection<VehicleMileageLog> VehicleMileageLogs { get; set; } // VehicleMileageLog.FK_VehicleMileageLog__VehicleTravelPurposeType
+
+        public VehicleTravelPurposeType()
+        {
+            VehicleMileageLogs = new System.Collections.Generic.List<VehicleMileageLog>();
+        }
+    }
+
+    // VehicleType
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleType
+    {
+        public int Id { get; set; } // Id (Primary key)
+        public string Name { get; set; } // Name (length: 256)
+
+        // Reverse navigation
+        public virtual System.Collections.Generic.ICollection<Vehicle> Vehicles { get; set; } // Vehicle.FK_Vehicle__VehicleType
+        public virtual System.Collections.Generic.ICollection<VehiclePart> VehicleParts { get; set; } // VehiclePart.FK_VehiclePart__VehicleType
+
+        public VehicleType()
+        {
+            Vehicles = new System.Collections.Generic.List<Vehicle>();
+            VehicleParts = new System.Collections.Generic.List<VehiclePart>();
+        }
+    }
+
     #endregion
 
     #region POCO Configuration
@@ -1092,6 +1302,215 @@ namespace Coin.Data
 
             Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Name).HasColumnName(@"Name").HasColumnType("varchar").IsRequired().IsUnicode(false).HasMaxLength(50);
+        }
+    }
+
+    // Vehicle
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Vehicle>
+    {
+        public VehicleConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VehicleConfiguration(string schema)
+        {
+            ToTable("Vehicle", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.VehicleTypeId).HasColumnName(@"VehicleTypeId").HasColumnType("int").IsRequired();
+            Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
+            Property(x => x.Make).HasColumnName(@"Make").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
+            Property(x => x.Model).HasColumnName(@"Model").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
+            Property(x => x.Registration).HasColumnName(@"Registration").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
+
+            // Foreign keys
+            HasRequired(a => a.VehicleType).WithMany(b => b.Vehicles).HasForeignKey(c => c.VehicleTypeId).WillCascadeOnDelete(false); // FK_Vehicle__VehicleType
+        }
+    }
+
+    // VehicleMaintenanceLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleMaintenanceLogConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<VehicleMaintenanceLog>
+    {
+        public VehicleMaintenanceLogConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VehicleMaintenanceLogConfiguration(string schema)
+        {
+            ToTable("VehicleMaintenanceLog", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.VehicleId).HasColumnName(@"VehicleId").HasColumnType("int").IsRequired();
+            Property(x => x.MaintenanceDateTime).HasColumnName(@"MaintenanceDateTime").HasColumnType("datetimeoffset").IsRequired();
+            Property(x => x.Mileage).HasColumnName(@"Mileage").HasColumnType("int").IsRequired();
+
+            // Foreign keys
+            HasRequired(a => a.Vehicle).WithMany(b => b.VehicleMaintenanceLogs).HasForeignKey(c => c.VehicleId).WillCascadeOnDelete(false); // FK_VehicleMaintenanceLog__Vehicle
+        }
+    }
+
+    // VehicleMaintenanceLogType
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleMaintenanceLogTypeConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<VehicleMaintenanceLogType>
+    {
+        public VehicleMaintenanceLogTypeConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VehicleMaintenanceLogTypeConfiguration(string schema)
+        {
+            ToTable("VehicleMaintenanceLogType", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
+        }
+    }
+
+    // VehicleMileageLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleMileageLogConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<VehicleMileageLog>
+    {
+        public VehicleMileageLogConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VehicleMileageLogConfiguration(string schema)
+        {
+            ToTable("VehicleMileageLog", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.VehicleId).HasColumnName(@"VehicleId").HasColumnType("int").IsRequired();
+            Property(x => x.TripDateTime).HasColumnName(@"TripDateTime").HasColumnType("datetimeoffset").IsRequired();
+            Property(x => x.StartMileage).HasColumnName(@"StartMileage").HasColumnType("int").IsRequired();
+            Property(x => x.EndMileage).HasColumnName(@"EndMileage").HasColumnType("int").IsRequired();
+            Property(x => x.VehicleTravelPurposeTypeId).HasColumnName(@"VehicleTravelPurposeTypeId").HasColumnType("int").IsRequired();
+            Property(x => x.Purpose).HasColumnName(@"Purpose").HasColumnType("nvarchar").IsRequired().HasMaxLength(512);
+            Property(x => x.From).HasColumnName(@"From").HasColumnType("nvarchar").IsRequired().HasMaxLength(512);
+            Property(x => x.To).HasColumnName(@"To").HasColumnType("nvarchar").IsRequired().HasMaxLength(512);
+
+            // Foreign keys
+            HasRequired(a => a.Vehicle).WithMany(b => b.VehicleMileageLogs).HasForeignKey(c => c.VehicleId).WillCascadeOnDelete(false); // FK_VehicleMileageLog__Vehicle
+            HasRequired(a => a.VehicleTravelPurposeType).WithMany(b => b.VehicleMileageLogs).HasForeignKey(c => c.VehicleTravelPurposeTypeId).WillCascadeOnDelete(false); // FK_VehicleMileageLog__VehicleTravelPurposeType
+        }
+    }
+
+    // VehiclePart
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehiclePartConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<VehiclePart>
+    {
+        public VehiclePartConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VehiclePartConfiguration(string schema)
+        {
+            ToTable("VehiclePart", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
+            Property(x => x.VehicleTypeId).HasColumnName(@"VehicleTypeId").HasColumnType("int").IsRequired();
+
+            // Foreign keys
+            HasRequired(a => a.VehicleType).WithMany(b => b.VehicleParts).HasForeignKey(c => c.VehicleTypeId).WillCascadeOnDelete(false); // FK_VehiclePart__VehicleType
+        }
+    }
+
+    // VehiclePartsReplacementLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehiclePartsReplacementLogConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<VehiclePartsReplacementLog>
+    {
+        public VehiclePartsReplacementLogConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VehiclePartsReplacementLogConfiguration(string schema)
+        {
+            ToTable("VehiclePartsReplacementLog", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.VehicleMaintenanceLogId).HasColumnName(@"VehicleMaintenanceLogId").HasColumnType("int").IsRequired();
+            Property(x => x.VehiclePartId).HasColumnName(@"VehiclePartId").HasColumnType("int").IsRequired();
+
+            // Foreign keys
+            HasRequired(a => a.VehicleMaintenanceLog).WithMany(b => b.VehiclePartsReplacementLogs).HasForeignKey(c => c.VehicleMaintenanceLogId).WillCascadeOnDelete(false); // FK_VehiclePartsReplacementLog__VehicleMaintenanceLog
+            HasRequired(a => a.VehiclePart).WithMany(b => b.VehiclePartsReplacementLogs).HasForeignKey(c => c.VehiclePartId).WillCascadeOnDelete(false); // FK_VehiclePartsReplacementLog__VehiclePart
+        }
+    }
+
+    // VehicleRefuelLog
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleRefuelLogConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<VehicleRefuelLog>
+    {
+        public VehicleRefuelLogConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VehicleRefuelLogConfiguration(string schema)
+        {
+            ToTable("VehicleRefuelLog", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.VehicleId).HasColumnName(@"VehicleId").HasColumnType("int").IsRequired();
+            Property(x => x.FuelLitres).HasColumnName(@"FuelLitres").HasColumnType("decimal").IsRequired().HasPrecision(18,0);
+            Property(x => x.PencePerLitre).HasColumnName(@"PencePerLitre").HasColumnType("int").IsRequired();
+            Property(x => x.Mileage).HasColumnName(@"Mileage").HasColumnType("int").IsRequired();
+
+            // Foreign keys
+            HasRequired(a => a.Vehicle).WithMany(b => b.VehicleRefuelLogs).HasForeignKey(c => c.VehicleId).WillCascadeOnDelete(false); // FK_VehicleRefuelLog
+        }
+    }
+
+    // VehicleTravelPurposeType
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleTravelPurposeTypeConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<VehicleTravelPurposeType>
+    {
+        public VehicleTravelPurposeTypeConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VehicleTravelPurposeTypeConfiguration(string schema)
+        {
+            ToTable("VehicleTravelPurposeType", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
+        }
+    }
+
+    // VehicleType
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.25.0.0")]
+    public class VehicleTypeConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<VehicleType>
+    {
+        public VehicleTypeConfiguration()
+            : this("dbo")
+        {
+        }
+
+        public VehicleTypeConfiguration(string schema)
+        {
+            ToTable("VehicleType", schema);
+            HasKey(x => x.Id);
+
+            Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.Name).HasColumnName(@"Name").HasColumnType("nvarchar").IsRequired().HasMaxLength(256);
         }
     }
 
