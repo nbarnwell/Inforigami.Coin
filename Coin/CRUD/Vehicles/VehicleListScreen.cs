@@ -16,7 +16,7 @@ namespace Coin.CRUD.Vehicles
         private readonly ICommandProcessor _commandProcessor;
         private readonly IEventAggregator _eventAggregator;
 
-        public BindingList<VehicleListItemViewModel> Vehicles { get; private set; }
+        public BindableCollection<VehicleListItemViewModel> Vehicles { get; private set; }
         public override string DisplayName => "Vehicles";
 
         public VehicleListScreen(IViewModelFactory viewModelFactory, ICommandProcessor commandProcessor, IEventAggregator eventAggregator)
@@ -29,7 +29,7 @@ namespace Coin.CRUD.Vehicles
             _commandProcessor = commandProcessor;
             _eventAggregator = eventAggregator;
 
-            Vehicles = new BindingList<VehicleListItemViewModel>();
+            Vehicles = new BindableCollection<VehicleListItemViewModel>();
         }
 
         protected override void OnInitialize()
@@ -42,6 +42,25 @@ namespace Coin.CRUD.Vehicles
         public override void TryClose(bool? dialogResult = null)
         {
             _eventAggregator.Unsubscribe(this);
+        }
+
+        public IEnumerable<IResult> Edit(VehicleListItemViewModel vehicle)
+        {
+            var vm = _viewModelFactory.Create<VehicleEditScreen>().For(vehicle.Id);
+            var showDialog = new ShowDialog(vm);
+            yield return showDialog;
+
+            if (showDialog.Result == true)
+            {
+                _commandProcessor.Process(
+                    new UpdateVehicle(
+                        vm.Id,
+                        vm.Name,
+                        vm.Make,
+                        vm.Model,
+                        vm.Registration,
+                        vm.SelectedVehicleType.Id));
+            }
         }
 
         public void Handle(RefreshRequested message)

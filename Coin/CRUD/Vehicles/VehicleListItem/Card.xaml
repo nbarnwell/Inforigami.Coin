@@ -5,17 +5,34 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Coin.CRUD.Vehicles.VehicleListItem"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <md:Card>
+    <md:Card Width="200">
         <DockPanel>
-            <Image DockPanel.Dock="Top"></Image>
-            <StackPanel>
+            <Image DockPanel.Dock="Top" MinHeight="150" Source=""></Image>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="Edit" Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0"
+                            md:RippleAssist.IsCentered="True"
+                        cal:Message.Attach="Edit($dataContext)">
+                    <md:PackIcon Kind="PencilBoxOutline" />
+                </Button>
+                <Button Name="GotoTripLog" Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0"
+                            md:RippleAssist.IsCentered="True">
+                    <md:PackIcon Kind="MapMarkerPlus" />
+                </Button>
+                <Button Name="GotoMaintenanceLog" Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0"
+                            md:RippleAssist.IsCentered="True">
+                    <md:PackIcon Kind="Engine" />
+                </Button>
+            </StackPanel>
+            <StackPanel Margin="8">
                 <TextBlock Name="Registration" Style="{StaticResource MaterialDesignBody2TextBlock}"></TextBlock>
                 <TextBlock Name="Name" Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
-                <TextBlock Name="Make" Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
-                <TextBlock Name="Model" Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
-                <TextBlock Name="VehicleTypeName" Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+                <TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}">
+                    <Run Text="{Binding Make}"></Run>
+                    <Run Text="{Binding Model}"></Run>
+                </TextBlock>
             </StackPanel>
         </DockPanel>
     </md:Card>

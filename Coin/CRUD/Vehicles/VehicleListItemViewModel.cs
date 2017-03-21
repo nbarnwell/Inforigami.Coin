@@ -5,12 +5,24 @@ namespace Coin.CRUD.Vehicles
 {
     public class VehicleListItemViewModel : PropertyChangedBase
     {
+        private int _id;
         private int _vehicleTypeId;
         private string _vehicleTypeName;
         private string _name;
         private string _make;
         private string _model;
         private string _registration;
+
+        public int Id
+        {
+            get { return _id; }
+            set
+            {
+                if (value == _id) return;
+                _id = value;
+                NotifyOfPropertyChange(() => Id);
+            }
+        }
 
         public int VehicleTypeId
         {
@@ -83,6 +95,7 @@ namespace Coin.CRUD.Vehicles
             return
                 new VehicleListItemViewModel
                 {
+                    Id = vehicle.Id,
                     Name = vehicle.Name,
                     Make = vehicle.Make,
                     Model = vehicle.Model,

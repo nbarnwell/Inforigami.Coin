@@ -8,6 +8,7 @@ namespace Coin.CRUD.Vehicles
     public class VehicleEditScreen : Screen
     {
         private ListItemViewModel _selectedVehicleType;
+        private int _id;
         private string _name;
         private string _make;
         private string _model;
@@ -31,6 +32,20 @@ namespace Coin.CRUD.Vehicles
                             Id = x.Id,
                             Name = x.Name
                         }));
+
+                if (Id != default(int))
+                {
+                    var v = db.Vehicles.Find(Id);
+
+                    Id = v.Id;
+                    Name = v.Name;
+                    Make = v.Make;
+                    Model = v.Model;
+                    Registration = v.Registration;
+
+                    SelectedVehicleType =
+                        VehicleTypes.SingleOrDefault(x => x.Id == v.VehicleTypeId);
+                }
             }
         }
 
@@ -42,6 +57,17 @@ namespace Coin.CRUD.Vehicles
                 if (Equals(value, _selectedVehicleType)) return;
                 _selectedVehicleType = value;
                 NotifyOfPropertyChange(() => SelectedVehicleType);
+            }
+        }
+
+        public int Id
+        {
+            get { return _id; }
+            set
+            {
+                if (value == _id) return;
+                _id = value;
+                NotifyOfPropertyChange(() => Id);
             }
         }
 
@@ -87,6 +113,13 @@ namespace Coin.CRUD.Vehicles
                 _registration = value;
                 NotifyOfPropertyChange(() => Registration);
             }
+        }
+
+        public VehicleEditScreen For(int vehicleId)
+        {
+            Id = vehicleId;
+
+            return this;
         }
     }
 }

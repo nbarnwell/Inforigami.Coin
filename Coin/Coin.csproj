@@ -139,6 +139,8 @@
     <Compile Include="CRUD\Banks\BankViewModel.cs" />
     <Compile Include="CRUD\Vehicles\CreateVehicle.cs" />
     <Compile Include="CRUD\Vehicles\CreateVehicleHandler.cs" />
+    <Compile Include="CRUD\Vehicles\UpdateVehicle.cs" />
+    <Compile Include="CRUD\Vehicles\UpdateVehicleHandler.cs" />
     <Compile Include="CRUD\Vehicles\VehicleEditScreen.cs" />
     <Compile Include="CRUD\Vehicles\VehicleEditView.xaml.cs">
       <DependentUpon>VehicleEditView.xaml</DependentUpon>
