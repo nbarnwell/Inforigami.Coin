@@ -63,6 +63,8 @@ namespace Coin.CRUD.Vehicles
             }
         }
 
+
+
         public void Handle(RefreshRequested message)
         {
             RefreshData();

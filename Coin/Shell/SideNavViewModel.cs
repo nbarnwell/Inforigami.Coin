@@ -1,5 +1,6 @@
 ﻿using System;
 using Caliburn.Micro;
+using Coin.Accounting;
 using Coin.CRUD.Banks;
 using Coin.CRUD.People;
 using Coin.CRUD.Vehicles;
@@ -41,7 +42,7 @@ namespace Coin.Shell
             {
                 _viewModelFactory.Create<WorkspaceViewModel>()
                                  .WithViewModel(
-                                     _viewModelFactory.Create<Transactions.AccountingWorkspace>()),
+                                     _viewModelFactory.Create<AccountingWorkspace>()),
                 _viewModelFactory.Create<WorkspaceViewModel>()
                                  .WithViewModel(
                                      _viewModelFactory.Create<BankListViewModel>()),

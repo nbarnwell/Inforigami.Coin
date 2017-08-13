@@ -12,11 +12,7 @@
         <md:Card>
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Margin="8">
-                    <DockPanel>
-                        <StackPanel>
-                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">People</TextBlock>
-                        </StackPanel>
-                    </DockPanel>
+                    <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">People</TextBlock>
                 </StackPanel>
                 
                 <ListBox x:Name="People">

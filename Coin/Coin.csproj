@@ -139,6 +139,13 @@
     <Compile Include="CRUD\Banks\BankViewModel.cs" />
     <Compile Include="CRUD\Vehicles\CreateVehicle.cs" />
     <Compile Include="CRUD\Vehicles\CreateVehicleHandler.cs" />
+    <Compile Include="CRUD\Vehicles\MileageRecording\RecordJourney.cs" />
+    <Compile Include="CRUD\Vehicles\MileageRecording\RecordJourneyHandler.cs" />
+    <Compile Include="CRUD\Vehicles\MileageRecording\RecordJourneyScreen.xaml.cs">
+      <DependentUpon>RecordJourneyScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\Vehicles\MileageRecording\RecordJourneyViewModel.cs" />
+    <Compile Include="CRUD\Vehicles\MileageRecording\TravelPurposeType.cs" />
     <Compile Include="CRUD\Vehicles\UpdateVehicle.cs" />
     <Compile Include="CRUD\Vehicles\UpdateVehicleHandler.cs" />
     <Compile Include="CRUD\Vehicles\VehicleEditScreen.cs" />
@@ -153,6 +160,9 @@
       <DependentUpon>VehicleListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CRUD\Vehicles\VehicleListScreen.cs" />
+    <Compile Include="CRUD\Vehicles\VehicleView.xaml.cs">
+      <DependentUpon>VehicleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -180,6 +190,14 @@
       <DependentUpon>PlaygroundWorkspaceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Playground\PlaygroundWorkspace.cs" />
+    <Compile Include="Shared\Headlines\HeadlineItemViewModel.cs" />
+    <Compile Include="Shared\Headlines\HeadlineItemViiew.xaml.cs">
+      <DependentUpon>HeadlineItemViiew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Headlines\HeadlineView.xaml.cs">
+      <DependentUpon>HeadlineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Headlines\HeadlineViewModel.cs" />
     <Compile Include="Shared\ListItemView.xaml.cs">
       <DependentUpon>ListItemView.xaml</DependentUpon>
     </Compile>
@@ -241,36 +259,36 @@
       <DependentUpon>WorkspaceHostView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell\WorkspaceHostViewModel.cs" />
-    <Compile Include="Transactions\AccountingWorkspace.cs" />
-    <Compile Include="Transactions\AccountingWorkspaceView.xaml.cs">
+    <Compile Include="Accounting\AccountingWorkspace.cs" />
+    <Compile Include="Accounting\AccountingWorkspaceView.xaml.cs">
       <DependentUpon>AccountingWorkspaceView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountListView.xaml.cs">
+    <Compile Include="Accounting\AccountListView.xaml.cs">
       <DependentUpon>AccountListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountListScreen.cs" />
-    <Compile Include="Transactions\AccountStatementViewModel.cs" />
-    <Compile Include="Transactions\AccountStatementSummaryView.xaml.cs">
+    <Compile Include="Accounting\AccountListScreen.cs" />
+    <Compile Include="Accounting\AccountStatementViewModel.cs" />
+    <Compile Include="Accounting\AccountStatementSummaryView.xaml.cs">
       <DependentUpon>AccountStatementSummaryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountStatementSummaryScreen.cs" />
-    <Compile Include="Transactions\AccountStatementView.xaml.cs">
+    <Compile Include="Accounting\AccountStatementSummaryScreen.cs" />
+    <Compile Include="Accounting\AccountStatementView.xaml.cs">
       <DependentUpon>AccountStatementView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountTransactionCategorySplitViewModel.cs" />
-    <Compile Include="Transactions\AccountTransactionEditView.xaml.cs">
+    <Compile Include="Accounting\AccountTransactionCategorySplitViewModel.cs" />
+    <Compile Include="Accounting\AccountTransactionEditView.xaml.cs">
       <DependentUpon>AccountTransactionEditView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountTransactionStatus.cs" />
-    <Compile Include="Transactions\AccountTransactionStatusViewModel.cs" />
-    <Compile Include="Transactions\AccountTransactionTypeViewModel.cs" />
-    <Compile Include="Transactions\AccountTransactionEditViewModel.cs" />
-    <Compile Include="Transactions\AccountSummaryView.xaml.cs">
+    <Compile Include="Accounting\AccountTransactionStatus.cs" />
+    <Compile Include="Accounting\AccountTransactionStatusViewModel.cs" />
+    <Compile Include="Accounting\AccountTransactionTypeViewModel.cs" />
+    <Compile Include="Accounting\AccountTransactionEditViewModel.cs" />
+    <Compile Include="Accounting\AccountSummaryView.xaml.cs">
       <DependentUpon>AccountSummaryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\AccountSummaryScreen.cs" />
-    <Compile Include="Transactions\RecordTransaction.cs" />
-    <Compile Include="Transactions\RecordTransactionHandler.cs" />
+    <Compile Include="Accounting\AccountSummaryScreen.cs" />
+    <Compile Include="Accounting\RecordTransaction.cs" />
+    <Compile Include="Accounting\RecordTransactionHandler.cs" />
     <Page Include="CRUD\Accounts\AccountListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -323,6 +341,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CRUD\Vehicles\MileageRecording\RecordJourneyScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CRUD\Vehicles\VehicleEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -335,6 +357,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CRUD\Vehicles\VehicleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Playground\PlaygroundWorkspaceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -344,6 +370,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Shared\DialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shared\Headlines\HeadlineItemViiew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shared\Headlines\HeadlineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -379,27 +413,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountingWorkspaceView.xaml">
+    <Page Include="Accounting\AccountingWorkspaceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountListView.xaml">
+    <Page Include="Accounting\AccountListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountStatementSummaryView.xaml">
+    <Page Include="Accounting\AccountStatementSummaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountStatementView.xaml">
+    <Page Include="Accounting\AccountStatementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountSummaryView.xaml">
+    <Page Include="Accounting\AccountSummaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Transactions\AccountTransactionEditView.xaml">
+    <Page Include="Accounting\AccountTransactionEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -442,7 +476,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
-    <Resource Include="Transactions\Layout.txt" />
+    <Resource Include="Accounting\Layout.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="VehicleManagement\" />

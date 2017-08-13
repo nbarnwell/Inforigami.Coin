@@ -1,0 +1,4 @@
+Create detail page for Vehicle
+To include material design tabs:
+  General, Journeys, Maintenance
+  Journeys tab has toolbar for adding new journey (or makes use of the Add action button)

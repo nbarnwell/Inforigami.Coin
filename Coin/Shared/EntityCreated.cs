@@ -11,4 +11,12 @@ namespace Coin.Shared
             Entity = entity;
         }
     }
+
+    public static class EntityCreated
+    {
+        public static EntityCreated<T> For<T>(T entity)
+        {
+            return new EntityCreated<T>(entity);
+        }
+    }
 }
