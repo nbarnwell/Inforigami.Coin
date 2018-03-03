@@ -137,6 +137,11 @@
       <DependentUpon>BankView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CRUD\Banks\BankViewModel.cs" />
+    <Compile Include="CRUD\EditViewModel.cs" />
+    <Compile Include="CRUD\ListItemViewModel.cs" />
+    <Compile Include="CRUD\BasicCrudWorkspace.cs" />
+    <Compile Include="CRUD\ListViewModel.cs" />
+    <Compile Include="CRUD\ReviewViewModel.cs" />
     <Compile Include="CRUD\Vehicles\CreateVehicle.cs" />
     <Compile Include="CRUD\Vehicles\CreateVehicleHandler.cs" />
     <Compile Include="CRUD\Vehicles\MileageRecording\RecordJourney.cs" />
