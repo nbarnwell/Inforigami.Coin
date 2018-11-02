@@ -1,0 +1,66 @@
+﻿@page
+@model Coin.Web.Areas.Accounting.Pages.AccountTransactions.IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountTransaction[0].TransactionTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountTransaction[0].RecordedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountTransaction[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountTransaction[0].Payee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountTransaction[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountTransaction[0].AccountStatement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountTransaction[0].AccountTransactionStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountTransaction[0].AccountTransactionType)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AccountTransaction) {
+            <tr class="cursor-hand" data-href="@Url.Page("Details", new { id = item.Id })">
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecordedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountStatement.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountTransactionStatus.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountTransactionType.Name)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

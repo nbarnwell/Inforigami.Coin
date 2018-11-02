@@ -1,0 +1,61 @@
+﻿@page
+@model Coin.Web.Areas.Vehicles.Pages.VehicleMileageLogs.CreateModel
+
+<h4>VehicleMileageLog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VehicleMileageLog.VehicleId" class="control-label"></label>
+                <select asp-for="VehicleMileageLog.VehicleId" class ="form-control" asp-items="ViewBag.VehicleId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleMileageLog.TripDateTime" class="control-label"></label>
+                <input asp-for="VehicleMileageLog.TripDateTime" class="form-control" />
+                <span asp-validation-for="VehicleMileageLog.TripDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleMileageLog.StartMileage" class="control-label"></label>
+                <input asp-for="VehicleMileageLog.StartMileage" class="form-control" />
+                <span asp-validation-for="VehicleMileageLog.StartMileage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleMileageLog.EndMileage" class="control-label"></label>
+                <input asp-for="VehicleMileageLog.EndMileage" class="form-control" />
+                <span asp-validation-for="VehicleMileageLog.EndMileage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleMileageLog.VehicleTravelPurposeTypeId" class="control-label"></label>
+                <select asp-for="VehicleMileageLog.VehicleTravelPurposeTypeId" class ="form-control" asp-items="ViewBag.VehicleTravelPurposeTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleMileageLog.Purpose" class="control-label"></label>
+                <input asp-for="VehicleMileageLog.Purpose" class="form-control" />
+                <span asp-validation-for="VehicleMileageLog.Purpose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleMileageLog.From" class="control-label"></label>
+                <input asp-for="VehicleMileageLog.From" class="form-control" />
+                <span asp-validation-for="VehicleMileageLog.From" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleMileageLog.To" class="control-label"></label>
+                <input asp-for="VehicleMileageLog.To" class="form-control" />
+                <span asp-validation-for="VehicleMileageLog.To" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

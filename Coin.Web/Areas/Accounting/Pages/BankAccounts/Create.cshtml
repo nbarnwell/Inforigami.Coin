@@ -1,0 +1,46 @@
+﻿@page
+@model Coin.Web.Areas.Accounting.Pages.BankAccounts.CreateModel
+
+<h4>BankAccount</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BankAccount.BankId" class="control-label"></label>
+                <select asp-for="BankAccount.BankId" class ="form-control" asp-items="ViewBag.BankId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankAccount.AccountId" class="control-label"></label>
+                <select asp-for="BankAccount.AccountId" class ="form-control" asp-items="ViewBag.AccountId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankAccount.CreditLimit" class="control-label"></label>
+                <input asp-for="BankAccount.CreditLimit" class="form-control" />
+                <span asp-validation-for="BankAccount.CreditLimit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankAccount.AccountNumber" class="control-label"></label>
+                <input asp-for="BankAccount.AccountNumber" class="form-control" />
+                <span asp-validation-for="BankAccount.AccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankAccount.SortCode" class="control-label"></label>
+                <input asp-for="BankAccount.SortCode" class="form-control" />
+                <span asp-validation-for="BankAccount.SortCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

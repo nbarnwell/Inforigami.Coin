@@ -20,9 +20,8 @@ namespace Coin.CRUD
             return this;
         }
 
-        internal void UpdateFrom<TEntity>(ListViewModel<TEntity> items)
-        {
-            throw new NotImplementedException();
-        }
+        protected abstract IEnumerable<string> GetSubTitleItems(TEntity item);
+
+        protected abstract string GetTitle(TEntity item);
     }
 }

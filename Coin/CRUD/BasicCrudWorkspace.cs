@@ -34,10 +34,7 @@ namespace Coin.CRUD
         {
             base.Refresh();
 
-            //throw new NotImplementedException("TODO: Invoke entity-specific impl for loading items");
-            var items = new List<TEntity>();
-
-            _listViewModel.UpdateFrom(items);
+            throw new NotImplementedException("TODO: Invoke entity-specific impl for loading items");
         }
 
         public void SelectItem(ListItemViewModel<TEntity> item)

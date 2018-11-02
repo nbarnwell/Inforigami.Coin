@@ -26,30 +26,6 @@ go
 use Coin;
 GO
 
-/*
-drop index IX_DomainEvent__AggregateId_Version on AggregateRootEvent;
-drop table AggregateRootEvent;
-drop table AggregateRoot;
-drop table AccountTransactionAccountTransactionCategory;
-drop table AccountTransaction;
-drop table BankSpecificTransactionType;
-drop table AccountTransactionType;
-drop table AccountTransactionCategoryMatchPattern;
-drop table AccountTransactionCategoryMatchPatternMatchMethod;
-drop table AccountTransactionCategory;
-drop table AccountTransactionStatus;
-drop table AccountStatement;
-drop table Fund;
-drop index IX_Account_AccountNumberAndSortCode on BankAccount;
-drop table BankAccount;
-drop table Account;
-drop table [User];
-drop table Household;
-drop table Bank;
-drop index IX_AuditLogByCorrelationId on AuditLog;
-drop table AuditLog;
-*/
-
 create table AuditLog (
 	Id int not null identity(1,1),
 	MessageId uniqueidentifier not null,
@@ -63,12 +39,29 @@ create table AuditLog (
 
 create index IX_AuditLogByCorrelationId on AuditLog (CorrelationId);
 
+create table TimePeriod (
+	Id int not null,
+	Name nvarchar(256) not null,
+	constraint PK_TimePeriod primary key (Id)
+);
+
+insert into TimePeriod (Id, Name) values (1, 'Day');
+insert into TimePeriod (Id, Name) values (2, 'Week');
+insert into TimePeriod (Id, Name) values (3, 'Fortnightly');
+insert into TimePeriod (Id, Name) values (4, '4-weekly');
+insert into TimePeriod (Id, Name) values (5, 'Monthly');
+insert into TimePeriod (Id, Name) values (6, 'Quarterly');
+insert into TimePeriod (Id, Name) values (7, 'Annually');
+
 create table Currency (
 	Id int not null,
 	Code nvarchar(50) not null,
 	Name nvarchar(256) not null
 	constraint PK_Currency primary key (Id)
 );
+
+insert into Currency (Id, Code, Name) values (1, 'GBP', 'British Pound');
+insert into Currency (Id, Code, Name) values (2, 'EUR', 'Euro');
 
 create table Bank (
 	Id int not null identity(1,1),
@@ -77,11 +70,22 @@ create table Bank (
 );
 
 insert into Bank (Name) values ('Halifax');
+declare @halifaxBankId int = scope_identity();
+insert into Bank (Name) values ('Santander');
+insert into Bank (Name) values ('Test');
+
+create table Household (
+	Id int not null identity(1,1),
+	Name varchar(50) not null,
+	constraint PK_Household primary key (Id)
+);
 
 create table Person (
 	Id int not null identity(1,1),
 	Name varchar(50) not null,
-	constraint PK_Person primary key (Id)
+	HouseholdId int not null,
+	constraint PK_Person primary key (Id),
+	constraint FK_Person__Houshold foreign key (HouseholdId) references Household (Id)
 );
 
 -- An abstract concept of an Account (not all accounts are bank accounts) to which statements/transactions are recorded
@@ -90,9 +94,11 @@ create table Account (
 	Name nvarchar(256) not null,
 	PersonId int not null,
 	CurrencyId int not null,
+	TimePeriodId int not null,
 	constraint PK_Account primary key (Id),
 	constraint FK_Account__Person foreign key (PersonId) references Person (Id),
-	constraint FK_Account__Currency foreign key (CurrencyId) references Currency (Id)
+	constraint FK_Account__Currency foreign key (CurrencyId) references Currency (Id),
+	constraint FK_Account__TimePeriod foreign key (TimePeriodId) references TimePeriod (Id)
 );
 
 -- Additional details to describe a bank account
@@ -137,6 +143,29 @@ create table AccountTransactionStatus (
 	constraint PK_AccountTransactionStatus primary key (Id)
 );
 
+insert into AccountTransactionStatus values (1, 'Recorded');
+insert into AccountTransactionStatus values (2, 'Reconciled');
+insert into AccountTransactionStatus values (3, 'Investigating');
+insert into AccountTransactionStatus values (4, 'Budgeted');
+
+-- -- Budgets are more useful than categories because you can plan a budget and how much you plan to spend.
+create table Budget (
+	Id int not null identity(1,1),
+	Name nvarchar(256) not null,
+	constraint PK_Budget primary key (Id)
+);
+
+create table BudgetItem (
+	Id int not null identity(1,1),
+	BudgetId int not null,
+	Name nvarchar(256) not null,
+	Amount money not null,
+	TimePeriodId int not null,
+	constraint PK_BudgetItem primary key (Id),
+	constraint FK_BudgetItem__Budget foreign key (BudgetId) references Budget (Id),
+	constraint FK_BudgetItem__TimePeriod foreign key (TimePeriodId) references TimePeriod (Id)
+);
+
 -- Categorise spending to see where the money goes
 create table AccountTransactionCategory (
 	Id int not null identity(1,1),
@@ -144,12 +173,30 @@ create table AccountTransactionCategory (
 	constraint PK_AccountTransactionCategory primary key (Id)
 );
 
+insert into AccountTransactionCategory (Name) values ('Misc');
+insert into AccountTransactionCategory (Name) values ('Vehicle Fuel');
+insert into AccountTransactionCategory (Name) values ('Motorbike Fuel');
+insert into AccountTransactionCategory (Name) values ('Groceries');
+insert into AccountTransactionCategory (Name) values ('Cash Withdrawal');
+insert into AccountTransactionCategory (Name) values ('Mortgage');
+insert into AccountTransactionCategory (Name) values ('Household Bill');
+
 create table AccountTransactionType (
 	Id int not null,
 	Name nvarchar(256) not null,
 	IsIncome bit not null,
 	constraint PK_AccountTransactionTypeId primary key (Id)
 );
+
+insert into AccountTransactionType (Id, Name, IsIncome) values (1, 'Debit Card', 0);
+insert into AccountTransactionType (Id, Name, IsIncome) values (2, 'Direct Debit', 1);
+insert into AccountTransactionType (Id, Name, IsIncome) values (3, 'Cash Machine Withdrawal', 0);
+insert into AccountTransactionType (Id, Name, IsIncome) values (4, 'Bank Credit', 1);
+insert into AccountTransactionType (Id, Name, IsIncome) values (5, 'Transfer In', 1);
+insert into AccountTransactionType (Id, Name, IsIncome) values (6, 'Transfer Out', 0);
+insert into AccountTransactionType (Id, Name, IsIncome) values (7, 'Interest Charged', 0);
+insert into AccountTransactionType (Id, Name, IsIncome) values (8, 'Interest Earned', 1);
+insert into AccountTransactionType (Id, Name, IsIncome) values (9, 'Deposit', 1);
 
 create table BankSpecificTransactionType (
 	Id int not null identity(1,1),
@@ -161,6 +208,49 @@ create table BankSpecificTransactionType (
 	constraint FK_BankSpecificTransactionType__Bank foreign key (BankId) references Bank (Id),
 	constraint FK_BankSpecificTransactionType__AccountTransactionType foreign key (AccountTransactionTypeId) references AccountTransactionType (Id)
 );
+
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'BGC', 'Bank Giro Credit');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'BNS', 'Bonus');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'BP', 'Bill Payment');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'CHG', 'Charge');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'CHQ', 'Cheque');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'COM', 'Commission');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'COR', 'Correction');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'CPT', 'Cashpoint');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'CSH', 'Cash');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'CSQ', 'Cash/Cheque');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'DD', 'Direct Debit');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'DEB', 'Debit Card');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'DEP', 'Deposit');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'EFT', 'EFTPOS (electronic funds transfer at point of sale)');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'EUR', 'Euro Cheque');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'FE', 'Foreign Exchange');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'FEE', 'Fixed Service Charge');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'FPC', 'Faster Payment charge');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'FPI', 'Faster Payment incoming');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'FPO', 'Faster Payment outgoing');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'IB', 'Internet Banking');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'INT', 'Interest');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'MPI', 'Mobile Payment incoming');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'MPO', 'Mobile Payment outgoing');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'MTG', 'Mortgage');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'NS', 'National Savings Dividend');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'NSC', 'National Savings Certificates');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'OTH', 'Other');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'PAY', 'Payment');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'PSB', 'Premium Savings Bonds');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'PSV', 'Paysave');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'SAL', 'Salary');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'SPB', 'Cashpoint');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'SO', 'Standing Order');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'STK', 'Stocks/Shares');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'TD', 'Dep Term Dec');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'TDG', 'Term Deposit Gross Interest');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'TDI', 'Dep Term Inc');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'TDN', 'Term Deposit Net Interest');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'TFR', 'Transfer');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'UT', 'Unit Trust');
+insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'SUR', 'Excess Reject');
 
 create table AccountTransaction (
 	Id int not null identity(1,1),
@@ -188,77 +278,6 @@ create table AccountTransactionAccountTransactionCategory (
 	constraint FK_AccountTransactionAccountTransactionCategory__AccountTransaction foreign key (AccountTransactionId) references AccountTransaction (Id),
 	constraint FK_AccountTransactionAccountTransactionCategory__AccountTransactionCategory foreign key (AccountTransactionCategoryId) references AccountTransactionCategory (Id)
 );
-
-insert into Currency (Id, Code, Name) values (1, 'GBP', 'British Pound');
-insert into Currency (Id, Code, Name) values (2, 'EUR', 'Euro');
-
-declare @bankId int
-set @bankId = (select top 1 Id from Bank);
-
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'BGC', 'Bank Giro Credit');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'BNS', 'Bonus');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'BP', 'Bill Payment');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'CHG', 'Charge');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'CHQ', 'Cheque');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'COM', 'Commission');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'COR', 'Correction');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'CPT', 'Cashpoint');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'CSH', 'Cash');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'CSQ', 'Cash/Cheque');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'DD', 'Direct Debit');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'DEB', 'Debit Card');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'DEP', 'Deposit');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'EFT', 'EFTPOS (electronic funds transfer at point of sale)');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'EUR', 'Euro Cheque');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'FE', 'Foreign Exchange');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'FEE', 'Fixed Service Charge');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'FPC', 'Faster Payment charge');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'FPI', 'Faster Payment incoming');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'FPO', 'Faster Payment outgoing');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'IB', 'Internet Banking');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'INT', 'Interest');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'MPI', 'Mobile Payment incoming');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'MPO', 'Mobile Payment outgoing');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'MTG', 'Mortgage');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'NS', 'National Savings Dividend');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'NSC', 'National Savings Certificates');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'OTH', 'Other');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'PAY', 'Payment');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'PSB', 'Premium Savings Bonds');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'PSV', 'Paysave');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'SAL', 'Salary');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'SPB', 'Cashpoint');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'SO', 'Standing Order');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'STK', 'Stocks/Shares');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'TD', 'Dep Term Dec');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'TDG', 'Term Deposit Gross Interest');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'TDI', 'Dep Term Inc');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'TDN', 'Term Deposit Net Interest');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'TFR', 'Transfer');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'UT', 'Unit Trust');
-insert into BankSpecificTransactionType (BankId, Name, Description) values (@bankId, 'SUR', 'Excess Reject');
-
-insert into AccountTransactionStatus values (1, 'Recorded');
-insert into AccountTransactionStatus values (2, 'Reconciled');
-insert into AccountTransactionStatus values (3, 'Investigating');
-
-insert into AccountTransactionCategory (Name) values ('Misc');
-insert into AccountTransactionCategory (Name) values ('Vehicle Fuel');
-insert into AccountTransactionCategory (Name) values ('Motorbike Fuel');
-insert into AccountTransactionCategory (Name) values ('Groceries');
-insert into AccountTransactionCategory (Name) values ('Cash Withdrawal');
-insert into AccountTransactionCategory (Name) values ('Mortgage');
-insert into AccountTransactionCategory (Name) values ('Ténéré');
-
-insert into AccountTransactionType (Id, Name, IsIncome) values (1, 'Debit Card', 0);
-insert into AccountTransactionType (Id, Name, IsIncome) values (2, 'Direct Debit', 1);
-insert into AccountTransactionType (Id, Name, IsIncome) values (3, 'Cash Machine Withdrawal', 0);
-insert into AccountTransactionType (Id, Name, IsIncome) values (4, 'Bank Credit', 1);
-insert into AccountTransactionType (Id, Name, IsIncome) values (5, 'Transfer In', 1);
-insert into AccountTransactionType (Id, Name, IsIncome) values (6, 'Transfer Out', 0);
-insert into AccountTransactionType (Id, Name, IsIncome) values (7, 'Interest Charged', 0);
-insert into AccountTransactionType (Id, Name, IsIncome) values (8, 'Interest Earned', 1);
-insert into AccountTransactionType (Id, Name, IsIncome) values (9, 'Deposit', 1);
 
 create table VehicleType (
 	Id int not null,
@@ -340,13 +359,13 @@ create table VehiclePart (
 	constraint FK_VehiclePart__VehicleType foreign key (VehicleTypeId) references VehicleType (Id)
 );
 
-insert into VehiclePart (Id, Name) values (1, 0, 'Front Left Tyre');
-insert into VehiclePart (Id, Name) values (2, 0, 'Front Right Tyre');
-insert into VehiclePart (Id, Name) values (3, 0, 'Rear Right Tyre');
-insert into VehiclePart (Id, Name) values (4, 0, 'Read Right Tyre');
-insert into VehiclePart (Id, Name) values (5, 0, 'Windscreen Wipers');
-insert into VehiclePart (Id, Name) values (6, 1, 'Front Tyre');
-insert into VehiclePart (Id, Name) values (7, 1, 'Rear Tyre');
+insert into VehiclePart (Id, VehicleTypeId, Name) values (1, 0, 'Front Left Tyre');
+insert into VehiclePart (Id, VehicleTypeId, Name) values (2, 0, 'Front Right Tyre');
+insert into VehiclePart (Id, VehicleTypeId, Name) values (3, 0, 'Rear Right Tyre');
+insert into VehiclePart (Id, VehicleTypeId, Name) values (4, 0, 'Read Right Tyre');
+insert into VehiclePart (Id, VehicleTypeId, Name) values (5, 0, 'Windscreen Wipers');
+insert into VehiclePart (Id, VehicleTypeId, Name) values (6, 1, 'Front Tyre');
+insert into VehiclePart (Id, VehicleTypeId, Name) values (7, 1, 'Rear Tyre');
 
 create table VehiclePartsReplacementLog (
 	Id int not null identity(1,1),

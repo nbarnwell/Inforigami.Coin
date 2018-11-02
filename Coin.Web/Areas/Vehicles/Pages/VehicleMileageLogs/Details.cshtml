@@ -1,0 +1,62 @@
+﻿@page
+@model Coin.Web.Areas.Vehicles.Pages.VehicleMileageLogs.DetailsModel
+
+<div>
+    <h4>VehicleMileageLog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileageLog.TripDateTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileageLog.TripDateTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileageLog.StartMileage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileageLog.StartMileage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileageLog.EndMileage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileageLog.EndMileage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileageLog.Purpose)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileageLog.Purpose)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileageLog.From)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileageLog.From)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileageLog.To)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileageLog.To)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileageLog.Vehicle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileageLog.Vehicle.Make)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileageLog.VehicleTravelPurposeType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileageLog.VehicleTravelPurposeType.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.VehicleMileageLog.Id">Edit</a> |
+    <a asp-page="./Delete" asp-route-id="@Model.VehicleMileageLog.Id">Delete</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

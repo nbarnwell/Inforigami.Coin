@@ -13,11 +13,5 @@ namespace Coin.CRUD
         {
             Items = new BindableCollection<TEntity>();
         }
-
-        internal void UpdateFrom(IEnumerable<TEntity> items)
-        {
-            var list = new List<Tuple<TEntity, TListItemViewModel>>();
-            fore
-        }
     }
 }

@@ -1,0 +1,62 @@
+﻿@page
+@model Coin.Web.Areas.Accounting.Pages.AccountTransactions.DetailsModel
+
+<div>
+    <h4>AccountTransaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountTransaction.TransactionTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountTransaction.TransactionTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountTransaction.RecordedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountTransaction.RecordedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountTransaction.Amount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountTransaction.Amount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountTransaction.Payee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountTransaction.Payee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountTransaction.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountTransaction.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountTransaction.AccountStatement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountTransaction.AccountStatement.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountTransaction.AccountTransactionStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountTransaction.AccountTransactionStatus.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountTransaction.AccountTransactionType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountTransaction.AccountTransactionType.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AccountTransaction.Id">Edit</a> |
+    <a asp-page="./Delete" asp-route-id="@Model.AccountTransaction.Id">Delete</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
