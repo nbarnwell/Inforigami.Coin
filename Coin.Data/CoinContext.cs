@@ -25,6 +25,7 @@ namespace Coin.Data
         public virtual DbSet<AuditLog> AuditLog { get; set; }
         public virtual DbSet<Bank> Bank { get; set; }
         public virtual DbSet<BankAccount> BankAccount { get; set; }
+        public virtual DbSet<BankAccountTransaction> BankAccountTransaction { get; set; }
         public virtual DbSet<BankSpecificTransactionType> BankSpecificTransactionType { get; set; }
         public virtual DbSet<Budget> Budget { get; set; }
         public virtual DbSet<BudgetItem> BudgetItem { get; set; }
@@ -48,7 +49,7 @@ namespace Coin.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(local);Database=Coin;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("server=(local);database=Coin;trusted_connection=true;");
             }
         }
 
@@ -215,6 +216,19 @@ namespace Coin.Data
                     .HasForeignKey(d => d.BankId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_BankAccount__Bank");
+            });
+
+            modelBuilder.Entity<BankAccountTransaction>(entity =>
+            {
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(256);
+
+                entity.HasOne(d => d.AccountTransaction)
+                    .WithMany(p => p.BankAccountTransaction)
+                    .HasForeignKey(d => d.AccountTransactionId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_BankAccountTransaction__AccountTransaction");
             });
 
             modelBuilder.Entity<BankSpecificTransactionType>(entity =>
