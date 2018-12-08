@@ -5,6 +5,11 @@ namespace Coin.Data
 {
     public partial class BankSpecificTransactionType
     {
+        public BankSpecificTransactionType()
+        {
+            BankAccountTransaction = new HashSet<BankAccountTransaction>();
+        }
+
         public int Id { get; set; }
         public int BankId { get; set; }
         public string Name { get; set; }
@@ -13,5 +18,6 @@ namespace Coin.Data
 
         public AccountTransactionType AccountTransactionType { get; set; }
         public Bank Bank { get; set; }
+        public ICollection<BankAccountTransaction> BankAccountTransaction { get; set; }
     }
 }

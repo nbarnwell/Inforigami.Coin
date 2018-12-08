@@ -12,7 +12,9 @@ namespace Coin.Data
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public int HouseholdId { get; set; }
 
+        public Household Household { get; set; }
         public ICollection<BudgetItem> BudgetItem { get; set; }
     }
 }

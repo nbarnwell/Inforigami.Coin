@@ -148,23 +148,6 @@ insert into AccountTransactionStatus values (2, 'Reconciled');
 insert into AccountTransactionStatus values (3, 'Investigating');
 insert into AccountTransactionStatus values (4, 'Budgeted');
 
--- -- Budgets are more useful than categories because you can plan a budget and how much you plan to spend.
-create table Budget (
-	Id int not null identity(1,1),
-	Name nvarchar(256) not null,
-	constraint PK_Budget primary key (Id)
-);
-
-create table BudgetItem (
-	Id int not null identity(1,1),
-	BudgetId int not null,
-	Name nvarchar(256) not null,
-	Amount money not null,
-	TimePeriodId int not null,
-	constraint PK_BudgetItem primary key (Id),
-	constraint FK_BudgetItem__Budget foreign key (BudgetId) references Budget (Id),
-	constraint FK_BudgetItem__TimePeriod foreign key (TimePeriodId) references TimePeriod (Id)
-);
 
 -- Categorise spending to see where the money goes
 create table AccountTransactionCategory (
@@ -252,6 +235,32 @@ insert into BankSpecificTransactionType (BankId, Name, Description) values (@hal
 insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'UT', 'Unit Trust');
 insert into BankSpecificTransactionType (BankId, Name, Description) values (@halifaxBankId, 'SUR', 'Excess Reject');
 
+-- -- Budgets are more useful than categories because you can plan a budget and how much you plan to spend.
+create table Budget (
+	Id int not null identity(1,1),
+	Name nvarchar(256) not null,
+	HouseholdId int not null,
+	constraint PK_Budget primary key (Id),
+	constraint FK_Budget__Household foreign key (HouseholdId) references Household (Id)
+);
+
+create table BudgetItem (
+	Id int not null identity(1,1),
+	BudgetId int not null,
+	Name nvarchar(256) not null,
+	Amount money not null,
+	TimePeriodId int not null,
+	AccountId int null,
+	BankSpecificTransactionTypeId int null,
+	TransactionDescriptionMatchPattern nvarchar(256) null,
+	AmountLower money null,
+	AmountUpper money null,
+	constraint PK_BudgetItem primary key (Id),
+	constraint FK_BudgetItem__Budget foreign key (BudgetId) references Budget (Id),
+	constraint FK_BudgetItem__TimePeriod foreign key (TimePeriodId) references TimePeriod (Id),
+	constraint FK_BudgetItem__BankSpecificTransactionType foreign key (BankSpecificTransactionTypeId) references BankSpecificTransactionType (Id)
+);
+
 create table AccountTransaction (
 	Id int not null identity(1,1),
 	AccountStatementId int,
@@ -268,7 +277,17 @@ create table AccountTransaction (
 	constraint FK_AccountTransaction__AccountTransactionType foreign key (AccountTransactionTypeId) references AccountTransactionType (Id),
 );
 
--- Create BankAccountTransaction to import from bank, and reconcile with AccountTransaction
+create table BankAccountTransaction (
+	Id int not null identity(1,1),
+	AccountTransactionId int not null,
+	BankId int not null,
+	BankSpecificTransactionTypeId int not null,
+	Description nvarchar(256) not null,
+	constraint PK_BankAccountTransaction primary key (Id),
+	constraint FK_BankAccountTransaction__Bank foreign key (Id) references Bank (Id),
+	constraint FK_BankAccountTransaction__AccountTransaction foreign key (AccountTransactionId) references AccountTransaction (Id),
+	constraint FK_BankAccountTransaction__BankSpecificTransactionType foreign key (BankSpecificTransactionTypeId) references BankSpecificTransactionType (Id)
+);
 
 create table AccountTransactionAccountTransactionCategory (
 	AccountTransactionId int not null,
@@ -277,6 +296,15 @@ create table AccountTransactionAccountTransactionCategory (
 	constraint PK_AccountTransactionAccountTransactionCategory primary key (AccountTransactionId, AccountTransactionCategoryId),
 	constraint FK_AccountTransactionAccountTransactionCategory__AccountTransaction foreign key (AccountTransactionId) references AccountTransaction (Id),
 	constraint FK_AccountTransactionAccountTransactionCategory__AccountTransactionCategory foreign key (AccountTransactionCategoryId) references AccountTransactionCategory (Id)
+);
+
+create table AccountTransactionBudgetItem (
+	AccountTransactionId int not null,
+	BudgetItemId int not null,
+	Amount money not null,
+	constraint PK_AccountTransactionBudgetItem primary key (AccountTransactionId, BudgetItemId),
+	constraint FK_AccountTransactionBudgetItem__AccountTransaction foreign key (AccountTransactionId) references AccountTransaction (Id),
+	constraint FK_AccountTransactionBudgetItem__BudgetItem foreign key (BudgetItemId) references BudgetItem (Id)
 );
 
 create table VehicleType (

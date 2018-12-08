@@ -8,6 +8,7 @@ namespace Coin.Data
         public AccountTransaction()
         {
             AccountTransactionAccountTransactionCategory = new HashSet<AccountTransactionAccountTransactionCategory>();
+            AccountTransactionBudgetItem = new HashSet<AccountTransactionBudgetItem>();
             BankAccountTransaction = new HashSet<BankAccountTransaction>();
         }
 
@@ -25,6 +26,7 @@ namespace Coin.Data
         public AccountTransactionStatus AccountTransactionStatus { get; set; }
         public AccountTransactionType AccountTransactionType { get; set; }
         public ICollection<AccountTransactionAccountTransactionCategory> AccountTransactionAccountTransactionCategory { get; set; }
+        public ICollection<AccountTransactionBudgetItem> AccountTransactionBudgetItem { get; set; }
         public ICollection<BankAccountTransaction> BankAccountTransaction { get; set; }
     }
 }

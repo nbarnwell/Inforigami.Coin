@@ -7,12 +7,14 @@ namespace Coin.Data
     {
         public Household()
         {
+            Budget = new HashSet<Budget>();
             Person = new HashSet<Person>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
 
+        public ICollection<Budget> Budget { get; set; }
         public ICollection<Person> Person { get; set; }
     }
 }

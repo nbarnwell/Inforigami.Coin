@@ -19,6 +19,7 @@ namespace Coin.Data
         public virtual DbSet<AccountStatement> AccountStatement { get; set; }
         public virtual DbSet<AccountTransaction> AccountTransaction { get; set; }
         public virtual DbSet<AccountTransactionAccountTransactionCategory> AccountTransactionAccountTransactionCategory { get; set; }
+        public virtual DbSet<AccountTransactionBudgetItem> AccountTransactionBudgetItem { get; set; }
         public virtual DbSet<AccountTransactionCategory> AccountTransactionCategory { get; set; }
         public virtual DbSet<AccountTransactionStatus> AccountTransactionStatus { get; set; }
         public virtual DbSet<AccountTransactionType> AccountTransactionType { get; set; }
@@ -49,7 +50,7 @@ namespace Coin.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("server=(local);database=Coin;trusted_connection=true;");
+                optionsBuilder.UseSqlServer("server=(local);database=Coin;Trusted_Connection=true;");
             }
         }
 
@@ -144,6 +145,25 @@ namespace Coin.Data
                     .HasConstraintName("FK_AccountTransactionAccountTransactionCategory__AccountTransaction");
             });
 
+            modelBuilder.Entity<AccountTransactionBudgetItem>(entity =>
+            {
+                entity.HasKey(e => new { e.AccountTransactionId, e.BudgetItemId });
+
+                entity.Property(e => e.Amount).HasColumnType("money");
+
+                entity.HasOne(d => d.AccountTransaction)
+                    .WithMany(p => p.AccountTransactionBudgetItem)
+                    .HasForeignKey(d => d.AccountTransactionId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_AccountTransactionBudgetItem__AccountTransaction");
+
+                entity.HasOne(d => d.BudgetItem)
+                    .WithMany(p => p.AccountTransactionBudgetItem)
+                    .HasForeignKey(d => d.BudgetItemId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_AccountTransactionBudgetItem__BudgetItem");
+            });
+
             modelBuilder.Entity<AccountTransactionCategory>(entity =>
             {
                 entity.Property(e => e.Name)
@@ -220,6 +240,8 @@ namespace Coin.Data
 
             modelBuilder.Entity<BankAccountTransaction>(entity =>
             {
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
                 entity.Property(e => e.Description)
                     .IsRequired()
                     .HasMaxLength(256);
@@ -229,6 +251,18 @@ namespace Coin.Data
                     .HasForeignKey(d => d.AccountTransactionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_BankAccountTransaction__AccountTransaction");
+
+                entity.HasOne(d => d.BankSpecificTransactionType)
+                    .WithMany(p => p.BankAccountTransaction)
+                    .HasForeignKey(d => d.BankSpecificTransactionTypeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_BankAccountTransaction__BankSpecificTransactionType");
+
+                entity.HasOne(d => d.IdNavigation)
+                    .WithOne(p => p.BankAccountTransaction)
+                    .HasForeignKey<BankAccountTransaction>(d => d.Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_BankAccountTransaction__Bank");
             });
 
             modelBuilder.Entity<BankSpecificTransactionType>(entity =>
@@ -258,6 +292,12 @@ namespace Coin.Data
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(256);
+
+                entity.HasOne(d => d.Household)
+                    .WithMany(p => p.Budget)
+                    .HasForeignKey(d => d.HouseholdId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Budget__Household");
             });
 
             modelBuilder.Entity<BudgetItem>(entity =>

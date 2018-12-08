@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coin", "Coin\Coin.csproj", "{7E1B0EED-8710-47D4-B1D2-B1761A923289}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coin.Web", "Coin.Web\Coin.Web.csproj", "{82844717-72A4-4C95-9CCB-C1C792D16B5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coin.Web", "Coin.Web\Coin.Web.csproj", "{82844717-72A4-4C95-9CCB-C1C792D16B5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coin.Data", "Coin.Data\Coin.Data.csproj", "{FE2BB7AF-1A18-4CE4-85B1-3FE9B000E9FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coin.Data", "Coin.Data\Coin.Data.csproj", "{FE2BB7AF-1A18-4CE4-85B1-3FE9B000E9FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
