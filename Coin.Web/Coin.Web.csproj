@@ -42,4 +42,12 @@
     <Folder Include="Templates\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Pages\People\Create.cshtml" />
+    <None Include="Pages\People\Delete.cshtml" />
+    <None Include="Pages\People\Details.cshtml" />
+    <None Include="Pages\People\Edit.cshtml" />
+    <None Include="Pages\People\Index.cshtml" />
+  </ItemGroup>
+
 </Project>

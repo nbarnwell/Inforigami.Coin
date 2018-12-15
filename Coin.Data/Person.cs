@@ -8,13 +8,15 @@ namespace Coin.Data
         public Person()
         {
             Account = new HashSet<Account>();
-            PersonHouseholdMembership = new HashSet<PersonHouseholdMembership>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public int UserAccountId { get; set; }
+        public int HouseholdId { get; set; }
 
+        public Household Household { get; set; }
+        public UserAccount UserAccount { get; set; }
         public ICollection<Account> Account { get; set; }
-        public ICollection<PersonHouseholdMembership> PersonHouseholdMembership { get; set; }
     }
 }

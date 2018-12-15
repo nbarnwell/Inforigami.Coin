@@ -34,8 +34,8 @@ namespace Coin.Data
         public virtual DbSet<Fund> Fund { get; set; }
         public virtual DbSet<Household> Household { get; set; }
         public virtual DbSet<Person> Person { get; set; }
-        public virtual DbSet<PersonHouseholdMembership> PersonHouseholdMembership { get; set; }
         public virtual DbSet<TimePeriod> TimePeriod { get; set; }
+        public virtual DbSet<UserAccount> UserAccount { get; set; }
         public virtual DbSet<Vehicle> Vehicle { get; set; }
         public virtual DbSet<VehicleMaintenanceLog> VehicleMaintenanceLog { get; set; }
         public virtual DbSet<VehicleMaintenanceLogType> VehicleMaintenanceLogType { get; set; }
@@ -373,23 +373,18 @@ namespace Coin.Data
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<PersonHouseholdMembership>(entity =>
-            {
-                entity.HasKey(e => new { e.PersonId, e.HouseholdId });
 
                 entity.HasOne(d => d.Household)
-                    .WithMany(p => p.PersonHouseholdMembership)
+                    .WithMany(p => p.Person)
                     .HasForeignKey(d => d.HouseholdId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PersonHouseholdMembership__Houshold");
+                    .HasConstraintName("FK_Person__Household");
 
-                entity.HasOne(d => d.Person)
-                    .WithMany(p => p.PersonHouseholdMembership)
-                    .HasForeignKey(d => d.PersonId)
+                entity.HasOne(d => d.UserAccount)
+                    .WithMany(p => p.Person)
+                    .HasForeignKey(d => d.UserAccountId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PersonHouseholdMembership__Person");
+                    .HasConstraintName("FK_Person__UserAccount");
             });
 
             modelBuilder.Entity<TimePeriod>(entity =>
@@ -399,6 +394,13 @@ namespace Coin.Data
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(256);
+            });
+
+            modelBuilder.Entity<UserAccount>(entity =>
+            {
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<Vehicle>(entity =>
