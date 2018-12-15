@@ -1,6 +1,12 @@
 ﻿@page
 @model Coin.Web.Pages.People.CreateModel
 
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
 <h4>Person</h4>
 <hr />
 <div class="row">
@@ -11,6 +17,10 @@
                 <label asp-for="Person.Name" class="control-label"></label>
                 <input asp-for="Person.Name" class="form-control" />
                 <span asp-validation-for="Person.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.UserAccountId" class="control-label"></label>
+                <select asp-for="Person.UserAccountId" class ="form-control" asp-items="ViewBag.UserAccountId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Person.HouseholdId" class="control-label"></label>

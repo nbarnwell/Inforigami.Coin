@@ -7,7 +7,7 @@ namespace Coin.Web.Services
 {
     public interface IPersonUserConnector
     {
-        Task CreatePerson(string userId, string name);
+        Task<Person> CreatePerson(string userId, string name);
     }
 
     public class PersonUserConnector : IPersonUserConnector
@@ -19,13 +19,24 @@ namespace Coin.Web.Services
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task CreatePerson(string userId, string name)
+        public async Task<Person> CreatePerson(string userId, string name)
         {
-            await _context.Person.AddAsync(
+            var person = 
                 new Person
-                {
-                    Name = name,
-                });
+                    {
+                        Name = name,
+                        UserAccount =
+                                new UserAccount
+                                {
+                                    Username = userId
+                                }
+                    };
+
+            await _context.Person.AddAsync(person);
+
+            await _context.SaveChangesAsync();
+
+            return person;
         }
     }
 }

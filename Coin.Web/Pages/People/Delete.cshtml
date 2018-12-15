@@ -1,6 +1,12 @@
 ﻿@page
 @model Coin.Web.Pages.People.DeleteModel
 
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Person</h4>
@@ -17,6 +23,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Person.Household.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.UserAccount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.UserAccount.Username)
         </dd>
     </dl>
     

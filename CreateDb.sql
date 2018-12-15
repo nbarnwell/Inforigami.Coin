@@ -90,7 +90,7 @@ create table Person (
 	Id int not null identity(1,1),
 	Name varchar(50) not null,
 	UserAccountId int not null,
-	HouseholdId int not null,
+	HouseholdId int null,
 	constraint PK_Person primary key (Id),
 	constraint FK_Person__UserAccount foreign key (UserAccountId) references UserAccount (Id),
 	constraint FK_Person__Household foreign key (HouseholdId) references Household (Id)

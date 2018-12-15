@@ -1,6 +1,12 @@
 ﻿@page
 @model Coin.Web.Pages.People.DetailsModel
 
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
 <div>
     <h4>Person</h4>
     <hr />
@@ -16,6 +22,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Person.Household.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.UserAccount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.UserAccount.Username)
         </dd>
     </dl>
 </div>

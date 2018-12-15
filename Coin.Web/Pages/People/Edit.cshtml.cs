@@ -30,13 +30,15 @@ namespace Coin.Web.Pages.People
             }
 
             Person = await _context.Person
-                .Include(p => p.Household).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(p => p.Household)
+                .Include(p => p.UserAccount).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Person == null)
             {
                 return NotFound();
             }
            ViewData["HouseholdId"] = new SelectList(_context.Household, "Id", "Name");
+           ViewData["UserAccountId"] = new SelectList(_context.UserAccount, "Id", "Username");
             return Page();
         }
 

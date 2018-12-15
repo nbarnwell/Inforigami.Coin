@@ -15,6 +15,7 @@ using Coin.Web.Data;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Coin.Web.Services;
 
 namespace Coin.Web
 {
@@ -48,6 +49,7 @@ namespace Coin.Web
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped<ITransactionImporter, TransactionImporter>();
+            services.AddScoped<IPersonUserConnector, PersonUserConnector>();
 
             services.AddMvc()
                     .AddRazorPagesOptions(

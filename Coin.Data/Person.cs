@@ -13,7 +13,7 @@ namespace Coin.Data
         public int Id { get; set; }
         public string Name { get; set; }
         public int UserAccountId { get; set; }
-        public int HouseholdId { get; set; }
+        public int? HouseholdId { get; set; }
 
         public Household Household { get; set; }
         public UserAccount UserAccount { get; set; }

@@ -23,7 +23,8 @@ namespace Coin.Web.Pages.People
         public async Task OnGetAsync()
         {
             Person = await _context.Person
-                .Include(p => p.Household).ToListAsync();
+                .Include(p => p.Household)
+                .Include(p => p.UserAccount).ToListAsync();
         }
     }
 }

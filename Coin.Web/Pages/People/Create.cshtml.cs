@@ -21,6 +21,7 @@ namespace Coin.Web.Pages.People
         public IActionResult OnGet()
         {
         ViewData["HouseholdId"] = new SelectList(_context.Household, "Id", "Name");
+        ViewData["UserAccountId"] = new SelectList(_context.UserAccount, "Id", "Username");
             return Page();
         }
 
