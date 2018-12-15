@@ -64,11 +64,12 @@ namespace Coin.Web.Areas.Accounting.TransactionImport
                         }
 
                         // Look up the budget item it corresponds to
-                        var budget =
-                            await _context.Budget
-                                          .Include(x => x.Household)
-                                          .ThenInclude(x => x.Person)
-                                          .SingleOrDefaultAsync(x => x.Household.Person.Any(p => p.Id == personId));
+                        var budget = new Budget();
+                        throw new NotImplementedException("TODO: Load the appropriate budget.");
+                            //await _context.Budget
+                            //              .Include(x => x.Household)
+                            //              .ThenInclude(x => x.Person)
+                            //              .SingleOrDefaultAsync(x => x.Household.Person.Any(p => p.Id == personId));
 
                         var budgetItem = 
                             FindBudgetItem(budget, transaction);

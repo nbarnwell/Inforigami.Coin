@@ -15,7 +15,13 @@ namespace Coin.Data
         public string Name { get; set; }
         public decimal Amount { get; set; }
         public int TimePeriodId { get; set; }
+        public int? AccountId { get; set; }
+        public int? BankSpecificTransactionTypeId { get; set; }
+        public string TransactionDescriptionMatchPattern { get; set; }
+        public decimal? AmountLower { get; set; }
+        public decimal? AmountUpper { get; set; }
 
+        public BankSpecificTransactionType BankSpecificTransactionType { get; set; }
         public Budget Budget { get; set; }
         public TimePeriod TimePeriod { get; set; }
         public ICollection<AccountTransactionBudgetItem> AccountTransactionBudgetItem { get; set; }

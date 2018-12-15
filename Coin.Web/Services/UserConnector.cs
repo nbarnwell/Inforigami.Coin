@@ -1,11 +1,31 @@
-﻿namespace Coin.Web.Services
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Coin.Data;
+
+namespace Coin.Web.Services
 {
-    public interface IUserConnector
+    public interface IPersonUserConnector
     {
-        async CreateSystemUserFromIdentity()
+        Task CreatePerson(string userId, string name);
     }
-    public class UserConnector
+
+    public class PersonUserConnector : IPersonUserConnector
     {
-        public 
+        private readonly CoinContext _context;
+
+        public PersonUserConnector(CoinContext context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+
+        public async Task CreatePerson(string userId, string name)
+        {
+            await _context.Person.AddAsync(
+                new Person
+                {
+                    Name = name,
+                });
+        }
     }
 }

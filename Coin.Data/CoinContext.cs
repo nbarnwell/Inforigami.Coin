@@ -34,6 +34,7 @@ namespace Coin.Data
         public virtual DbSet<Fund> Fund { get; set; }
         public virtual DbSet<Household> Household { get; set; }
         public virtual DbSet<Person> Person { get; set; }
+        public virtual DbSet<PersonHouseholdMembership> PersonHouseholdMembership { get; set; }
         public virtual DbSet<TimePeriod> TimePeriod { get; set; }
         public virtual DbSet<Vehicle> Vehicle { get; set; }
         public virtual DbSet<VehicleMaintenanceLog> VehicleMaintenanceLog { get; set; }
@@ -50,7 +51,7 @@ namespace Coin.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("server=(local);database=Coin;Trusted_Connection=true;");
+                optionsBuilder.UseSqlServer("Server=(local);Database=Coin;Trusted_Connection=True;");
             }
         }
 
@@ -304,9 +305,20 @@ namespace Coin.Data
             {
                 entity.Property(e => e.Amount).HasColumnType("money");
 
+                entity.Property(e => e.AmountLower).HasColumnType("money");
+
+                entity.Property(e => e.AmountUpper).HasColumnType("money");
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(256);
+
+                entity.Property(e => e.TransactionDescriptionMatchPattern).HasMaxLength(256);
+
+                entity.HasOne(d => d.BankSpecificTransactionType)
+                    .WithMany(p => p.BudgetItem)
+                    .HasForeignKey(d => d.BankSpecificTransactionTypeId)
+                    .HasConstraintName("FK_BudgetItem__BankSpecificTransactionType");
 
                 entity.HasOne(d => d.Budget)
                     .WithMany(p => p.BudgetItem)
@@ -361,12 +373,23 @@ namespace Coin.Data
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<PersonHouseholdMembership>(entity =>
+            {
+                entity.HasKey(e => new { e.PersonId, e.HouseholdId });
 
                 entity.HasOne(d => d.Household)
-                    .WithMany(p => p.Person)
+                    .WithMany(p => p.PersonHouseholdMembership)
                     .HasForeignKey(d => d.HouseholdId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Person__Houshold");
+                    .HasConstraintName("FK_PersonHouseholdMembership__Houshold");
+
+                entity.HasOne(d => d.Person)
+                    .WithMany(p => p.PersonHouseholdMembership)
+                    .HasForeignKey(d => d.PersonId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PersonHouseholdMembership__Person");
             });
 
             modelBuilder.Entity<TimePeriod>(entity =>

@@ -1,0 +1,1 @@
+Scaffold-DbContext "Server=(local);Database=Coin;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -Project Coin.Data -Context CoinContext

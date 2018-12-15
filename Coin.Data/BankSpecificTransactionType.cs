@@ -8,6 +8,7 @@ namespace Coin.Data
         public BankSpecificTransactionType()
         {
             BankAccountTransaction = new HashSet<BankAccountTransaction>();
+            BudgetItem = new HashSet<BudgetItem>();
         }
 
         public int Id { get; set; }
@@ -19,5 +20,6 @@ namespace Coin.Data
         public AccountTransactionType AccountTransactionType { get; set; }
         public Bank Bank { get; set; }
         public ICollection<BankAccountTransaction> BankAccountTransaction { get; set; }
+        public ICollection<BudgetItem> BudgetItem { get; set; }
     }
 }

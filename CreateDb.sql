@@ -80,12 +80,26 @@ create table Household (
 	constraint PK_Household primary key (Id)
 );
 
+create table UserAccount (
+	Id int not null identity(1,1),
+	Username nvarchar(50) not null,
+	constraint PK_UserAccount primary key (Id)
+);
+
 create table Person (
 	Id int not null identity(1,1),
 	Name varchar(50) not null,
-	HouseholdId int not null,
+	UserAccountId int not null,
 	constraint PK_Person primary key (Id),
-	constraint FK_Person__Houshold foreign key (HouseholdId) references Household (Id)
+	constraint FK_Person__UserAccount foreign key (UserAccountId) references UserAccount (Id)
+);
+
+create table PersonHouseholdMembership (
+	PersonId int not null,
+	HouseholdId int not null,
+	constraint PK_PersonHouseholdMembership primary key (PersonId, HouseholdId),
+	constraint FK_PersonHouseholdMembership__Person foreign key (PersonId) references Person (Id),
+	constraint FK_PersonHouseholdMembership__Houshold foreign key (HouseholdId) references Household (Id)
 );
 
 -- An abstract concept of an Account (not all accounts are bank accounts) to which statements/transactions are recorded
