@@ -256,17 +256,17 @@ create table BudgetItem (
 	Id int not null identity(1,1),
 	BudgetId int not null,
 	Name nvarchar(256) not null,
-	Amount money not null,
 	TimePeriodId int not null,
 	AccountId int null,
 	BankSpecificTransactionTypeId int null,
 	TransactionDescriptionMatchPattern nvarchar(256) null,
-	AmountLower money null,
-	AmountUpper money null,
+	AmountLower money not null,
+	AmountUpper money not null,
 	constraint PK_BudgetItem primary key (Id),
 	constraint FK_BudgetItem__Budget foreign key (BudgetId) references Budget (Id),
 	constraint FK_BudgetItem__TimePeriod foreign key (TimePeriodId) references TimePeriod (Id),
-	constraint FK_BudgetItem__BankSpecificTransactionType foreign key (BankSpecificTransactionTypeId) references BankSpecificTransactionType (Id)
+	constraint FK_BudgetItem__BankSpecificTransactionType foreign key (BankSpecificTransactionTypeId) references BankSpecificTransactionType (Id),
+	constraint FK_BudgetItem__Account foreign key (AccountId) references Account (Id)
 );
 
 create table AccountTransaction (

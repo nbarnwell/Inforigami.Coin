@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Coin.Data;
+using Coin.Web.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Coin.Web.Areas.Accounting.TransactionImport
@@ -19,12 +21,13 @@ namespace Coin.Web.Areas.Accounting.TransactionImport
         public async Task<Task<int>> Import(IEnumerable<TransactionImportRow> transactions, int personId)
         {
             var groupedTransactions =
-                transactions.GroupBy(x => new { x.AccountNumber, x.SortCode });
+                transactions.GroupBy(x => new { x.AccountNumber, SortCode = x.SortCode.TrimStart('\'') });
 
             foreach (var transactionGroup in groupedTransactions)
             {
                 var bankAccount =
                     await _context.BankAccount
+                                  .Include(x => x.Account)
                                   .Where(
                                       x =>
                                           x.AccountNumber == transactionGroup.Key.AccountNumber
@@ -33,6 +36,7 @@ namespace Coin.Web.Areas.Accounting.TransactionImport
 
                 var bankSpecificTransactionTypes =
                     await _context.BankSpecificTransactionType
+                                  .Where(x => x.BankId == bankAccount.BankId)
                                   .ToDictionaryAsync(x => x.Name);
 
                 foreach (var transaction in transactionGroup)
@@ -45,7 +49,7 @@ namespace Coin.Web.Areas.Accounting.TransactionImport
                                 && x.Description == transaction.TransactionDescription
                                 && x.AccountTransaction.TransactionTime.Value.Date == transaction.TransactionDate
                                 && x.BankSpecificTransactionType.Name == transaction.TransactionType
-                                && x.AccountTransaction.Amount == Math.Max(Math.Abs(transaction.CreditAmount ?? 0), Math.Abs(transaction.DebitAmount ?? 0)));
+                                && x.AccountTransaction.Amount == GetAmount(transaction));
                     if (bankAccountTransaction == null)
                     {
                         // Load or create the appropriate statement
@@ -64,15 +68,14 @@ namespace Coin.Web.Areas.Accounting.TransactionImport
                         }
 
                         // Look up the budget item it corresponds to
-                        var budget = new Budget();
-                        throw new NotImplementedException("TODO: Load the appropriate budget.");
-                            //await _context.Budget
-                            //              .Include(x => x.Household)
-                            //              .ThenInclude(x => x.Person)
-                            //              .SingleOrDefaultAsync(x => x.Household.Person.Any(p => p.Id == personId));
+                        var budget =
+                            await _context.Budget
+                                          .Include(x => x.Household)
+                                          .ThenInclude(x => x.Person)
+                                          .SingleOrDefaultAsync(x => x.Household.Person.Any(p => p.Id == personId));
 
                         var budgetItem = 
-                            FindBudgetItem(budget, transaction);
+                            FindBudgetItem(bankAccount.Account.Id, budget, transaction);
 
                         var newBankAccountTransaction =
                             new BankAccountTransaction
@@ -106,9 +109,14 @@ namespace Coin.Web.Areas.Accounting.TransactionImport
             return _context.SaveChangesAsync();
         }
 
-        private BudgetItem FindBudgetItem(Budget budget, TransactionImportRow transaction)
+        private BudgetItem FindBudgetItem(int accountId, Budget budget, TransactionImportRow transaction)
         {
-            throw new NotImplementedException();
+            return budget.BudgetItem
+                .Where(x => x.AccountId == accountId
+                    && GetAmount(transaction).Between(x.AmountLower, x.AmountUpper)
+                    && x.BankSpecificTransactionType.Name == transaction.TransactionType
+                    && Regex.IsMatch(x.TransactionDescriptionMatchPattern, transaction.TransactionDescription))
+                .SingleOrDefault();
         }
 
         private decimal GetAmount(TransactionImportRow transaction)

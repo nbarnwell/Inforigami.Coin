@@ -412,8 +412,6 @@ namespace Coin.Data
 
             modelBuilder.Entity<BudgetItem>(entity =>
             {
-                entity.Property(e => e.Amount).HasColumnType("money");
-
                 entity.Property(e => e.AmountLower).HasColumnType("money");
 
                 entity.Property(e => e.AmountUpper).HasColumnType("money");

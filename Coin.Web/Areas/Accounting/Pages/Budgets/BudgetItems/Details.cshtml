@@ -1,0 +1,68 @@
+﻿@page
+@model Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BudgetItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.AccountId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.AccountId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.TransactionDescriptionMatchPattern)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.TransactionDescriptionMatchPattern)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.AmountLower)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.AmountLower)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.AmountUpper)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.AmountUpper)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.BankSpecificTransactionType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.BankSpecificTransactionType.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.Budget)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.Budget.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.TimePeriod)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.TimePeriod.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.BudgetItem.Id">Edit</a> |
+    <a asp-page="./Delete" asp-route-id="@Model.BudgetItem.Id">Delete</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

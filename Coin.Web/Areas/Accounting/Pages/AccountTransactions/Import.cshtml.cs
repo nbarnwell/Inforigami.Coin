@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Coin.Data;
 using Coin.Web.Areas.Accounting.TransactionImport;
@@ -45,7 +46,11 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountTransactions
             }
 
             var userId = this.User.GetUserId();
-            var person = await _context.Person.SingleOrDefaultAsync(x => x.Name == userId);
+            var userAccount =
+                await _context.UserAccount
+                              .Include(x => x.Person)
+                              .SingleOrDefaultAsync(x => x.Username == userId);
+            var person = userAccount.Person.FirstOrDefault();
 
             await _importer.Import(transactionData, person.Id);
 

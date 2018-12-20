@@ -54,7 +54,8 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountTransactions
                 new[]
                 {
                     "text/plain",
-                    "application/vnd.ms-excel"
+                    "application/vnd.ms-excel",
+                    "application/octet-stream"
                 };
 
             if (!allowedContentTypes.Contains(formFile.ContentType.ToLower()))
