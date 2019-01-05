@@ -12,14 +12,14 @@
     else if (Model.IsLayoutPageSelected)
     {
 @:@@{
-    @:ViewData["Title"] = "@Model.RazorPageName";
+    @:ViewData["Title"] = "@Model.ModelTypeName @Model.RazorPageName";
         if (!string.IsNullOrEmpty(Model.LayoutPageFile))
         {
     @:Layout = "@Model.LayoutPageFile";
         }
 @:}
 @:
-@:<h2>@Model.RazorPageName</h2>
+@:<h2>@@ViewData["Title"]</h2>
 @:
     }
     else
