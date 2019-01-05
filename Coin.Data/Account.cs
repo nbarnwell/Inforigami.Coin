@@ -9,6 +9,7 @@ namespace Coin.Data
         {
             AccountStatement = new HashSet<AccountStatement>();
             BankAccount = new HashSet<BankAccount>();
+            BudgetItem = new HashSet<BudgetItem>();
             Fund = new HashSet<Fund>();
         }
 
@@ -23,6 +24,7 @@ namespace Coin.Data
         public TimePeriod TimePeriod { get; set; }
         public ICollection<AccountStatement> AccountStatement { get; set; }
         public ICollection<BankAccount> BankAccount { get; set; }
+        public ICollection<BudgetItem> BudgetItem { get; set; }
         public ICollection<Fund> Fund { get; set; }
     }
 }

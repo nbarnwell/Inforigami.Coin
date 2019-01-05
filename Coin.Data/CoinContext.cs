@@ -422,6 +422,11 @@ namespace Coin.Data
 
                 entity.Property(e => e.TransactionDescriptionMatchPattern).HasMaxLength(256);
 
+                entity.HasOne(d => d.Account)
+                    .WithMany(p => p.BudgetItem)
+                    .HasForeignKey(d => d.AccountId)
+                    .HasConstraintName("FK_BudgetItem__Account");
+
                 entity.HasOne(d => d.BankSpecificTransactionType)
                     .WithMany(p => p.BudgetItem)
                     .HasForeignKey(d => d.BankSpecificTransactionTypeId)

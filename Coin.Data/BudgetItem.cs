@@ -20,6 +20,7 @@ namespace Coin.Data
         public decimal AmountLower { get; set; }
         public decimal AmountUpper { get; set; }
 
+        public Account Account { get; set; }
         public BankSpecificTransactionType BankSpecificTransactionType { get; set; }
         public Budget Budget { get; set; }
         public TimePeriod TimePeriod { get; set; }
