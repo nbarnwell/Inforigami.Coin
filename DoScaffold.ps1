@@ -1,6 +1,12 @@
-﻿cd C:\Users\Neil\Documents\GitHub\Inforigami.Coin\Coin.Web
+﻿
+$ErrorActionPreference = 'Stop'
 
 function Set-Encoding {
+    [CmdletBinding(SupportsShouldProcess=$true)]
+    param(
+        [Parameter(Mandatory=$true)]
+        [string] $Path
+    )
     $files = @(
         'create.cshtml','create.cshtml.cs',
         'delete.cshtml','delete.cshtml.cs',
@@ -9,7 +15,7 @@ function Set-Encoding {
         'index.cshtml','index.cshtml.cs'
     );
 
-    gci -r -inc $files |
+    gci -Path $Path -r -inc $files |
         %{
             (Get-Content $_) |
                 Out-File $_ -Force -Encoding utf8
@@ -21,17 +27,19 @@ function Get-PluralName {
 
     if ($SingularName -eq 'Person') {
         'People'
-    } elsif ($SingularName -match 'is$') {
+    } elseif ($SingularName -match 'is$') {
         $SingularName -replace 'is$','es'
-    } elsif ($SingularName -match 'on$') {
+    } elseif ($SingularName -match 'ion$') {
+        "$($SingularName)s"
+    } elseif ($SingularName -match 'on$') {
         $SingularName -replace 'on$','a'
-    } elsif ($SingularName -match 'us$') {
+    } elseif ($SingularName -match 'us$') {
         $SingularName -replace 'us$','uses'
-    } elsif ($SingularName -match 'o$') {
+    } elseif ($SingularName -match 'o$') {
         $SingularName -replace 'o$','oes'
-    } elsif ($SingularName -match '[^aeiou]y$') {
+    } elseif ($SingularName -match '[^aeiou]y$') {
         $SingularName -replace 'y$','ies'
-    } elsif ($SingularName -match 's|ss|sh|ch|x|z$') {
+    } elseif ($SingularName -match '(s|ss|sh|ch|x|z)$') {
         "$($SingularName)es"
     } else {
         "$($SingularName)s"
@@ -39,20 +47,28 @@ function Get-PluralName {
 }
 
 function Invoke-CodeGeneration {
-    [CmdletBinding(SupportShouldProcess=$true)]
+    [CmdletBinding(SupportsShouldProcess=$true)]
     param(
         [Parameter(Mandatory=$true)]
         [string] $EntityName,
-        [string] $AreaName)
-    $outputFolder = "pages\$(Get-PluralName $EntityName)"
+        [string] $AreaName,
+        [string] $projectName = 'Coin.Web'
+    )
+    $outputFolder = "Pages\$(Get-PluralName $EntityName)"
 
     if (!!$AreaName) {
         $outputFolder = "Areas\$AreaName\$outputFolder"
     }
+    
+    $fullyQualifiedOutputFolder = Join-Path (Join-Path '.' $projectName) $outputFolder
+    
+    Write-Host "Generating code for $EntityName to $fullyQualifiedOutputFolder"
 
-    if ($PSCmdlet.ShouldProcess("dotnet aspnet-codegenerator razorpage -p Coin.Web -m $EntityName -dc CoinContext -udl -outDir $outputFolder --referenceScriptLibraries --force --no-build")) {
+    if ($PSCmdlet.ShouldProcess("dotnet aspnet-codegenerator razorpage -p $projectName -m $EntityName -dc CoinContext -udl -outDir $outputFolder --referenceScriptLibraries --force --no-build")) {
         dotnet aspnet-codegenerator razorpage -p Coin.Web -m $EntityName -dc CoinContext -udl -outDir $outputFolder --referenceScriptLibraries --force --no-build
     }
+
+    Set-Encoding $fullyQualifiedOutputFolder
 }
 
 Invoke-CodeGeneration 'Account' 'Accounting'
@@ -65,6 +81,7 @@ Invoke-CodeGeneration 'BankAccount' 'Accounting'
 Invoke-CodeGeneration 'Bank' 'Accounting'
 Invoke-CodeGeneration 'BankSpecificTransactionType' 'Accounting'
 Invoke-CodeGeneration 'Budget' 'Accounting'
+Invoke-CodeGeneration 'BudgetItem' 'Accounting'
 Invoke-CodeGeneration 'Currency' 'Accounting'
 
 Invoke-CodeGeneration 'VehicleMileageLog' 'Vehicles'
