@@ -1,1 +1,7 @@
 Scaffold-DbContext "Server=(local);Database=Coin;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -Project Coin.Data -Context CoinContext
+
+dotnet tool install --global dotnet-aspnet-codegenerator --version 2.1.0
+(Might have to add <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" PrivateAssets="All" />)
+
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
+dotnet aspnet-codegenerator razorpage -p Coin.Web -m Budget -dc CoinContext -udl -outDir Areas\Accounting\Pages\Budgets --referenceScriptLibraries --force --no-build
