@@ -55,7 +55,7 @@ namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { budgetId = BudgetItem.BudgetId });
         }
     }
 }

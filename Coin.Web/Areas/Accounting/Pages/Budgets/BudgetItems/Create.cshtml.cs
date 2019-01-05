@@ -20,14 +20,17 @@ namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
 
         public IActionResult OnGet(int budgetId)
         {
-        ViewData["BankSpecificTransactionTypeId"] = new SelectList(_context.BankSpecificTransactionType, "Id", "Description");
-        ViewData["BudgetId"] = new SelectList(_context.Budget, "Id", "Name", budgetId);
-        ViewData["TimePeriodId"] = new SelectList(_context.TimePeriod, "Id", "Name");
+            ViewData["BankSpecificTransactionTypeId"] = new SelectList(_context.BankSpecificTransactionType, "Id", "Description");
+            ViewData["BudgetId"] = new SelectList(_context.Budget, "Id", "Name", budgetId);
+            ViewData["TimePeriodId"] = new SelectList(_context.TimePeriod, "Id", "Name");
+            BudgetId = budgetId;
             return Page();
         }
 
         [BindProperty]
         public BudgetItem BudgetItem { get; set; }
+
+        public int BudgetId { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
