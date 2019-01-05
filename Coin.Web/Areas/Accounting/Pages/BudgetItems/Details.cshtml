@@ -1,5 +1,5 @@
 ﻿@page
-@model Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems.DetailsModel
+@model Coin.Web.Areas.Accounting.Pages.BudgetItems.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -18,12 +18,6 @@
             @Html.DisplayFor(model => model.BudgetItem.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.BudgetItem.AccountId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BudgetItem.AccountId)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.BudgetItem.TransactionDescriptionMatchPattern)
         </dt>
         <dd>
@@ -40,6 +34,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.BudgetItem.AmountUpper)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.Account)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.Account.Name)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.BudgetItem.BankSpecificTransactionType)
@@ -63,6 +63,5 @@
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.BudgetItem.Id">Edit</a> |
-    <a asp-page="./Delete" asp-route-id="@Model.BudgetItem.Id">Delete</a> |
-    <a asp-page="./Index" asp-route-id="@Model.BudgetItem.BudgetId">Back to List</a>
+    <a asp-page="./Delete" asp-route-id="@Model.BudgetItem.Id">Delete</a>
 </div>

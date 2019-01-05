@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Coin.Data;
 
-namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
+namespace Coin.Web.Areas.Accounting.Pages.BudgetItems
 {
     public class EditModel : PageModel
     {
@@ -30,6 +30,7 @@ namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
             }
 
             BudgetItem = await _context.BudgetItem
+                .Include(b => b.Account)
                 .Include(b => b.BankSpecificTransactionType)
                 .Include(b => b.Budget)
                 .Include(b => b.TimePeriod).FirstOrDefaultAsync(m => m.Id == id);
@@ -38,6 +39,7 @@ namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
             {
                 return NotFound();
             }
+           ViewData["AccountId"] = new SelectList(_context.Account, "Id", "Name");
            ViewData["BankSpecificTransactionTypeId"] = new SelectList(_context.BankSpecificTransactionType, "Id", "Description");
            ViewData["BudgetId"] = new SelectList(_context.Budget, "Id", "Name");
            ViewData["TimePeriodId"] = new SelectList(_context.TimePeriod, "Id", "Name");

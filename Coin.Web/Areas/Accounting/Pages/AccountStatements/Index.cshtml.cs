@@ -18,14 +18,12 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
             _context = context;
         }
 
-        public IList<AccountTransaction> AccountTransaction { get;set; }
+        public IList<AccountStatement> AccountStatement { get;set; }
 
         public async Task OnGetAsync()
         {
-            AccountTransaction = await _context.AccountTransaction
-                .Include(a => a.AccountStatement)
-                .Include(a => a.AccountTransactionStatus)
-                .Include(a => a.AccountTransactionType).ToListAsync();
+            AccountStatement = await _context.AccountStatement
+                .Include(a => a.Account).ToListAsync();
         }
     }
 }

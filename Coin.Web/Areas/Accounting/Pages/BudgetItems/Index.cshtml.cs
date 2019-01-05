@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Coin.Data;
 
-namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
+namespace Coin.Web.Areas.Accounting.Pages.BudgetItems
 {
     public class IndexModel : PageModel
     {
@@ -18,15 +18,12 @@ namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
             _context = context;
         }
 
-        public int BudgetId { get; set; }
         public IList<BudgetItem> BudgetItem { get;set; }
 
-        public async Task OnGetAsync(int budgetId)
+        public async Task OnGetAsync()
         {
-            BudgetId = budgetId;
-
             BudgetItem = await _context.BudgetItem
-                .Where(x => x.BudgetId == budgetId)
+                .Include(b => b.Account)
                 .Include(b => b.BankSpecificTransactionType)
                 .Include(b => b.Budget)
                 .Include(b => b.TimePeriod).ToListAsync();

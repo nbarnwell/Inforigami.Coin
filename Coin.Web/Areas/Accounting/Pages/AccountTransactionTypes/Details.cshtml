@@ -1,6 +1,12 @@
 ﻿@page
 @model Coin.Web.Areas.Accounting.Pages.AccountTransactionTypes.DetailsModel
 
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
 <div>
     <h4>AccountTransactionType</h4>
     <hr />
@@ -21,6 +27,5 @@
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.AccountTransactionType.Id">Edit</a> |
-    <a asp-page="./Delete" asp-route-id="@Model.AccountTransactionType.Id">Delete</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Delete" asp-route-id="@Model.AccountTransactionType.Id">Delete</a>
 </div>

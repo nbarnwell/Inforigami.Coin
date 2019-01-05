@@ -20,14 +20,12 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
 
         public IActionResult OnGet()
         {
-        ViewData["AccountStatementId"] = new SelectList(_context.AccountStatement, "Id", "Id");
-        ViewData["AccountTransactionStatusId"] = new SelectList(_context.AccountTransactionStatus, "Id", "Name");
-        ViewData["AccountTransactionTypeId"] = new SelectList(_context.AccountTransactionType, "Id", "Name");
+        ViewData["AccountId"] = new SelectList(_context.Account, "Id", "Name");
             return Page();
         }
 
         [BindProperty]
-        public AccountTransaction AccountTransaction { get; set; }
+        public AccountStatement AccountStatement { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -36,7 +34,7 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
                 return Page();
             }
 
-            _context.AccountTransaction.Add(AccountTransaction);
+            _context.AccountStatement.Add(AccountStatement);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

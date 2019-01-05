@@ -20,7 +20,7 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
         }
 
         [BindProperty]
-        public AccountTransaction AccountTransaction { get; set; }
+        public AccountStatement AccountStatement { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,18 +29,14 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
                 return NotFound();
             }
 
-            AccountTransaction = await _context.AccountTransaction
-                .Include(a => a.AccountStatement)
-                .Include(a => a.AccountTransactionStatus)
-                .Include(a => a.AccountTransactionType).FirstOrDefaultAsync(m => m.Id == id);
+            AccountStatement = await _context.AccountStatement
+                .Include(a => a.Account).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (AccountTransaction == null)
+            if (AccountStatement == null)
             {
                 return NotFound();
             }
-           ViewData["AccountStatementId"] = new SelectList(_context.AccountStatement, "Id", "Id");
-           ViewData["AccountTransactionStatusId"] = new SelectList(_context.AccountTransactionStatus, "Id", "Name");
-           ViewData["AccountTransactionTypeId"] = new SelectList(_context.AccountTransactionType, "Id", "Name");
+           ViewData["AccountId"] = new SelectList(_context.Account, "Id", "Name");
             return Page();
         }
 
@@ -51,7 +47,7 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
                 return Page();
             }
 
-            _context.Attach(AccountTransaction).State = EntityState.Modified;
+            _context.Attach(AccountStatement).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +55,7 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AccountTransactionExists(AccountTransaction.Id))
+                if (!AccountStatementExists(AccountStatement.Id))
                 {
                     return NotFound();
                 }
@@ -72,9 +68,9 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
             return RedirectToPage("./Index");
         }
 
-        private bool AccountTransactionExists(int id)
+        private bool AccountStatementExists(int id)
         {
-            return _context.AccountTransaction.Any(e => e.Id == id);
+            return _context.AccountStatement.Any(e => e.Id == id);
         }
     }
 }

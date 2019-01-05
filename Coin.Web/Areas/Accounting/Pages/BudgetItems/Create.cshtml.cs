@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Coin.Data;
 
-namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
+namespace Coin.Web.Areas.Accounting.Pages.BudgetItems
 {
     public class CreateModel : PageModel
     {
@@ -18,19 +18,17 @@ namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
             _context = context;
         }
 
-        public IActionResult OnGet(int budgetId)
+        public IActionResult OnGet()
         {
-            ViewData["BankSpecificTransactionTypeId"] = new SelectList(_context.BankSpecificTransactionType, "Id", "Description");
-            ViewData["BudgetId"] = new SelectList(_context.Budget, "Id", "Name", budgetId);
-            ViewData["TimePeriodId"] = new SelectList(_context.TimePeriod, "Id", "Name");
-            BudgetId = budgetId;
+        ViewData["AccountId"] = new SelectList(_context.Account, "Id", "Name");
+        ViewData["BankSpecificTransactionTypeId"] = new SelectList(_context.BankSpecificTransactionType, "Id", "Description");
+        ViewData["BudgetId"] = new SelectList(_context.Budget, "Id", "Name");
+        ViewData["TimePeriodId"] = new SelectList(_context.TimePeriod, "Id", "Name");
             return Page();
         }
 
         [BindProperty]
         public BudgetItem BudgetItem { get; set; }
-
-        public int BudgetId { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -42,7 +40,7 @@ namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
             _context.BudgetItem.Add(BudgetItem);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index", new { budgetId = BudgetItem.BudgetId });
+            return RedirectToPage("./Index");
         }
     }
 }

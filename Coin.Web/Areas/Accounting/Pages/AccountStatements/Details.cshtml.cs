@@ -18,7 +18,7 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
             _context = context;
         }
 
-        public AccountTransaction AccountTransaction { get; set; }
+        public AccountStatement AccountStatement { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,12 +27,10 @@ namespace Coin.Web.Areas.Accounting.Pages.AccountStatements
                 return NotFound();
             }
 
-            AccountTransaction = await _context.AccountTransaction
-                .Include(a => a.AccountStatement)
-                .Include(a => a.AccountTransactionStatus)
-                .Include(a => a.AccountTransactionType).FirstOrDefaultAsync(m => m.Id == id);
+            AccountStatement = await _context.AccountStatement
+                .Include(a => a.Account).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (AccountTransaction == null)
+            if (AccountStatement == null)
             {
                 return NotFound();
             }

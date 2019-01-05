@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Coin.Data;
 
-namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
+namespace Coin.Web.Areas.Accounting.Pages.BudgetItems
 {
     public class DetailsModel : PageModel
     {
@@ -28,6 +28,7 @@ namespace Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems
             }
 
             BudgetItem = await _context.BudgetItem
+                .Include(b => b.Account)
                 .Include(b => b.BankSpecificTransactionType)
                 .Include(b => b.Budget)
                 .Include(b => b.TimePeriod).FirstOrDefaultAsync(m => m.Id == id);

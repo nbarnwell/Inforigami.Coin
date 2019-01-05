@@ -1,6 +1,12 @@
 ﻿@page
 @model Coin.Web.Areas.Accounting.Pages.AccountTransactions.CreateModel
 
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
 <h4>AccountTransaction</h4>
 <hr />
 <div class="row">
@@ -49,10 +55,6 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

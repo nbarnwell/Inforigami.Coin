@@ -1,62 +1,44 @@
 ﻿@page
 @model Coin.Web.Areas.Accounting.Pages.AccountStatements.EditModel
 
-<h4>AccountTransaction</h4>
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>AccountStatement</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="AccountTransaction.Id" />
+            <input type="hidden" asp-for="AccountStatement.Id" />
             <div class="form-group">
-                <label asp-for="AccountTransaction.AccountStatementId" class="control-label"></label>
-                <select asp-for="AccountTransaction.AccountStatementId" class="form-control" asp-items="ViewBag.AccountStatementId"></select>
-                <span asp-validation-for="AccountTransaction.AccountStatementId" class="text-danger"></span>
+                <label asp-for="AccountStatement.AccountId" class="control-label"></label>
+                <select asp-for="AccountStatement.AccountId" class="form-control" asp-items="ViewBag.AccountId"></select>
+                <span asp-validation-for="AccountStatement.AccountId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AccountTransaction.TransactionTime" class="control-label"></label>
-                <input asp-for="AccountTransaction.TransactionTime" class="form-control" />
-                <span asp-validation-for="AccountTransaction.TransactionTime" class="text-danger"></span>
+                <label asp-for="AccountStatement.PeriodStart" class="control-label"></label>
+                <input asp-for="AccountStatement.PeriodStart" class="form-control" />
+                <span asp-validation-for="AccountStatement.PeriodStart" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AccountTransaction.RecordedDate" class="control-label"></label>
-                <input asp-for="AccountTransaction.RecordedDate" class="form-control" />
-                <span asp-validation-for="AccountTransaction.RecordedDate" class="text-danger"></span>
+                <label asp-for="AccountStatement.PeriodEnd" class="control-label"></label>
+                <input asp-for="AccountStatement.PeriodEnd" class="form-control" />
+                <span asp-validation-for="AccountStatement.PeriodEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AccountTransaction.AccountTransactionStatusId" class="control-label"></label>
-                <select asp-for="AccountTransaction.AccountTransactionStatusId" class="form-control" asp-items="ViewBag.AccountTransactionStatusId"></select>
-                <span asp-validation-for="AccountTransaction.AccountTransactionStatusId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AccountTransaction.Amount" class="control-label"></label>
-                <input asp-for="AccountTransaction.Amount" class="form-control" />
-                <span asp-validation-for="AccountTransaction.Amount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AccountTransaction.Payee" class="control-label"></label>
-                <input asp-for="AccountTransaction.Payee" class="form-control" />
-                <span asp-validation-for="AccountTransaction.Payee" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AccountTransaction.Description" class="control-label"></label>
-                <input asp-for="AccountTransaction.Description" class="form-control" />
-                <span asp-validation-for="AccountTransaction.Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AccountTransaction.AccountTransactionTypeId" class="control-label"></label>
-                <select asp-for="AccountTransaction.AccountTransactionTypeId" class="form-control" asp-items="ViewBag.AccountTransactionTypeId"></select>
-                <span asp-validation-for="AccountTransaction.AccountTransactionTypeId" class="text-danger"></span>
+                <label asp-for="AccountStatement.StartingBalance" class="control-label"></label>
+                <input asp-for="AccountStatement.StartingBalance" class="form-control" />
+                <span asp-validation-for="AccountStatement.StartingBalance" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

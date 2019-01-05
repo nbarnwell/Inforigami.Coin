@@ -1,6 +1,12 @@
 ﻿@page
 @model Coin.Web.Areas.Vehicles.Pages.VehicleTypes.EditModel
 
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
 <h4>VehicleType</h4>
 <hr />
 <div class="row">
@@ -18,10 +24,6 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

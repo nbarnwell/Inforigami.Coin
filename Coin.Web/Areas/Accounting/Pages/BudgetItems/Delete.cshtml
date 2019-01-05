@@ -1,5 +1,5 @@
 ﻿@page
-@model Coin.Web.Areas.Accounting.Pages.Budgets.BudgetItems.DeleteModel
+@model Coin.Web.Areas.Accounting.Pages.BudgetItems.DeleteModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -19,12 +19,6 @@
             @Html.DisplayFor(model => model.BudgetItem.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.BudgetItem.AccountId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BudgetItem.AccountId)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.BudgetItem.TransactionDescriptionMatchPattern)
         </dt>
         <dd>
@@ -41,6 +35,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.BudgetItem.AmountUpper)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetItem.Account)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetItem.Account.Name)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.BudgetItem.BankSpecificTransactionType)
@@ -64,7 +64,6 @@
     
     <form method="post">
         <input type="hidden" asp-for="BudgetItem.Id" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index" asp-route-budgetId="@Model.BudgetItem.Id">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-default" />
     </form>
 </div>
