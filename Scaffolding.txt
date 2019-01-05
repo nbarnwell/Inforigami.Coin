@@ -4,4 +4,14 @@ dotnet tool install --global dotnet-aspnet-codegenerator --version 2.1.0
 (Might have to add <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" PrivateAssets="All" />)
 
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
+
 dotnet aspnet-codegenerator razorpage -p Coin.Web -m Budget -dc CoinContext -udl -outDir Areas\Accounting\Pages\Budgets --referenceScriptLibraries --force --no-build
+
+dotnet aspnet-codegenerator razorpage Enumerated Enumerate -p Coin.Web -m Budget -dc CoinContext -udl -outDir Areas\Accounting\Pages\Budgets --referenceScriptLibraries --force --no-build --partialView
+                                      ^             ^
+                                      |             |
+                                      |             |
+                                      Name of the resulting generated razor page
+                                                    |
+                                                    |
+                                                    Name of the template to use from the templates directory in the project
