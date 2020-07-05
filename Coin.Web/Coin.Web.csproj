@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Coin.Data\Coin.Data.csproj" />
+    <ProjectReference Include="..\Coin.Web.ScaffoldingHelpers\Coin.Web.ScaffoldingHelpers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

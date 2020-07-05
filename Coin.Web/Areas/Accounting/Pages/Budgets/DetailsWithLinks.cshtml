@@ -41,7 +41,7 @@
                 var areaName = "Accounting";
                 var displayName = "Budget Items";
             <a href="@Url.Page(pluralisedEntityName + "/Index", new { Area = areaName, BudgetId = Model.Budget.Id })">@displayName</a>
-                <a asp-area="Accounting" asp-page="BudgetItems/Index" asp-route-id="@Model.Budget.Id">@displayName</a>
+                <a asp-area="Accounting" asp-page="Index" asp-route-id="@Model.Budget.Id">@displayName</a>
             //<a href="@Url.Page("../Vehicles/Index", new { Area = "Vehicles", BudgetId = Model.Budget.Id })">Vehicles</a>
             //<a href="@Url.Page("../Households/Index", new { BudgetId = Model.Budget.Id })">Households</a>
             }

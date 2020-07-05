@@ -57,6 +57,7 @@ namespace Coin.Web
                         {
                             options.Conventions.AuthorizeFolder("/");
                             options.Conventions.AuthorizeAreaFolder("Accounting", "/");
+                            options.Conventions.AuthorizeAreaFolder("Vehicles", "/");
                             options.Conventions.AllowAnonymousToPage("/Index");
                         })
                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

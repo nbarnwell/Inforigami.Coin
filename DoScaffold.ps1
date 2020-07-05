@@ -52,7 +52,9 @@ function Invoke-CodeGeneration {
         [Parameter(Mandatory=$true)]
         [string] $EntityName,
         [string] $AreaName,
-        [string] $projectName = 'Coin.Web'
+        [string] $projectName = 'Coin.Web',
+		[string] $TemplateName,
+		[string] $ResultingPageName = $TemplateName
     )
     $outputFolder = "Pages\$(Get-PluralName $EntityName)"
 
@@ -64,13 +66,24 @@ function Invoke-CodeGeneration {
     
     Write-Host "Generating code for $EntityName to $fullyQualifiedOutputFolder"
 
-    if ($PSCmdlet.ShouldProcess("dotnet aspnet-codegenerator razorpage -p $projectName -m $EntityName -dc CoinContext -udl -outDir $outputFolder --referenceScriptLibraries --force --no-build")) {
+    if ($PSCmdlet.ShouldProcess("Generate page")) {
+      if ($TemplateName) {
+        dotnet aspnet-codegenerator razorpage $TemplateName $ResultingPageName -p Coin.Web -m $EntityName -dc CoinContext -udl -outDir $outputFolder --referenceScriptLibraries --force --no-build
+      } else {
         dotnet aspnet-codegenerator razorpage -p Coin.Web -m $EntityName -dc CoinContext -udl -outDir $outputFolder --referenceScriptLibraries --force --no-build
+      }
     }
 
     Set-Encoding $fullyQualifiedOutputFolder
 }
 
+cd 'C:\Users\Neil\Documents\GitHub\Inforigami.Coin'
+
+Invoke-CodeGeneration 'Budget' 'Accounting'
+Invoke-CodeGeneration 'BudgetItem' 'Accounting'
+
+
+<#
 Invoke-CodeGeneration 'Account' 'Accounting'
 Invoke-CodeGeneration 'AccountStatement' 'Accounting'
 Invoke-CodeGeneration 'AccountTransactionCategory' 'Accounting'
@@ -91,3 +104,4 @@ Invoke-CodeGeneration 'VehicleType' 'Vehicles'
 
 Invoke-CodeGeneration 'Household'
 Invoke-CodeGeneration 'Person'
+#>

@@ -9,6 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coin.Web", "Coin.Web\Coin.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coin.Data", "Coin.Data\Coin.Data.csproj", "{FE2BB7AF-1A18-4CE4-85B1-3FE9B000E9FC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1893C2F-694F-4BDF-8796-B4F973DC4051}"
+	ProjectSection(SolutionItems) = preProject
+		CreateDb.sql = CreateDb.sql
+		DoScaffold.ps1 = DoScaffold.ps1
+		Scaffolding.txt = Scaffolding.txt
+		Todo.txt = Todo.txt
+		UsefulQueries.sql = UsefulQueries.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coin.Web.ScaffoldingHelpers", "Coin.Web.ScaffoldingHelpers\Coin.Web.ScaffoldingHelpers.csproj", "{0AC8BE92-88DC-4C64-974F-ECDFB905F9B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +38,10 @@ Global
 		{FE2BB7AF-1A18-4CE4-85B1-3FE9B000E9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE2BB7AF-1A18-4CE4-85B1-3FE9B000E9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE2BB7AF-1A18-4CE4-85B1-3FE9B000E9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AC8BE92-88DC-4C64-974F-ECDFB905F9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AC8BE92-88DC-4C64-974F-ECDFB905F9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AC8BE92-88DC-4C64-974F-ECDFB905F9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AC8BE92-88DC-4C64-974F-ECDFB905F9B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
